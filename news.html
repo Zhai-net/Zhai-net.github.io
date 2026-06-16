@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="翟志刚课题组主页模板" name="description"/>
+  <title>
+   新闻时间轴 | 翟志刚课题组
+  </title>
+  <link as="image" href="assets/portraits/portrait-placeholder.jpg" rel="preload"/>
+  <link href="assets/css/global.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <div aria-hidden="true" class="scroll-progress">
+  </div>
+  <canvas aria-hidden="true" class="cursor-particles">
+  </canvas>
+  <canvas aria-hidden="true" id="flow-bg">
+  </canvas>
+  <a class="skip-link" href="#main">
+   跳转到正文
+  </a>
+  <header class="site-header" id="top">
+   <nav aria-label="主导航" class="nav-wrap">
+    <a aria-label="翟志刚课题组首页" class="brand" href="index.html">
+     <img alt="中国科学技术大学校徽" class="ustc-seal" src="assets/logos/ustcblue.png"/>
+     <span class="brand-school">
+      <img alt="中国科学技术大学" src="assets/logos/ustcnameblue.png" width="270"/>
+      <small>
+       University of Science and Technology of China
+      </small>
+     </span>
+     <span aria-hidden="true" class="brand-divider">
+     </span>
+     <span class="brand-lab">
+      <strong>
+       翟志刚课题组
+      </strong>
+      <small>
+       Zhigang Zhai Research Group
+      </small>
+     </span>
+    </a>
+    <button aria-controls="siteMenu" aria-expanded="false" aria-label="打开导航菜单" class="nav-toggle">
+     <span>
+     </span>
+     <span>
+     </span>
+     <span>
+     </span>
+    </button>
+    <div class="nav-menu" id="siteMenu">
+     <a class="" href="index.html#about">
+      简介
+     </a>
+     <a class="" href="index.html#research">
+      研究
+     </a>
+     <a class="" href="publications.html">
+      论文
+     </a>
+     <a class="" href="people.html">
+      成员
+     </a>
+     <a class="" href="people.html#alumni">
+      毕业生
+     </a>
+     <a class="active" href="news.html">
+      时间轴
+     </a>
+     <a class="nav-contact" href="index.html#join">
+      加入我们
+     </a>
+     <button aria-label="切换深色或浅色模式" class="theme-toggle" data-theme-toggle="" type="button">
+      <span aria-hidden="true" class="theme-icon">
+       🌙
+      </span>
+      <span class="theme-label">
+       深色
+      </span>
+     </button>
+    </div>
+   </nav>
+  </header>
+  <main id="main">
+   <section class="page-hero">
+    <div class="container reveal">
+     <p class="kicker">
+      Timeline
+     </p>
+     <h1>
+      新闻时间轴
+     </h1>
+     <p class="lead">
+      将课题组论文、会议报告、平台建设、招生招聘等信息统一整理成时间线，比普通列表更有层次感。
+     </p>
+    </div>
+   </section>
+   <section class="directory-section">
+    <div class="container">
+     <div class="timeline" data-news-page-timeline="">
+     </div>
+    </div>
+   </section>
+  </main>
+  <button aria-label="返回顶部" class="back-to-top" type="button">
+   &uarr;
+  </button>
+  <div aria-hidden="true" aria-label="图片放大预览" class="lightbox" role="dialog">
+   <button aria-label="关闭图片预览" class="lightbox-close" type="button">
+    &times;
+   </button>
+   <img alt="预览图片"/>
+  </div>
+  <footer class="site-footer">
+   <div class="container footer-grid">
+    <div class="footer-column footer-identity">
+     <div class="footer-brand compact">
+      <img alt="中国科学技术大学校徽" src="assets/logos/ustcblue.png"/>
+      <span>
+       <strong>
+        翟志刚课题组
+       </strong>
+       <small>
+        Experimental Fluid Mechanics &middot; USTC
+       </small>
+      </span>
+     </div>
+     <p>
+      面向实验流体力学、流动稳定性和激波动力学的基础与应用基础研究。
+     </p>
+    </div>
+    <div class="footer-column">
+     <h3>
+      网站导航
+     </h3>
+     <a href="index.html#about">
+      简介
+     </a>
+     <a href="index.html#research">
+      研究方向
+     </a>
+     <a href="publications.html">
+      论文
+     </a>
+     <a href="people.html">
+      成员
+     </a>
+     <a href="people.html#alumni">
+      毕业生
+     </a>
+     <a href="news.html">
+      时间轴
+     </a>
+    </div>
+    <div class="footer-column">
+     <h3>
+      联系与链接
+     </h3>
+     <a href="mailto:sanjing@ustc.edu.cn">
+      sanjing@ustc.edu.cn
+     </a>
+     <a href="https://faculty.ustc.edu.cn/zhaizhigang/zh_CN/index.htm" rel="noopener" target="_blank">
+      USTC 个人主页
+     </a>
+     <a href="https://scholar.google.com/citations?hl=zh-CN&amp;user=wJDRPKAAAAAJ" rel="noopener" target="_blank">
+      Google Scholar
+     </a>
+     <a href="https://www.researchgate.net/profile/Zhigang-Zhai" rel="noopener" target="_blank">
+      ResearchGate
+     </a>
+    </div>
+<div class="footer-column footer-friends">
+     <h3>
+      友情链接
+     </h3>
+     <a href="https://www.ustc.edu.cn/" rel="noopener" target="_blank">
+      中国科学技术大学主页
+     </a>
+     <a href="https://ses.ustc.edu.cn/main.htm" rel="noopener" target="_blank">
+      工程科学学院主页
+     </a>
+     <a href="https://mech.ustc.edu.cn/main.htm" rel="noopener" target="_blank">
+      近代力学系主页
+     </a>
+     <a href="https://staff.ustc.edu.cn/~xluo/" rel="noopener" target="_blank">
+      罗喜胜教授主页
+     </a>
+     <a href="https://faculty.ustc.edu.cn/tsi/zh_CN/index.htm" rel="noopener" target="_blank">
+      司廷教授主页
+     </a>
+    </div>
+    <div class="footer-bottom">
+     <span>
+      &copy; 2026 翟志刚课题组 版权所有
+     </span>
+     <span>
+      Last updated:
+      <span data-last-updated="">
+       2026-06-16
+      </span>
+     </span>
+    </div>
+   </div>
+  </footer>
+  <script src="assets/data/site.js">
+  </script>
+  <script src="assets/data/publications.js">
+  </script>
+  <script src="assets/data/people.js">
+  </script>
+  <script src="assets/data/gallery.js">
+  </script>
+  <script src="assets/data/news.js">
+  </script>
+  <script src="assets/js/render.js">
+  </script>
+  <script src="assets/js/common.js">
+  </script>
+ </body>
+</html>
