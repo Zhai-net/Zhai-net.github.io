@@ -90,17 +90,38 @@
   function renderHomePeople() {
     const target = document.querySelector('[data-people-home-grid]');
     if (!target) return;
-    const selected = people.filter((person) => person.category !== 'alumni' && person.homepage !== false).slice(0, 6);
+    const selected = people.filter((person) => person.category !== 'alumni' && person.homepage !== false).slice(0, 12);
     target.innerHTML = selected.map((person) => renderPersonCard(person, { short: true })).join('');
+  }
+
+  function renderAlumniPlaceholderCard(index) {
+    return `
+      <article class="alumni-card alumni-placeholder reveal" aria-label="毕业生信息待补充 ${index}">
+        <div class="alumni-avatar-wrap">
+          <img alt="毕业生照片占位" src="assets/portraits/portrait-placeholder.jpg"/>
+        </div>
+        <div class="alumni-info">
+          <h3>信息待补充</h3>
+          <p>毕业年份待补充</p>
+          <span>毕业去向待补充</span>
+        </div>
+      </article>
+    `;
   }
 
   function renderHomeAlumni() {
     const target = document.querySelector('[data-alumni-home-grid]');
     if (!target) return;
-    const alumni = people.filter((person) => person.category === 'alumni').slice(0, 8);
-    target.innerHTML = alumni.length
-      ? alumni.map(renderAlumniCard).join('')
-      : renderEmptyCard('毕业生信息待课题组后续补充。');
+    const alumni = people.filter((person) => person.category === 'alumni').slice(0, 14);
+    if (!alumni.length) {
+      target.innerHTML = renderEmptyCard('毕业生信息待课题组后续补充。');
+      return;
+    }
+    const cards = alumni.map(renderAlumniCard);
+    while (cards.length < 14) {
+      cards.push(renderAlumniPlaceholderCard(cards.length + 1));
+    }
+    target.innerHTML = cards.join('');
   }
 
   function renderPeopleDirectory() {
