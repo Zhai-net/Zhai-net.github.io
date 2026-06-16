@@ -173,7 +173,7 @@ window.ZHAI_PEOPLE = [
     "homepage": true,
     "image": "assets/portraits/portrait-placeholder.jpg",
     "imageAlt": "郑渡刚照片（占位）",
-    "graduation": "毕业生",
+    "graduation": "2019级博士毕业生",
     "destination": "信息待补充",
     "bio": "毕业信息待课题组核对后补充。"
   },
@@ -229,7 +229,7 @@ window.ZHAI_PEOPLE = [
     "homepage": true,
     "image": "assets/portraits/gaoxing.jpg",
     "imageAlt": "高兴照片",
-    "graduation": "毕业生",
+    "graduation": "2022级博士毕业生",
     "destination": "中国空气动力研究与发展中心",
     "bio": "稀疏波/激波诱导界面演化相关研究。"
   },
@@ -243,7 +243,7 @@ window.ZHAI_PEOPLE = [
     "homepage": true,
     "image": "assets/portraits/portrait-placeholder.jpg",
     "imageAlt": "许竹照片（占位）",
-    "graduation": "毕业生",
+    "graduation": "2022级硕士毕业生",
     "destination": "信息待补充",
     "bio": "稀疏波诱导界面失稳相关研究。"
   },
@@ -257,23 +257,9 @@ window.ZHAI_PEOPLE = [
     "homepage": true,
     "image": "assets/portraits/ccr.jpg",
     "imageAlt": "陈辰稔照片",
-    "graduation": "毕业生",
+    "graduation": "2023级博士毕业生",
     "destination": "中国科学技术大学",
     "bio": "不稳定性调控研究。"
-  },
-    {
-    "id": "Yue-li",
-    "name": "李玥",
-    "nameEn": "Yue Li",
-    "title": "2023级博士毕业生",
-    "role": "Alumni",
-    "category": "alumni",
-    "homepage": true,
-    "image": "assets/portraits/portrait-placeholder.jpg",
-    "imageAlt": "李玥照片（占位）",
-    "graduation": "毕业生",
-    "destination": "待补充",
-    "bio": "稀疏波诱导RT不稳定性研究。"
   },
     {
     "id": "jiaxuan-li",
@@ -285,9 +271,23 @@ window.ZHAI_PEOPLE = [
     "homepage": true,
     "image": "assets/portraits/portrait-placeholder.jpg",
     "imageAlt": "李佳轩照片（占位）",
-    "graduation": "毕业生",
+    "graduation": "2023级博士毕业生",
     "destination": "中国科学院力学研究所",
     "bio": "重-轻型界面不稳定性研究。"
+  },
+    {
+    "id": "Yue-li",
+    "name": "李玥",
+    "nameEn": "Yue Li",
+    "title": "2023级博士毕业生",
+    "role": "Alumni",
+    "category": "alumni",
+    "homepage": true,
+    "image": "assets/portraits/portrait-placeholder.jpg",
+    "imageAlt": "李玥照片（占位）",
+    "graduation": "2023级博士毕业生",
+    "destination": "待补充",
+    "bio": "稀疏波诱导RT不稳定性研究。"
   },
   {
     "id": "siqi-wang",
@@ -299,7 +299,7 @@ window.ZHAI_PEOPLE = [
     "homepage": true,
     "image": "assets/portraits/portrait-placeholder.jpg",
     "imageAlt": "王思奇照片（占位）",
-    "graduation": "毕业生",
+    "graduation": "2023级硕士毕业生",
     "destination": "信息待补充",
     "bio": "激波冲击颗粒幕研究。"
   }
