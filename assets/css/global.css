@@ -1519,7 +1519,7 @@ body[data-theme="dark"] .copy-email { background: rgba(15, 23, 42, 0.72); }
 }
 
 
-/* Homepage fixed-count presentation: 12 members as 2×6, 14 alumni slots as 2×7. */
+/* Homepage fixed-count presentation: up to 12 members as 2×6, up to 14 alumni as 2×7. */
 #people .people-grid {
   grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 16px;
@@ -1543,18 +1543,6 @@ body[data-theme="dark"] .copy-email { background: rgba(15, 23, 42, 0.72); }
 #alumni .alumni-card img {
   width: 80px;
   height: 94px;
-}
-.alumni-card.alumni-placeholder {
-  border-style: dashed;
-  background: color-mix(in srgb, var(--paper) 72%, var(--blue-soft));
-}
-.alumni-card.alumni-placeholder img {
-  opacity: 0.42;
-  filter: grayscale(0.2);
-}
-.alumni-card.alumni-placeholder h3,
-.alumni-card.alumni-placeholder span {
-  color: var(--muted);
 }
 
 @media (max-width: 1180px) {
