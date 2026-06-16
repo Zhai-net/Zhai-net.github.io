@@ -163,17 +163,31 @@ window.ZHAI_PEOPLE = [
     "bio": "研究方向待课题组补充。",
     "email": ""
   },
+    {
+    "id": "dugang-zheng",
+    "name": "郑渡刚",
+    "nameEn": "Dugang Zheng",
+    "title": "2019级博士毕业生",
+    "role": "Alumni",
+    "category": "alumni",
+    "homepage": true,
+    "image": "assets/portraits/portrait-placeholder.jpg",
+    "imageAlt": "郑渡刚照片（占位）",
+    "graduation": "毕业生",
+    "destination": "信息待补充",
+    "bio": "毕业信息待课题组核对后补充。"
+  },
   {
     "id": "hui-wang",
     "name": "王辉",
     "nameEn": "Hui Wang",
-    "title": "毕业生",
+    "title": "2020级博士毕业生",
     "role": "Alumni",
     "category": "alumni",
     "homepage": true,
     "image": "assets/portraits/portrait-placeholder.jpg",
     "imageAlt": "王辉照片（占位）",
-    "graduation": "毕业生",
+    "graduation": "2020级博士毕业生",
     "destination": "信息待补充",
     "bio": "毕业信息待课题组核对后补充。"
   },
@@ -187,7 +201,7 @@ window.ZHAI_PEOPLE = [
     "homepage": true,
     "image": "assets/portraits/portrait-placeholder.jpg",
     "imageAlt": "徐瑾儒照片（占位）",
-    "graduation": "毕业生",
+    "graduation": "2021级博士毕业生",
     "destination": "信息待补充",
     "bio": "毕业信息待课题组核对后补充。"
   },
@@ -201,29 +215,29 @@ window.ZHAI_PEOPLE = [
     "homepage": true,
     "image": "assets/portraits/portrait-placeholder.jpg",
     "imageAlt": "曹青照片（占位）",
-    "graduation": "博士毕业生",
+    "graduation": "2022级博士毕业生",
     "destination": "中国科学院力学研究所",
-    "bio": "博士毕业后前往中国科学院力学研究所工作。"
+    "bio": "连续同向激波诱导界面不稳定性以及RM—KH耦合界面不稳定性研究。"
   },
   {
     "id": "xing-gao",
     "name": "高兴",
     "nameEn": "Xing Gao",
-    "title": "毕业生",
+    "title": "2022级博士毕业生",
     "role": "Alumni",
     "category": "alumni",
     "homepage": true,
     "image": "assets/portraits/gaoxing.jpg",
-    "imageAlt": "高兴照片（占位）",
+    "imageAlt": "高兴照片",
     "graduation": "毕业生",
-    "destination": "信息待补充",
-    "bio": "公开文献信息显示其参与稀疏波/激波诱导界面演化相关研究。"
+    "destination": "中国空气动力研究与发展中心",
+    "bio": "稀疏波/激波诱导界面演化相关研究。"
   },
   {
     "id": "zhu-xu",
     "name": "许竹",
     "nameEn": "Zhu Xu",
-    "title": "毕业生",
+    "title": "2022级硕士毕业生",
     "role": "Alumni",
     "category": "alumni",
     "homepage": true,
@@ -231,27 +245,55 @@ window.ZHAI_PEOPLE = [
     "imageAlt": "许竹照片（占位）",
     "graduation": "毕业生",
     "destination": "信息待补充",
-    "bio": "公开文献信息显示其参与稀疏波诱导界面失稳相关研究。"
+    "bio": "稀疏波诱导界面失稳相关研究。"
   },
   {
+    "id": "chenren-chen",
+    "name": "陈辰稔",
+    "nameEn": "Chenren Chen",
+    "title": "2023级博士毕业生",
+    "role": "Alumni",
+    "category": "alumni",
+    "homepage": true,
+    "image": "assets/portraits/ccr.jpg",
+    "imageAlt": "陈辰稔照片",
+    "graduation": "毕业生",
+    "destination": "中国科学技术大学",
+    "bio": "不稳定性调控研究。"
+  },
+    {
+    "id": "Yue-li",
+    "name": "李玥",
+    "nameEn": "Yue Li",
+    "title": "2023级博士毕业生",
+    "role": "Alumni",
+    "category": "alumni",
+    "homepage": true,
+    "image": "assets/portraits/portrait-placeholder.jpg",
+    "imageAlt": "李玥照片（占位）",
+    "graduation": "毕业生",
+    "destination": "待补充",
+    "bio": "稀疏波诱导RT不稳定性研究。"
+  },
+    {
     "id": "jiaxuan-li",
     "name": "李佳轩",
     "nameEn": "Jiaxuan Li",
-    "title": "毕业生",
+    "title": "2023级博士毕业生",
     "role": "Alumni",
     "category": "alumni",
     "homepage": true,
     "image": "assets/portraits/portrait-placeholder.jpg",
     "imageAlt": "李佳轩照片（占位）",
     "graduation": "毕业生",
-    "destination": "信息待补充",
-    "bio": "毕业信息待课题组核对后补充。"
+    "destination": "中国科学院力学研究所",
+    "bio": "重-轻型界面不稳定性研究。"
   },
   {
     "id": "siqi-wang",
     "name": "王思奇",
     "nameEn": "Siqi Wang",
-    "title": "毕业生",
+    "title": "2023级硕士毕业生",
     "role": "Alumni",
     "category": "alumni",
     "homepage": true,
@@ -259,6 +301,6 @@ window.ZHAI_PEOPLE = [
     "imageAlt": "王思奇照片（占位）",
     "graduation": "毕业生",
     "destination": "信息待补充",
-    "bio": "毕业信息待课题组核对后补充。"
+    "bio": "激波冲击颗粒幕研究。"
   }
 ];
