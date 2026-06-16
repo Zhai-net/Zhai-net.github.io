@@ -9,6 +9,46 @@
   </title>
   <link as="image" href="assets/portraits/portrait-placeholder.jpg" rel="preload"/>
   <link href="assets/css/global.css" rel="stylesheet"/>
+
+  <style>
+   /* MapMyVisitors globe: restrained integration for the existing visit-statistics block. */
+   .mapmyvisitors-card {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    min-height: auto;
+   }
+   .mapmyvisitors-frame {
+    position: relative;
+    min-height: 220px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--blue) 14%, var(--line));
+    border-radius: 16px;
+    background:
+     radial-gradient(circle at 18% 20%, color-mix(in srgb, var(--blue) 10%, transparent), transparent 34%),
+     linear-gradient(135deg, color-mix(in srgb, var(--paper) 96%, transparent), color-mix(in srgb, var(--blue-soft) 40%, transparent));
+   }
+   .mapmyvisitors-frame iframe,
+   .mapmyvisitors-frame canvas,
+   .mapmyvisitors-frame svg,
+   .mapmyvisitors-frame object,
+   .mapmyvisitors-frame embed {
+    max-width: 100% !important;
+   }
+   .mapmyvisitors-frame > * {
+    max-width: 100%;
+   }
+   .mapmyvisitors-hint {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.6;
+   }
+   @media (max-width: 720px) {
+    .mapmyvisitors-frame { min-height: 180px; }
+   }
+  </style>
  </head>
  <body>
   <div aria-hidden="true" class="scroll-progress">
@@ -580,8 +620,30 @@
         查看聚合访问地图
        </a>
       </div>
+
+      <div class="visit-map-card mapmyvisitors-card" data-mapmyvisitors-card="">
+       <div class="visit-map-head">
+        <span class="visit-label">
+         全球访问分布
+        </span>
+        <strong>
+         MapMyVisitors Globe
+        </strong>
+       </div>
+       <div aria-label="全球访问来源三维地图" class="mapmyvisitors-frame">
+        <script type="text/javascript" id="mmvst_globe" src="https://mapmyvisitors.com/globe.js?d=ePIGXo4IqGXFkc-aPaDM0j19JOKTWNbjdXrDGaaeBmw"></script>
+        <noscript>
+         <p class="mapmyvisitors-hint">
+          启用 JavaScript 后可查看全球访问量地图。
+         </p>
+        </noscript>
+       </div>
+       <p class="mapmyvisitors-hint">
+        第三方地图用于展示全球访问来源，建议网站上线后通过 HTTPS 环境查看效果；本地 file:// 预览或浏览器拦截第三方脚本时可能无法加载。
+       </p>
+      </div>
       <p class="visit-note">
-       网站部署上线后自动统计访问量与独立访问 IP；IP 地图默认显示当前访问来源位置，若配置第三方聚合地图链接，可进一步查看全球访问分布。本地 file:// 预览时可能显示为 &ldquo;&mdash;&rdquo;。
+       访问量
       </p>
      </div>
     </div>
