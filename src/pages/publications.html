@@ -1,0 +1,21 @@
+<main id="main">
+  <section class="page-hero publication-page-hero">
+    <div class="container reveal">
+      <p class="kicker">Publications</p>
+      <h1>论文</h1>
+      <p class="lead">按年份整理课题组论文，统一呈现作者、题目、期刊、卷页和 DOI，并支持关键词检索与年份快速定位。</p>
+      <p class="source-note">已以 Google Scholar 个人主页索引为线索，并结合 USTC 教师主页、ResearchGate、出版商页面与 DOI 信息进行格式核对；当前页面展示<span data-publication-total>101</span>条已整理论文。</p>
+      <div aria-label="论文检索与年份索引" class="publication-toolbar">
+        <label class="publication-search"><span>搜索论文</span><input autocomplete="off" data-publication-search placeholder="输入标题、作者、期刊、年份或 DOI" type="search"></label>
+        <div class="publication-count"><strong data-publication-count>101</strong><span>条结果</span></div>
+      </div>
+      <nav aria-label="按年份快速跳转" class="year-index" data-publication-year-index></nav>
+    </div>
+  </section>
+  <section class="directory-section">
+    <div class="container publications-page-list">
+      <div data-publications-render-target></div>
+      <p class="publication-empty" data-publication-empty hidden>没有找到匹配的论文。可以尝试搜索作者姓氏、期刊名或年份。</p>
+    </div>
+  </section>
+</main>

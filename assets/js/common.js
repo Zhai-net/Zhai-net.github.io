@@ -1,418 +1,647 @@
-const navToggle = document.querySelector('.nav-toggle');
-const navMenu = document.querySelector('#siteMenu');
+// GENERATED FILE. Edit src/js/common/*.js and run npm run build.
 
-if (navToggle && navMenu) {
-  navToggle.addEventListener('click', () => {
-    const open = navMenu.classList.toggle('open');
-    navToggle.setAttribute('aria-expanded', String(open));
-  });
-
-  navMenu.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      navMenu.classList.remove('open');
-      navToggle.setAttribute('aria-expanded', 'false');
-    });
-  });
-}
-
-// Theme switcher with persistence.
 (() => {
-  const root = document.body;
-  const toggle = document.querySelector('[data-theme-toggle]');
-  const saved = localStorage.getItem('zhai-lab-theme');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const initial = saved || (prefersDark ? 'dark' : 'light');
+  'use strict';
 
-  function applyTheme(theme) {
-    root.dataset.theme = theme;
-    if (toggle) {
-      toggle.setAttribute('aria-pressed', String(theme === 'dark'));
-      toggle.querySelector('.theme-icon').textContent = theme === 'dark' ? '☀️' : '🌙';
-      toggle.querySelector('.theme-label').textContent = theme === 'dark' ? '浅色' : '深色';
-    }
+  // Source: src/js/common/utils.js
+  const RUNTIME_SITE = window.ZHAI_SITE && typeof window.ZHAI_SITE === 'object' ? window.ZHAI_SITE : {};
+  const BREAKPOINTS = Object.freeze({ mobileNavigation: 860 });
+  const THEME_STORAGE_KEY = RUNTIME_SITE.themeStorageKey || 'zhai-lab-theme';
+  const THEME_COLORS = Object.freeze(RUNTIME_SITE.themeColors || { light: '#f7f5f1', dark: '#0c1220' });
+  
+  const query = (selector, context = document) => context.querySelector(selector);
+  const queryAll = (selector, context = document) => Array.from(context.querySelectorAll(selector));
+  const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+  const pad2 = (value) => String(value).padStart(2, '0');
+  
+  const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const hasCoarsePointer = () => window.matchMedia('(pointer: coarse)').matches;
+  
+  function isLowPowerDevice(memoryThreshold = 4) {
+    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    return Boolean(
+      (connection && connection.saveData)
+      || (navigator.deviceMemory && navigator.deviceMemory <= memoryThreshold)
+    );
   }
-
-  applyTheme(initial);
-
-  if (toggle) {
-    toggle.addEventListener('click', () => {
-      const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
-      localStorage.setItem('zhai-lab-theme', next);
-      applyTheme(next);
-    });
+  
+  function normalizeSearchText(value) {
+    return String(value || '')
+      .toLowerCase()
+      .normalize('NFKD')
+      .replace(/[\u2010-\u2015]/g, '-')
+      .replace(/\s+/g, ' ')
+      .trim();
   }
-})();
-
-// Scroll progress bar + back-to-top button.
-(() => {
-  const progress = document.querySelector('.scroll-progress');
-  const backTop = document.querySelector('.back-to-top');
-
-  function updateScrollUI() {
-    const doc = document.documentElement;
-    const max = Math.max(doc.scrollHeight - doc.clientHeight, 1);
-    const percent = (doc.scrollTop / max) * 100;
-    if (progress) progress.style.width = `${percent}%`;
-    if (backTop) backTop.classList.toggle('show', doc.scrollTop > 420);
-  }
-
-  window.addEventListener('scroll', updateScrollUI, { passive: true });
-  window.addEventListener('resize', updateScrollUI, { passive: true });
-  updateScrollUI();
-
-  if (backTop) {
-    backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-  }
-})();
-
-// Low-key cursor particles: render only while particles are active.
-(() => {
-  const canvas = document.querySelector('.cursor-particles');
-  if (!canvas || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  if (window.matchMedia('(pointer: coarse)').matches) return;
-
-  const ctx = canvas.getContext('2d');
-  const palette = ['28,80,132', '167,45,58', '184,145,66', '40,109,114'];
-  const particles = [];
-  let width = 0;
-  let height = 0;
-  let last = 0;
-  let animationFrame = 0;
-
-  function resize() {
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    width = window.innerWidth;
-    height = window.innerHeight;
-    canvas.width = Math.floor(width * dpr);
-    canvas.height = Math.floor(height * dpr);
-    canvas.style.width = `${width}px`;
-    canvas.style.height = `${height}px`;
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  }
-
-  function scheduleDraw() {
-    if (!animationFrame && !document.hidden) animationFrame = requestAnimationFrame(draw);
-  }
-
-  function addParticle(x, y) {
-    if (particles.length > 70) particles.shift();
-    const angle = Math.random() * Math.PI * 2;
-    const speed = 0.22 + Math.random() * 0.58;
-    particles.push({
-      x,
-      y,
-      vx: Math.cos(angle) * speed,
-      vy: Math.sin(angle) * speed - 0.08,
-      r: 1.0 + Math.random() * 1.9,
-      life: 1,
-      color: palette[Math.floor(Math.random() * palette.length)]
-    });
-    scheduleDraw();
-  }
-
-  function draw() {
-    animationFrame = 0;
-    ctx.clearRect(0, 0, width, height);
-    for (let i = particles.length - 1; i >= 0; i -= 1) {
-      const p = particles[i];
-      p.x += p.vx;
-      p.y += p.vy;
-      p.vy += 0.004;
-      p.life -= 0.014;
-      if (p.life <= 0) {
-        particles.splice(i, 1);
-        continue;
-      }
-      ctx.beginPath();
-      ctx.fillStyle = `rgba(${p.color}, ${0.20 * p.life})`;
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fill();
-    }
-    if (particles.length) scheduleDraw();
-  }
-
-  window.addEventListener('resize', resize, { passive: true });
-  window.addEventListener('mousemove', (event) => {
-    const now = performance.now();
-    if (now - last < 22) return;
-    last = now;
-    addParticle(event.clientX, event.clientY);
-  }, { passive: true });
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden && animationFrame) {
-      cancelAnimationFrame(animationFrame);
-      animationFrame = 0;
-    } else if (particles.length) {
-      scheduleDraw();
-    }
-  });
-
-  resize();
-})();
-
-// Subtle flow-line background, throttled to reduce CPU and battery use.
-(() => {
-  const canvas = document.querySelector('#flow-bg');
-  if (!canvas || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-  const ctx = canvas.getContext('2d');
-  let width = 0;
-  let height = 0;
-  let dpr = 1;
-  let t = 0;
-  let animationFrame = 0;
-  let lastFrame = 0;
-  const frameInterval = 1000 / 30;
-
-  function resize() {
-    dpr = Math.min(window.devicePixelRatio || 1, 2);
-    width = window.innerWidth;
-    height = window.innerHeight;
-    canvas.width = Math.floor(width * dpr);
-    canvas.height = Math.floor(height * dpr);
-    canvas.style.width = `${width}px`;
-    canvas.style.height = `${height}px`;
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  }
-
-  function drawStreamline(y0, phase, alpha) {
-    ctx.beginPath();
-    for (let x = -40; x <= width + 40; x += 16) {
-      const y = y0
-        + Math.sin(x * 0.009 + phase + t * 0.010) * 18
-        + Math.sin(x * 0.018 - phase + t * 0.007) * 8;
-      if (x === -40) ctx.moveTo(x, y);
-      else ctx.lineTo(x, y);
-    }
-    ctx.strokeStyle = `rgba(28, 80, 132, ${alpha})`;
-    if (document.body.dataset.theme === 'dark') ctx.strokeStyle = `rgba(107, 182, 255, ${alpha + 0.04})`;
-    ctx.lineWidth = 1.35;
-    ctx.stroke();
-  }
-
-  function draw(now) {
-    animationFrame = 0;
-    if (document.hidden) return;
-    if (now - lastFrame >= frameInterval) {
-      ctx.clearRect(0, 0, width, height);
-      for (let i = 0; i < 16; i += 1) {
-        drawStreamline((height / 17) * (i + 1), i * 0.72, 0.075 + (i % 4) * 0.012);
-      }
-      t += 1;
-      lastFrame = now;
-    }
-    animationFrame = requestAnimationFrame(draw);
-  }
-
-  function start() {
-    if (!animationFrame && !document.hidden) animationFrame = requestAnimationFrame(draw);
-  }
-
-  window.addEventListener('resize', resize, { passive: true });
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden && animationFrame) {
-      cancelAnimationFrame(animationFrame);
-      animationFrame = 0;
-    } else {
-      start();
-    }
-  });
-  resize();
-  start();
-})();
-
-// Image lightbox for portraits and research figures.
-(() => {
-  const lightbox = document.querySelector('.lightbox');
-  const img = lightbox ? lightbox.querySelector('img') : null;
-  const close = lightbox ? lightbox.querySelector('.lightbox-close') : null;
-  if (!lightbox || !img) return;
-
-  function openLightbox(src, alt) {
-    img.src = src;
-    img.alt = alt || '预览图片';
-    lightbox.classList.add('open');
-    lightbox.setAttribute('aria-hidden', 'false');
-  }
-
-  function closeLightbox() {
-    lightbox.classList.remove('open');
-    lightbox.setAttribute('aria-hidden', 'true');
-    img.removeAttribute('src');
-  }
-
-  document.querySelectorAll('img[data-lightbox], .person-card img, .alumni-card img, .showcase-figure img, .pi-photo').forEach((node) => {
-    node.addEventListener('click', () => openLightbox(node.currentSrc || node.src, node.alt));
-  });
-
-  lightbox.addEventListener('click', (event) => {
-    if (event.target === lightbox) closeLightbox();
-  });
-  if (close) close.addEventListener('click', closeLightbox);
-  window.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
-  });
-})();
-
-// Reveal-on-scroll micro-interaction.
-(() => {
-  const nodes = document.querySelectorAll('.reveal');
-  if (!nodes.length || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    nodes.forEach((node) => node.classList.add('in-view'));
-    return;
-  }
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  nodes.forEach((node) => observer.observe(node));
-})();
-
-// Publication filters on the standalone publication page.
-(() => {
-  const buttons = document.querySelectorAll('[data-filter]');
-  const cards = document.querySelectorAll('[data-pub-card]');
-  if (!buttons.length || !cards.length) return;
-
-  buttons.forEach((button) => {
-    button.addEventListener('click', () => {
-      const filter = button.dataset.filter;
-      buttons.forEach((btn) => btn.classList.toggle('active', btn === button));
-      cards.forEach((card) => {
-        const values = `${card.dataset.year || ''} ${card.dataset.category || ''} ${card.dataset.journal || ''}`;
-        card.hidden = filter !== 'all' && !values.includes(filter);
-      });
-    });
-  });
-})();
-
-
-// Homepage right-side section navigator.
-(() => {
-  const navigatorEl = document.querySelector('.section-navigator');
-  if (!navigatorEl) return;
-  const links = Array.from(navigatorEl.querySelectorAll('[data-section-link]'));
-  const sections = links
-    .map((link) => document.getElementById(link.dataset.sectionLink))
-    .filter(Boolean);
-  if (!sections.length) return;
-
-  const setActive = (id) => {
-    links.forEach((link) => link.classList.toggle('active', link.dataset.sectionLink === id));
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    const visible = entries
-      .filter((entry) => entry.isIntersecting)
-      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-    if (visible) setActive(visible.target.id);
-  }, { rootMargin: '-24% 0px -58% 0px', threshold: [0.08, 0.16, 0.28, 0.42] });
-
-  sections.forEach((section) => observer.observe(section));
-})();
-
-
-// Publication search and year quick index.
-(() => {
-  const input = document.querySelector('[data-publication-search]');
-  const cards = Array.from(document.querySelectorAll('[data-pub-card]'));
-  const groups = Array.from(document.querySelectorAll('[data-year-group]'));
-  const count = document.querySelector('[data-publication-count]');
-  const empty = document.querySelector('[data-publication-empty]');
-  if (!input || !cards.length) return;
-
-  const normalize = (value) => (value || '')
-    .toString()
-    .toLowerCase()
-    .normalize('NFKD')
-    .replace(/[\u2010-\u2015]/g, '-')
-    .replace(/\s+/g, ' ')
-    .trim();
-  const two = (n) => String(n).padStart(2, '0');
-
-  const update = () => {
-    const q = normalize(input.value);
-    let visibleCount = 0;
-    cards.forEach((card) => {
-      const haystack = normalize(card.dataset.search || card.textContent);
-      const show = !q || haystack.includes(q);
-      card.hidden = !show;
-      if (show) {
-        visibleCount += 1;
-        const indexNode = card.querySelector('.year');
-        if (indexNode) indexNode.textContent = two(visibleCount);
-      }
-    });
-    groups.forEach((group) => {
-      const groupVisible = Array.from(group.querySelectorAll('[data-pub-card]')).some((card) => !card.hidden);
-      group.hidden = !groupVisible;
-    });
-    if (count) count.textContent = String(visibleCount);
-    if (empty) empty.hidden = visibleCount !== 0;
-  };
-
-  input.addEventListener('input', update);
-  update();
-
-  const yearLinks = Array.from(document.querySelectorAll('[data-year-jump]'));
-  const yearSections = yearLinks.map((link) => document.getElementById(`y${link.dataset.year}`)).filter(Boolean);
-  if (yearSections.length) {
-    const setYear = (id) => yearLinks.forEach((link) => link.classList.toggle('active', `y${link.dataset.year}` === id));
-    const observer = new IntersectionObserver((entries) => {
-      const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-      if (visible) setYear(visible.target.id);
-    }, { rootMargin: '-16% 0px -68% 0px', threshold: [0.05, 0.12, 0.25] });
-    yearSections.forEach((section) => observer.observe(section));
-  }
-})();
-
-// Copy email buttons for member cards.
-(() => {
-  const mailLinks = Array.from(document.querySelectorAll('.person-card a.mail[href^="mailto:"]'));
-  if (!mailLinks.length) return;
-
-  const copyText = async (text) => {
+  
+  async function copyText(text) {
     if (navigator.clipboard && window.isSecureContext) {
       await navigator.clipboard.writeText(text);
       return;
     }
+  
     const textarea = document.createElement('textarea');
     textarea.value = text;
-    textarea.setAttribute('readonly', '');
+    textarea.readOnly = true;
     textarea.style.position = 'fixed';
     textarea.style.opacity = '0';
     document.body.appendChild(textarea);
     textarea.select();
-    document.execCommand('copy');
+    const copied = document.execCommand('copy');
     textarea.remove();
-  };
-
-  mailLinks.forEach((link) => {
-    if (link.nextElementSibling && link.nextElementSibling.classList.contains('copy-email')) return;
-    const email = link.getAttribute('href').replace(/^mailto:/i, '').trim();
-    const button = document.createElement('button');
-    button.className = 'copy-email';
-    button.type = 'button';
-    button.textContent = '复制邮箱';
-    button.setAttribute('aria-label', `复制邮箱 ${email}`);
-    button.addEventListener('click', async () => {
+    if (!copied) throw new Error('Copy command failed');
+  }
+  
+  // Source: src/js/common/navigation.js
+  function initMobileNavigation() {
+    const toggle = query('.nav-toggle');
+    const menu = query('#siteMenu');
+    if (!toggle || !menu || toggle.dataset.initialized === 'true') return;
+    toggle.dataset.initialized = 'true';
+  
+    const setOpen = (open) => {
+      menu.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? '关闭导航菜单' : '打开导航菜单');
+      document.body.classList.toggle('menu-open', open);
+    };
+  
+    toggle.addEventListener('click', () => setOpen(!menu.classList.contains('open')));
+    menu.addEventListener('click', (event) => {
+      if (event.target.closest('a')) setOpen(false);
+    });
+    document.addEventListener('click', (event) => {
+      if (!menu.classList.contains('open')) return;
+      if (!menu.contains(event.target) && !toggle.contains(event.target)) setOpen(false);
+    });
+    window.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape' || !menu.classList.contains('open')) return;
+      setOpen(false);
+      toggle.focus();
+    });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > BREAKPOINTS.mobileNavigation) setOpen(false);
+    }, { passive: true });
+  }
+  
+  // Source: src/js/common/theme.js
+  function initThemeToggle() {
+    const root = document.documentElement;
+    const toggle = query('[data-theme-toggle]');
+    if (!toggle || toggle.dataset.initialized === 'true') return;
+    toggle.dataset.initialized = 'true';
+  
+    const icon = query('.theme-icon', toggle);
+    const label = query('.theme-label', toggle);
+  
+    const applyTheme = (theme) => {
+      const safeTheme = theme === 'dark' ? 'dark' : 'light';
+      root.dataset.theme = safeTheme;
+      root.style.colorScheme = safeTheme;
+      document.body.dataset.theme = safeTheme;
+  
+      const themeColor = query('meta[name="theme-color"]');
+      if (themeColor) themeColor.content = THEME_COLORS[safeTheme];
+      toggle.setAttribute('aria-pressed', String(safeTheme === 'dark'));
+      if (icon) icon.textContent = safeTheme === 'dark' ? '☀️' : '🌙';
+      if (label) label.textContent = safeTheme === 'dark' ? '浅色' : '深色';
+    };
+  
+    let savedTheme = null;
+    try {
+      savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+    } catch (error) {
+      savedTheme = null;
+    }
+    const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    applyTheme(savedTheme === 'dark' || savedTheme === 'light' ? savedTheme : preferredTheme);
+  
+    toggle.addEventListener('click', () => {
+      const nextTheme = root.dataset.theme === 'dark' ? 'light' : 'dark';
       try {
-        await copyText(email);
-        button.textContent = '已复制';
-        button.classList.add('copied');
-        window.setTimeout(() => {
-          button.textContent = '复制邮箱';
-          button.classList.remove('copied');
-        }, 1600);
+        localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
       } catch (error) {
-        button.textContent = '复制失败';
-        window.setTimeout(() => { button.textContent = '复制邮箱'; }, 1600);
+        // The theme still applies for the current visit when storage is unavailable.
+      }
+      applyTheme(nextTheme);
+    });
+  }
+  
+  // Source: src/js/common/scroll-ui.js
+  function initScrollUI() {
+    const progress = query('.scroll-progress');
+    const backToTop = query('.back-to-top');
+    if ((!progress && !backToTop) || document.documentElement.dataset.scrollUiInitialized === 'true') return;
+    document.documentElement.dataset.scrollUiInitialized = 'true';
+  
+    let framePending = false;
+    const update = () => {
+      framePending = false;
+      const root = document.documentElement;
+      const scrollable = Math.max(root.scrollHeight - root.clientHeight, 1);
+      const ratio = clamp(root.scrollTop / scrollable, 0, 1);
+      if (progress) progress.style.transform = `scaleX(${ratio})`;
+      if (backToTop) backToTop.classList.toggle('show', root.scrollTop > 420);
+    };
+    const scheduleUpdate = () => {
+      if (framePending) return;
+      framePending = true;
+      requestAnimationFrame(update);
+    };
+  
+    window.addEventListener('scroll', scheduleUpdate, { passive: true });
+    window.addEventListener('resize', scheduleUpdate, { passive: true });
+    backToTop?.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
+    });
+    update();
+  }
+  
+  // Source: src/js/common/cursor-particles.js
+  function initCursorParticles() {
+    const canvas = query('.cursor-particles');
+    if (!canvas || canvas.dataset.initialized === 'true') return;
+    canvas.dataset.initialized = 'true';
+    if (isLowPowerDevice(4) || prefersReducedMotion() || hasCoarsePointer()) return;
+  
+    const context = canvas.getContext('2d');
+    if (!context) return;
+    const hero = query('.hero, .page-hero');
+    const colors = ['28,80,132', '167,45,58', '184,145,66', '40,109,114'];
+    const particles = [];
+    let width = 0;
+    let height = 0;
+    let lastCreatedAt = 0;
+    let animationFrame = 0;
+    let pointerInHero = hero ? hero.matches(':hover') : false;
+  
+    const resize = () => {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = Math.floor(width * dpr);
+      canvas.height = Math.floor(height * dpr);
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+      context.setTransform(dpr, 0, 0, dpr, 0, 0);
+    };
+  
+    const scheduleDraw = () => {
+      if (!animationFrame && !document.hidden) animationFrame = requestAnimationFrame(draw);
+    };
+  
+    const addParticle = (x, y) => {
+      if (particles.length >= 42) particles.shift();
+      const angle = Math.random() * Math.PI * 2;
+      const speed = 0.22 + Math.random() * 0.58;
+      particles.push({
+        x,
+        y,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed - 0.08,
+        radius: 1 + Math.random() * 1.9,
+        life: 1,
+        color: colors[Math.floor(Math.random() * colors.length)]
+      });
+      scheduleDraw();
+    };
+  
+    function draw() {
+      animationFrame = 0;
+      context.clearRect(0, 0, width, height);
+      for (let index = particles.length - 1; index >= 0; index -= 1) {
+        const particle = particles[index];
+        particle.x += particle.vx;
+        particle.y += particle.vy;
+        particle.vy += 0.004;
+        particle.life -= 0.014;
+        if (particle.life <= 0) {
+          particles.splice(index, 1);
+          continue;
+        }
+        context.beginPath();
+        context.fillStyle = `rgba(${particle.color}, ${0.20 * particle.life})`;
+        context.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+        context.fill();
+      }
+      if (particles.length) scheduleDraw();
+    }
+  
+    window.addEventListener('resize', resize, { passive: true });
+    hero?.addEventListener('pointerenter', () => { pointerInHero = true; }, { passive: true });
+    hero?.addEventListener('pointerleave', () => { pointerInHero = false; }, { passive: true });
+    window.addEventListener('mousemove', (event) => {
+      if (hero && !pointerInHero) return;
+      const now = performance.now();
+      if (now - lastCreatedAt < 22) return;
+      lastCreatedAt = now;
+      addParticle(event.clientX, event.clientY);
+    }, { passive: true });
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden && animationFrame) {
+        cancelAnimationFrame(animationFrame);
+        animationFrame = 0;
+      } else if (particles.length) {
+        scheduleDraw();
       }
     });
-    link.insertAdjacentElement('afterend', button);
-  });
+    resize();
+  }
+  
+  // Source: src/js/common/flow-background.js
+  function initFlowBackground() {
+    const canvas = query('#flow-bg');
+    if (!canvas || canvas.dataset.initialized === 'true') return;
+    canvas.dataset.initialized = 'true';
+    if (isLowPowerDevice(3) || prefersReducedMotion()) return;
+  
+    const context = canvas.getContext('2d');
+    if (!context) return;
+    const frameInterval = 1000 / 30;
+    let width = 0;
+    let height = 0;
+    let time = 0;
+    let animationFrame = 0;
+    let lastFrame = 0;
+  
+    const resize = () => {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = Math.floor(width * dpr);
+      canvas.height = Math.floor(height * dpr);
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+      context.setTransform(dpr, 0, 0, dpr, 0, 0);
+    };
+  
+    const drawStreamline = (originY, phase, alpha) => {
+      context.beginPath();
+      for (let x = -40; x <= width + 40; x += 16) {
+        const y = originY
+          + Math.sin(x * 0.009 + phase + time * 0.010) * 18
+          + Math.sin(x * 0.018 - phase + time * 0.007) * 8;
+        if (x === -40) context.moveTo(x, y);
+        else context.lineTo(x, y);
+      }
+      const darkTheme = document.documentElement.dataset.theme === 'dark';
+      context.strokeStyle = darkTheme
+        ? `rgba(107, 182, 255, ${alpha + 0.04})`
+        : `rgba(28, 80, 132, ${alpha})`;
+      context.lineWidth = 1.35;
+      context.stroke();
+    };
+  
+    function draw(now) {
+      animationFrame = 0;
+      if (document.hidden) return;
+      if (now - lastFrame >= frameInterval) {
+        context.clearRect(0, 0, width, height);
+        for (let index = 0; index < 16; index += 1) {
+          drawStreamline((height / 17) * (index + 1), index * 0.72, 0.075 + (index % 4) * 0.012);
+        }
+        time += 1;
+        lastFrame = now;
+      }
+      animationFrame = requestAnimationFrame(draw);
+    }
+  
+    const start = () => {
+      if (!animationFrame && !document.hidden) animationFrame = requestAnimationFrame(draw);
+    };
+  
+    window.addEventListener('resize', resize, { passive: true });
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden && animationFrame) {
+        cancelAnimationFrame(animationFrame);
+        animationFrame = 0;
+      } else {
+        start();
+      }
+    });
+    resize();
+    if ('requestIdleCallback' in window) window.requestIdleCallback(start, { timeout: 1000 });
+    else window.setTimeout(start, 180);
+  }
+  
+  // Source: src/js/common/lightbox.js
+  const LIGHTBOX_TRIGGER_SELECTOR = 'img[data-lightbox], .person-card img, .alumni-card img, .showcase-figure img, .pi-photo';
+  
+  function prepareLightboxTriggers() {
+    queryAll(LIGHTBOX_TRIGGER_SELECTOR).forEach((image) => {
+      if (image.dataset.lightboxPrepared === 'true') return;
+      image.dataset.lightboxPrepared = 'true';
+      image.tabIndex = 0;
+      image.setAttribute('role', 'button');
+      if (!image.getAttribute('aria-label')) {
+        image.setAttribute('aria-label', `${image.alt || '图片'}，点击放大`);
+      }
+    });
+  }
+  
+  function initLightbox() {
+    const lightbox = query('.lightbox');
+    const preview = lightbox ? query('img', lightbox) : null;
+    const closeButton = lightbox ? query('.lightbox-close', lightbox) : null;
+    if (!lightbox || !preview || lightbox.dataset.initialized === 'true') return;
+    lightbox.dataset.initialized = 'true';
+    let returnFocus = null;
+  
+    const open = (image) => {
+      returnFocus = image;
+      preview.src = image.currentSrc || image.src;
+      preview.alt = image.alt || '预览图片';
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('lightbox-open');
+      closeButton?.focus();
+    };
+  
+    const close = () => {
+      if (!lightbox.classList.contains('open')) return;
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('lightbox-open');
+      preview.removeAttribute('src');
+      returnFocus?.focus?.();
+      returnFocus = null;
+    };
+  
+    document.addEventListener('click', (event) => {
+      const image = event.target.closest(LIGHTBOX_TRIGGER_SELECTOR);
+      if (image) open(image);
+    });
+    document.addEventListener('keydown', (event) => {
+      const image = event.target.closest?.(LIGHTBOX_TRIGGER_SELECTOR);
+      if (image && (event.key === 'Enter' || event.key === ' ')) {
+        event.preventDefault();
+        open(image);
+        return;
+      }
+      if (!lightbox.classList.contains('open')) return;
+      if (event.key === 'Escape') close();
+      if (event.key === 'Tab' && closeButton) {
+        event.preventDefault();
+        closeButton.focus();
+      }
+    });
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) close();
+    });
+    closeButton?.addEventListener('click', close);
+  }
+  
+  // Source: src/js/common/person-cards.js
+  const CARD_INTERACTIVE_SELECTOR = 'a, button, [role="button"], input, select, textarea, [tabindex]';
+  
+  function setPersonCardFlipped(card, flipped, moveFocus = false) {
+    card.classList.toggle('is-flipped', flipped);
+    queryAll('[data-person-card-toggle]', card).forEach((button) => {
+      button.setAttribute('aria-expanded', String(flipped));
+    });
+  
+    const front = query('.person-face.front', card);
+    const back = query('.person-face.back', card);
+    queryAll(CARD_INTERACTIVE_SELECTOR, front || document.createElement('div'))
+      .forEach((node) => { node.tabIndex = flipped ? -1 : 0; });
+    queryAll(CARD_INTERACTIVE_SELECTOR, back || document.createElement('div'))
+      .forEach((node) => { node.tabIndex = flipped ? 0 : -1; });
+  
+    if (!moveFocus) return;
+    const target = flipped
+      ? query('.person-card-return', card)
+      : query('.person-face.front .person-card-toggle', card);
+    target?.focus();
+  }
+  
+  function preparePersonCards() {
+    queryAll('.person-card').forEach((card) => {
+      if (card.dataset.cardPrepared === 'true') return;
+      card.dataset.cardPrepared = 'true';
+      setPersonCardFlipped(card, false);
+    });
+  }
+  
+  function initPersonCards() {
+    if (document.documentElement.dataset.personCardsInitialized === 'true') return;
+    document.documentElement.dataset.personCardsInitialized = 'true';
+  
+    document.addEventListener('click', (event) => {
+      const toggle = event.target.closest('[data-person-card-toggle]');
+      if (toggle) {
+        event.stopPropagation();
+        const card = toggle.closest('.person-card');
+        if (card) setPersonCardFlipped(card, !card.classList.contains('is-flipped'), true);
+        return;
+      }
+  
+      queryAll('.person-card.is-flipped').forEach((card) => {
+        if (!card.contains(event.target)) setPersonCardFlipped(card, false);
+      });
+    });
+  }
+  
+  // Source: src/js/common/reveal.js
+  let revealObserver = null;
+  
+  function prepareRevealNodes() {
+    const nodes = queryAll('.reveal:not([data-reveal-prepared])');
+    if (!nodes.length) return;
+    nodes.forEach((node) => { node.dataset.revealPrepared = 'true'; });
+  
+    if (prefersReducedMotion() || !('IntersectionObserver' in window)) {
+      nodes.forEach((node) => node.classList.add('in-view'));
+      return;
+    }
+  
+    if (!revealObserver) {
+      revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: 0.12 });
+    }
+    nodes.forEach((node) => revealObserver.observe(node));
+  }
+  
+  // Source: src/js/common/section-navigator.js
+  function initSectionNavigator() {
+    const navigatorElement = query('.section-navigator');
+    if (!navigatorElement || navigatorElement.dataset.initialized === 'true') return;
+    navigatorElement.dataset.initialized = 'true';
+  
+    const links = queryAll('[data-section-link]', navigatorElement);
+    const sections = links
+      .map((link) => document.getElementById(link.dataset.sectionLink))
+      .filter(Boolean);
+    if (!sections.length || !('IntersectionObserver' in window)) return;
+  
+    const setActive = (id) => {
+      links.forEach((link) => {
+        const active = link.dataset.sectionLink === id;
+        link.classList.toggle('active', active);
+        if (active) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+    };
+  
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((first, second) => second.intersectionRatio - first.intersectionRatio)[0];
+      if (visible) setActive(visible.target.id);
+    }, { rootMargin: '-24% 0px -58% 0px', threshold: [0.08, 0.16, 0.28, 0.42] });
+  
+    sections.forEach((section) => observer.observe(section));
+  }
+  
+  // Source: src/js/common/publications.js
+  function initPublicationControls() {
+    const input = query('[data-publication-search]');
+    if (!input || input.dataset.initialized === 'true') return;
+  
+    const cards = queryAll('[data-pub-card]');
+    const groups = queryAll('[data-year-group]');
+    if (!cards.length) return;
+    input.dataset.initialized = 'true';
+  
+    const count = query('[data-publication-count]');
+    const empty = query('[data-publication-empty]');
+    const yearLinks = queryAll('[data-year-jump]');
+  
+    const update = () => {
+      const searchTerm = normalizeSearchText(input.value);
+      let visibleCount = 0;
+  
+      cards.forEach((card) => {
+        const haystack = normalizeSearchText(card.dataset.search || card.textContent);
+        const visible = !searchTerm || haystack.includes(searchTerm);
+        card.hidden = !visible;
+        if (!visible) return;
+        visibleCount += 1;
+        const indexNode = query('.year', card);
+        if (indexNode) indexNode.textContent = pad2(visibleCount);
+      });
+  
+      groups.forEach((group) => {
+        group.hidden = !queryAll('[data-pub-card]', group).some((card) => !card.hidden);
+      });
+      if (count) count.textContent = String(visibleCount);
+      if (empty) empty.hidden = visibleCount !== 0;
+    };
+  
+    input.addEventListener('input', update);
+    update();
+  
+    const yearSections = yearLinks
+      .map((link) => document.getElementById(`y${link.dataset.year}`))
+      .filter(Boolean);
+    if (!yearSections.length || !('IntersectionObserver' in window)) return;
+  
+    const setActiveYear = (id) => {
+      yearLinks.forEach((link) => {
+        const active = `y${link.dataset.year}` === id;
+        link.classList.toggle('active', active);
+        if (active) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+    };
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((first, second) => second.intersectionRatio - first.intersectionRatio)[0];
+      if (visible) setActiveYear(visible.target.id);
+    }, { rootMargin: '-16% 0px -68% 0px', threshold: [0.05, 0.12, 0.25] });
+    yearSections.forEach((section) => observer.observe(section));
+  }
+  
+  // Source: src/js/common/email-copy.js
+  function prepareEmailCopyButtons() {
+    queryAll('.person-card a.mail[href^="mailto:"]').forEach((link) => {
+      if (link.nextElementSibling?.classList.contains('copy-email')) return;
+      const email = link.href.replace(/^mailto:/i, '').trim();
+      const button = document.createElement('button');
+      button.className = 'copy-email';
+      button.type = 'button';
+      button.dataset.copyEmail = email;
+      button.textContent = '复制邮箱';
+      button.setAttribute('aria-label', `复制邮箱 ${email}`);
+      link.insertAdjacentElement('afterend', button);
+    });
+  }
+  
+  function initEmailCopy() {
+    if (document.documentElement.dataset.emailCopyInitialized === 'true') return;
+    document.documentElement.dataset.emailCopyInitialized = 'true';
+  
+    document.addEventListener('click', async (event) => {
+      const button = event.target.closest('[data-copy-email]');
+      if (!button) return;
+      const originalText = '复制邮箱';
+      try {
+        await copyText(button.dataset.copyEmail);
+        button.textContent = '已复制';
+        button.classList.add('copied');
+      } catch (error) {
+        button.textContent = '复制失败';
+      }
+      window.setTimeout(() => {
+        button.textContent = originalText;
+        button.classList.remove('copied');
+      }, 1600);
+    });
+  }
+  
+  // Source: src/js/common/hash-links.js
+  function initDynamicHashLinks() {
+    if (document.documentElement.dataset.hashLinksInitialized === 'true') return;
+    document.documentElement.dataset.hashLinksInitialized = 'true';
+  
+    const sync = () => {
+      const id = decodeURIComponent(window.location.hash.replace(/^#/, ''));
+      const tabs = queryAll('.page-tabs a[href*="#"]');
+      tabs.forEach((tab) => {
+        const tabHash = new URL(tab.href, window.location.href).hash.replace(/^#/, '');
+        const active = Boolean(id) && tabHash === id;
+        tab.classList.toggle('active', active);
+        if (active) tab.setAttribute('aria-current', 'location');
+        else tab.removeAttribute('aria-current');
+      });
+      if (!id) return;
+      const target = document.getElementById(id);
+      if (target) requestAnimationFrame(() => target.scrollIntoView({ block: 'start' }));
+    };
+  
+    window.addEventListener('hashchange', sync);
+    document.addEventListener('zhai:content-rendered', sync);
+    sync();
+  }
+  
+  // Source: src/js/common/main.js
+  function prepareDynamicContent() {
+    prepareLightboxTriggers();
+    preparePersonCards();
+    prepareRevealNodes();
+    prepareEmailCopyButtons();
+    initPublicationControls();
+  }
+  
+  function initCommon() {
+    initMobileNavigation();
+    initThemeToggle();
+    initScrollUI();
+    initCursorParticles();
+    initFlowBackground();
+    initLightbox();
+    initPersonCards();
+    initSectionNavigator();
+    initEmailCopy();
+    initDynamicHashLinks();
+    prepareDynamicContent();
+    document.addEventListener('zhai:content-rendered', prepareDynamicContent);
+  }
+  
+  initCommon();
 })();

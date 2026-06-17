@@ -1,0 +1,159 @@
+/* People/alumni layouts, institutional links and homepage fixed-count grids. */
+
+.people-grid,
+.people-directory-grid {
+  grid-template-columns: repeat(auto-fit, minmax(172px, 1fr));
+  align-items: stretch;
+}
+.alumni-grid {
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  align-items: stretch;
+}
+.directory-section .people-directory-grid,
+.directory-section .alumni-grid {
+  margin-bottom: 10px;
+}
+.directory-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  scroll-margin-top: 112px;
+}
+.directory-heading::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(90deg, var(--line), transparent);
+}
+.alumni-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 218px;
+  justify-content: space-between;
+  transition: transform .24s ease, box-shadow .24s ease, border-color .24s ease, background .24s ease;
+}
+.alumni-card:hover {
+  border-color: color-mix(in srgb, var(--blue) 26%, var(--line));
+}
+.alumni-avatar-wrap {
+  display: grid;
+  place-items: center;
+}
+.alumni-card img {
+  width: 92px;
+  height: 108px;
+  background: color-mix(in srgb, var(--blue-soft) 42%, var(--paper));
+}
+.alumni-info {
+  display: grid;
+  gap: 4px;
+}
+.alumni-card p {
+  font-weight: 850;
+  color: var(--blue);
+}
+.alumni-card span {
+  min-height: 18px;
+}
+.page-tabs {
+  padding: 6px;
+  border: 1px solid color-mix(in srgb, var(--line-blue) 74%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--paper) 58%, transparent);
+  width: fit-content;
+}
+.tab-link {
+  border-color: transparent;
+  background: transparent;
+}
+.person-face,
+.alumni-card {
+  backdrop-filter: blur(10px);
+}
+@media (min-width: 1181px) {
+  .directory-section .people-directory-grid {
+    grid-template-columns: repeat(auto-fit, minmax(184px, 1fr));
+  }
+  .directory-section .alumni-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+}
+@media (max-width: 720px) {
+  .page-tabs {
+    width: 100%;
+    border-radius: 22px;
+  }
+  .tab-link {
+    flex: 1 1 120px;
+    text-align: center;
+  }
+  .alumni-card {
+    min-height: 0;
+  }
+}
+
+
+/* Institutional and collaborator links in the site footer. */
+.footer-friends a {
+  position: relative;
+  padding-left: 12px;
+}
+.footer-friends a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.82em;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.55);
+}
+
+
+/* Homepage fixed-count presentation: up to 12 members as 2×6, up to 14 alumni as 2×7. */
+#people .people-grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 16px;
+}
+#alumni .alumni-grid {
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 14px;
+}
+#people .person-card,
+#people .person-card-inner {
+  min-height: 276px;
+}
+#people .person-card img {
+  width: 104px;
+  height: 124px;
+}
+#alumni .alumni-card {
+  min-height: 208px;
+  padding: 14px 12px 16px;
+}
+#alumni .alumni-card img {
+  width: 80px;
+  height: 94px;
+}
+
+@media (max-width: 1180px) {
+  #people .people-grid,
+  #alumni .alumni-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+@media (max-width: 860px) {
+  #people .people-grid,
+  #alumni .alumni-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 540px) {
+  #people .people-grid,
+  #alumni .alumni-grid {
+    grid-template-columns: 1fr;
+  }
+}
+#site-statistics .final-visit-panel {
+  max-width: 1080px;
+}

@@ -1,0 +1,17 @@
+  <script>
+    (() => {
+      const root = document.documentElement;
+      try {
+        const savedTheme = localStorage.getItem('{{THEME_STORAGE_KEY}}');
+        const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        const theme = savedTheme === 'dark' || savedTheme === 'light' ? savedTheme : preferredTheme;
+        root.dataset.theme = theme;
+        root.style.colorScheme = theme;
+        document.querySelector('meta[name="theme-color"]').content = theme === 'dark'
+          ? '{{THEME_DARK}}'
+          : '{{THEME_LIGHT}}';
+      } catch (error) {
+        root.dataset.theme = 'light';
+      }
+    })();
+  </script>

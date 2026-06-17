@@ -1,5 +1,3 @@
-// GENERATED FILE. Edit src/js/statistics.js and run npm run build.
-
 // Non-critical visitor statistics are requested only when the footer approaches the viewport.
 (() => {
   'use strict';

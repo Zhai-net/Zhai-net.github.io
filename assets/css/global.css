@@ -1,3 +1,8 @@
+/* GENERATED FILE. Edit src/css/*.css and run npm run build. */
+
+// Source: src/css/00-foundation.css
+/* Design tokens, reset, document shell, header and global primitives. */
+
 :root {
   --page: #f7f5f1;
   --paper: #ffffff;
@@ -81,7 +86,7 @@ body::before {
   mask-image: linear-gradient(180deg, rgba(0,0,0,0.40), transparent 62%);
 }
 
-body[data-theme="dark"]::before {
+[data-theme="dark"] body::before {
   background-image:
     linear-gradient(rgba(160, 190, 230, 0.045) 1px, transparent 1px),
     linear-gradient(90deg, rgba(160, 190, 230, 0.035) 1px, transparent 1px);
@@ -264,6 +269,9 @@ button { font: inherit; color: inherit; }
   background: var(--ink);
   border-radius: 999px;
 }
+
+// Source: src/css/10-home-layout.css
+/* Homepage sections, cards, research, gallery and footer foundations. */
 
 .section { padding: 72px 0; }
 .hero {
@@ -527,7 +535,7 @@ button { font: inherit; color: inherit; }
 .visitor-map-dot.show { opacity: 1; transform: translate(-50%, -50%) scale(1); }
 .visit-map-location { margin: 0; color: var(--text); font-size: 13px; line-height: 1.55; }
 .visitor-map-external { justify-self: start; font-size: 13px; }
-body[data-theme="dark"] .visitor-map::after { background: radial-gradient(circle at center, transparent 42%, rgba(0,0,0,0.12)); }
+[data-theme="dark"] body .visitor-map::after { background: radial-gradient(circle at center, transparent 42%, rgba(0,0,0,0.12)); }
 
 .inline-text-link { color: var(--blue); font-weight: 850; text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--blue) 40%, transparent); }
 .inline-text-link:hover { color: var(--teal); }
@@ -650,8 +658,7 @@ body[data-theme="dark"] .visitor-map::after { background: radial-gradient(circle
   transform-style: preserve-3d;
   transition: transform 0.65s cubic-bezier(.2,.7,.2,1);
 }
-.person-card:hover .person-card-inner,
-.person-card:focus-within .person-card-inner { transform: rotateY(180deg); }
+.person-card:hover .person-card-inner { transform: rotateY(180deg); }
 .person-face {
   position: absolute;
   inset: 0;
@@ -845,6 +852,9 @@ body[data-theme="dark"] .visitor-map::after { background: radial-gradient(circle
 .site-footer p { margin: 0; font-size: 13px; color: #d1e0ef; }
 .footer-links { display: flex; gap: 10px; align-items: center; }
 .footer-links a { color: #fff; }
+
+// Source: src/css/20-subpages.css
+/* Subpage heroes, directories, responsive rules and motion defaults. */
 
 /* Subpages */
 .page-hero {
@@ -1044,8 +1054,10 @@ body[data-theme="dark"] .visitor-map::after { background: radial-gradient(circle
   .reveal { opacity: 1; transform: none; }
 }
 
+// Source: src/css/30-publications-career.css
+/* Publication groups, career timeline and related responsive rules. */
 
-/* Publications are now grouped by year, following an academic-homepage style content hierarchy. */
+/* Year-grouped publication list and academic content hierarchy. */
 .publication-year-group {
   display: grid;
   gap: 14px;
@@ -1137,8 +1149,9 @@ body[data-theme="dark"] .visitor-map::after { background: radial-gradient(circle
   .career-list li { grid-template-columns: 1fr; gap: 4px; }
 }
 
+// Source: src/css/40-interactions.css
+/* Interactive controls, lightbox, navigation aids and publication tooling. */
 
-/* v4 refined interaction components */
 .section-navigator {
   position: fixed;
   right: 22px;
@@ -1188,7 +1201,7 @@ body[data-theme="dark"] .visitor-map::after { background: radial-gradient(circle
   border-color: var(--blue);
   background: var(--blue);
 }
-body[data-theme="dark"] .section-navigator {
+[data-theme="dark"] body .section-navigator {
   background: rgba(17, 24, 39, 0.72);
   border-color: rgba(148, 163, 184, 0.18);
 }
@@ -1278,7 +1291,7 @@ body[data-theme="dark"] .section-navigator {
   border-color: rgba(28, 80, 132, 0.45);
   box-shadow: 0 0 0 4px rgba(28, 80, 132, 0.10), 0 12px 30px rgba(20, 37, 63, 0.08);
 }
-body[data-theme="dark"] .publication-search input { background: rgba(15, 23, 42, 0.78); }
+[data-theme="dark"] body .publication-search input { background: rgba(15, 23, 42, 0.78); }
 .publication-count {
   min-width: 106px;
   min-height: 48px;
@@ -1306,7 +1319,7 @@ body[data-theme="dark"] .publication-search input { background: rgba(15, 23, 42,
   background: rgba(255,255,255,0.58);
   backdrop-filter: blur(12px);
 }
-body[data-theme="dark"] .year-index { background: rgba(15, 23, 42, 0.58); }
+[data-theme="dark"] body .year-index { background: rgba(15, 23, 42, 0.58); }
 .year-index a {
   display: inline-flex;
   align-items: center;
@@ -1352,7 +1365,7 @@ body[data-theme="dark"] .year-index { background: rgba(15, 23, 42, 0.58); }
 }
 .copy-email:hover { transform: translateY(-1px); background: rgba(28, 80, 132, 0.08); border-color: rgba(28, 80, 132, 0.35); }
 .copy-email.copied { background: rgba(40, 109, 114, 0.12); color: var(--teal); }
-body[data-theme="dark"] .copy-email { background: rgba(15, 23, 42, 0.72); }
+[data-theme="dark"] body .copy-email { background: rgba(15, 23, 42, 0.72); }
 
 .site-footer { padding: 46px 0 26px; }
 .footer-grid {
@@ -1362,6 +1375,7 @@ body[data-theme="dark"] .copy-email { background: rgba(15, 23, 42, 0.72); }
   align-items: start;
 }
 .footer-column { display: flex; flex-direction: column; gap: 9px; }
+.footer-column h2,
 .footer-column h3 {
   margin: 0 0 6px;
   color: #fff;
@@ -1408,7 +1422,9 @@ body[data-theme="dark"] .copy-email { background: rgba(15, 23, 42, 0.72); }
 }
 .empty-card p { margin: 0; line-height: 1.7; }
 
-/* v7 alumni and people layout refinements */
+// Source: src/css/50-people-footer.css
+/* People/alumni layouts, institutional links and homepage fixed-count grids. */
+
 .people-grid,
 .people-directory-grid {
   grid-template-columns: repeat(auto-fit, minmax(172px, 1fr));
@@ -1502,7 +1518,7 @@ body[data-theme="dark"] .copy-email { background: rgba(15, 23, 42, 0.72); }
 }
 
 
-/* Footer friend links added for institutional context. */
+/* Institutional and collaborator links in the site footer. */
 .footer-friends a {
   position: relative;
   padding-left: 12px;
@@ -1567,6 +1583,8 @@ body[data-theme="dark"] .copy-email { background: rgba(15, 23, 42, 0.72); }
   max-width: 1080px;
 }
 
+// Source: src/css/60-media-performance.css
+/* Image containment and deferred third-party content safeguards. */
 
 /* Performance: reserve image space and isolate deferred third-party map rendering. */
 img {
@@ -1598,4 +1616,369 @@ img {
 .showcase-figure img {
   height: auto;
   object-fit: contain;
+}
+
+// Source: src/css/70-polish-accessibility.css
+/* Visual polish, touch behavior, accessibility preferences and statistics. */
+
+html {
+  scroll-padding-top: calc(var(--header-h) + 22px);
+  scrollbar-gutter: stable;
+}
+
+body.menu-open,
+body.lightbox-open {
+  overflow: hidden;
+}
+
+::selection {
+  color: #fff;
+  background: color-mix(in srgb, var(--blue) 82%, var(--teal));
+}
+
+:where(a, button, input, [role="button"]):focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--blue) 38%, transparent);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+main :where(h1, h2, h3) {
+  text-wrap: balance;
+}
+
+main :where(p, li, figcaption) {
+  text-wrap: pretty;
+}
+
+.section,
+.page-hero,
+.directory-heading,
+.publication-year-group {
+  scroll-margin-top: calc(var(--header-h) + 22px);
+}
+
+.scroll-progress {
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
+  will-change: transform;
+}
+
+.kicker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.kicker::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  flex: 0 0 auto;
+  background: linear-gradient(90deg, var(--red), var(--gold));
+}
+
+.section-heading.center .kicker {
+  justify-content: center;
+}
+
+.section-title-row {
+  position: relative;
+  padding-bottom: 16px;
+  border-bottom: 1px solid color-mix(in srgb, var(--line) 78%, transparent);
+}
+
+.section-title-row::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 72px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--blue), var(--teal));
+}
+
+.section-heading.center::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 2px;
+  margin: 18px auto 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--blue), var(--teal), var(--gold));
+}
+
+.stat-strip strong,
+.visit-stat strong,
+.publication-count strong,
+.timeline-date,
+.publication-card .year {
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-strip div {
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-strip div::after {
+  content: "";
+  position: absolute;
+  inset: auto 18px 0;
+  height: 2px;
+  border-radius: 999px 999px 0 0;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--blue) 72%, transparent), transparent);
+}
+
+.research-card {
+  --card-accent: var(--blue);
+}
+
+.research-card.accent-red { --card-accent: var(--red); }
+.research-card.accent-gold { --card-accent: var(--gold); }
+.research-card.accent-teal { --card-accent: var(--teal); }
+
+.research-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  background: linear-gradient(90deg, var(--card-accent), transparent 78%);
+}
+
+.gallery-card img,
+.showcase-figure img,
+.pi-photo,
+.person-card img,
+.alumni-card img {
+  transition: transform .28s ease, filter .28s ease;
+}
+
+@media (hover: hover) {
+  .gallery-card:hover img,
+  .showcase-figure:hover img {
+    transform: scale(1.018);
+  }
+
+  .pi-feature-card:hover,
+  .info-panel:hover,
+  .publication-list:hover,
+  .showcase-figure:hover,
+  .research-card:hover,
+  .subpage-card:hover,
+  .timeline-card:hover,
+  .gallery-card:hover,
+  .alumni-card:hover {
+    transform: translateY(-3px);
+  }
+}
+
+.person-face,
+.alumni-card {
+  backdrop-filter: none;
+}
+
+.person-card.is-flipped .person-card-inner {
+  transform: rotateY(180deg);
+}
+
+.person-card-toggle {
+  position: absolute;
+  top: 11px;
+  right: 11px;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid color-mix(in srgb, var(--blue) 22%, var(--line));
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  color: var(--blue);
+  box-shadow: 0 7px 18px rgba(30, 44, 64, 0.08);
+  cursor: pointer;
+  font-family: Georgia, serif;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1;
+  opacity: 0;
+  transition: opacity .18s ease, transform .18s ease, background .18s ease;
+}
+
+.person-card-return {
+  font-family: inherit;
+  font-size: 15px;
+}
+
+.person-card:focus-within .person-card-toggle,
+.person-card-toggle:focus-visible {
+  opacity: 1;
+}
+
+.person-card-toggle:hover {
+  transform: translateY(-1px);
+  background: color-mix(in srgb, var(--blue-soft) 68%, var(--paper));
+}
+
+.lightbox img {
+  object-fit: contain;
+}
+
+.lightbox.open {
+  animation: lightbox-fade .18s ease-out both;
+}
+
+@keyframes lightbox-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Visitor statistics were moved out of index.html so the rules are cached across visits. */
+.final-visit-panel.visit-panel-minimal {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.88fr) minmax(420px, 1.72fr);
+  align-items: stretch;
+  gap: 18px;
+}
+
+.visit-counts {
+  display: grid;
+  grid-template-rows: repeat(2, minmax(112px, 1fr));
+  gap: 14px;
+}
+
+.final-visit-panel.visit-panel-minimal .visit-stat {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 112px;
+  padding: 18px 20px;
+}
+
+.mapmyvisitors-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 238px;
+  padding: 20px;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--blue) 13%, var(--line));
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at 10% 0%, color-mix(in srgb, var(--blue) 8%, transparent), transparent 34%),
+    radial-gradient(circle at 95% 15%, color-mix(in srgb, var(--gold) 10%, transparent), transparent 36%),
+    linear-gradient(135deg, color-mix(in srgb, var(--paper) 98%, transparent), color-mix(in srgb, var(--blue-soft) 34%, transparent));
+  box-shadow: var(--shadow-soft);
+}
+
+.mapmyvisitors-frame {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 184px;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--blue) 10%, var(--line));
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--paper) 94%, var(--blue-soft));
+}
+
+.mapmyvisitors-frame :where(iframe, canvas, svg, object, embed, img),
+.mapmyvisitors-frame > * {
+  max-width: 100% !important;
+}
+
+.mapmyvisitors-hint {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .person-card-toggle {
+    opacity: 1;
+  }
+
+  .person-card:hover .person-card-inner {
+    transform: none;
+  }
+
+  .person-card.is-flipped .person-card-inner {
+    transform: rotateY(180deg);
+  }
+}
+
+@media (max-width: 860px) {
+  .nav-menu {
+    display: flex;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-8px) scale(.99);
+    transform-origin: top center;
+    transition: opacity .18s ease, transform .18s ease, visibility .18s ease;
+  }
+
+  .nav-menu.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+  }
+
+  .final-visit-panel.visit-panel-minimal {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .mapmyvisitors-card {
+    padding: 16px;
+  }
+
+  .mapmyvisitors-frame {
+    min-height: 210px;
+  }
+
+  .kicker::before {
+    width: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lightbox.open { animation: none; }
+  .gallery-card img,
+  .showcase-figure img,
+  .pi-photo,
+  .person-card img,
+  .alumni-card img,
+  .person-card-toggle { transition: none; }
+}
+
+@media (prefers-contrast: more) {
+  :root { --line: #b8c1cc; --line-blue: #92abc2; }
+  .person-face,
+  .alumni-card,
+  .research-card,
+  .info-panel,
+  .publication-list,
+  .showcase-figure { border-width: 2px; }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .site-header,
+  .section-navigator {
+    backdrop-filter: none;
+    background: var(--paper);
+  }
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+  .site-header,
+  .section-navigator {
+    background: color-mix(in srgb, var(--paper) 96%, transparent);
+  }
 }
