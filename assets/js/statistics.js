@@ -56,27 +56,41 @@
 
   const loadMapMyVisitors = () => {
     const frame = section.querySelector('[data-mapmyvisitors-frame]');
-    const src = frame ? frame.dataset.mapmyvisitorsSrc : '';
-    if (!frame || !src || frame.querySelector('iframe')) return;
+    const frameSrc = frame ? frame.dataset.mapmyvisitorsFrameSrc : '';
+    if (!frame || !frameSrc || frame.querySelector('iframe')) return;
 
     frame.dataset.loading = 'true';
     const placeholder = frame.querySelector('[data-map-loading]');
     if (placeholder) placeholder.textContent = '正在加载全球访问分布…';
 
-    // Use an isolated iframe so third-party scripts that call document.write()
-    // cannot replace or block the host page after it has finished parsing.
+    // Create the iframe only when the statistics section approaches the viewport.
+    // The iframe loads a normal same-site HTML wrapper containing a parser-inserted
+    // MapMyVisitors script. This preserves document.write() compatibility and avoids
+    // the restricted about:srcdoc environment that can leave the map blank.
     const iframe = document.createElement('iframe');
     iframe.className = 'mapmyvisitors-embed';
     iframe.title = '全球访问来源地图';
-    iframe.loading = 'lazy';
-    iframe.referrerPolicy = 'strict-origin-when-cross-origin';
-    iframe.setAttribute('sandbox', 'allow-scripts allow-popups allow-popups-to-escape-sandbox');
-    const escapedSrc = src.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
-    iframe.srcdoc = `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>html,body{margin:0;min-height:184px;background:transparent;overflow:hidden}body{display:grid;place-items:center}img,svg,canvas,object,embed,iframe{max-width:100%;height:auto;border:0}</style></head><body><script src="${escapedSrc}"><\/script></body></html>`;
+    iframe.loading = 'eager';
+    iframe.src = frameSrc;
+
+    const showFailure = () => {
+      frame.dataset.loading = 'false';
+      if (placeholder) {
+        placeholder.textContent = '全球访问地图暂时无法加载，请稍后刷新。';
+      }
+    };
+
+    const timeout = window.setTimeout(showFailure, 15000);
     iframe.addEventListener('load', () => {
+      window.clearTimeout(timeout);
       frame.dataset.loading = 'false';
       if (placeholder) placeholder.remove();
     }, { once: true });
+    iframe.addEventListener('error', () => {
+      window.clearTimeout(timeout);
+      showFailure();
+    }, { once: true });
+
     frame.appendChild(iframe);
   };
 
