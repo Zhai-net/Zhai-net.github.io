@@ -14,7 +14,7 @@ window.ZHAI_PEOPLE = [
     "email": "sanjing@ustc.edu.cn",
     "profile": "博士生导师 / 硕士生导师",
     "unit": "中国科学技术大学\n工程科学学院近代力学系",
-    "office": "中国科大西区力学五楼",
+    "office": "中国科大西区力学五楼615",
     "research": "实验流体力学、流动稳定性、激波动力学",
     "source": "https://faculty.ustc.edu.cn/zhaizhigang/zh_CN/index.htm"
   },
@@ -30,7 +30,7 @@ window.ZHAI_PEOPLE = [
     "imageAlt": "郭旭照片",
     "bio": "围绕激波诱导界面演化、稀疏波/激波耦合过程及相关实验流体力学问题开展研究。",
     "shortBio": "激波诱导界面演化、稀疏波/激波耦合。",
-    "email": "clguoxu@ustc.edu.cn"
+    "email": "clguoxu@mail.ustc.edu.cn"
   },
   {
     "id": "chen-chenren",
