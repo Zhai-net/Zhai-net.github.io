@@ -1,224 +1,228 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <meta content="翟志刚课题组新闻与学术动态。" name="description"/>
-  <title>
-   新闻时间轴 | 翟志刚课题组
-  </title>
-  <meta content="light dark" name="color-scheme"/>
-<meta content="#f7f5f1" name="theme-color"/>
-<link href="assets/logos/ustcblue.png" rel="icon" type="image/png"/>
-<script>
-  try {
-    const savedTheme = localStorage.getItem('zhai-lab-theme');
-    const theme = savedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-    document.documentElement.dataset.theme = theme;
-    const themeColor = document.querySelector('meta[name="theme-color"]');
-    if (themeColor) themeColor.content = theme === 'dark' ? '#0c1220' : '#f7f5f1';
-  } catch (error) {
-    document.documentElement.dataset.theme = 'light';
-  }
-</script>
-<link href="assets/css/global.css" rel="stylesheet"/>
- </head>
- <body>
-  <div aria-hidden="true" class="scroll-progress">
-  </div>
-  <canvas aria-hidden="true" class="cursor-particles">
-  </canvas>
-  <canvas aria-hidden="true" id="flow-bg">
-  </canvas>
-  <a class="skip-link" href="#main">
-   跳转到正文
-  </a>
-  <header class="site-header" id="top">
-   <nav aria-label="主导航" class="nav-wrap">
-    <a aria-label="翟志刚课题组首页" class="brand" href="index.html">
-     <img alt="中国科学技术大学校徽" class="ustc-seal" decoding="async" fetchpriority="high" height="54" loading="eager" src="assets/logos/ustcblue.png" width="54"/>
-     <span class="brand-school">
-      <img alt="中国科学技术大学" decoding="async" height="41" loading="eager" src="assets/logos/ustcnameblue.png" width="270"/>
-      <small>
-       University of Science and Technology of China
-      </small>
-     </span>
-     <span aria-hidden="true" class="brand-divider">
-     </span>
-     <span class="brand-lab">
-      <strong>
-       翟志刚课题组
-      </strong>
-      <small>
-       Zhigang Zhai Research Group
-      </small>
-     </span>
-    </a>
-    <button aria-controls="siteMenu" aria-expanded="false" aria-label="打开导航菜单" class="nav-toggle">
-     <span>
-     </span>
-     <span>
-     </span>
-     <span>
-     </span>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="翟志刚课题组新闻与学术动态。" name="description" />
+    <title>新闻时间轴 | 翟志刚课题组</title>
+    <meta content="light dark" name="color-scheme" />
+    <meta content="#f7f5f1" name="theme-color" />
+    <link href="assets/logos/ustcblue.png" rel="icon" type="image/png" />
+    <script>
+      try {
+        const savedTheme = localStorage.getItem("zhai-lab-theme");
+        const theme =
+          savedTheme ||
+          (window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light");
+        document.documentElement.dataset.theme = theme;
+        const themeColor = document.querySelector('meta[name="theme-color"]');
+        if (themeColor)
+          themeColor.content = theme === "dark" ? "#0c1220" : "#f7f5f1";
+      } catch (error) {
+        document.documentElement.dataset.theme = "light";
+      }
+    </script>
+    <link href="assets/css/global.css" rel="stylesheet" />
+    <link href="assets/css/refinement.css" rel="stylesheet" />
+  </head>
+  <body class="page-news" data-page="news">
+    <div aria-hidden="true" class="scroll-progress"></div>
+    <canvas aria-hidden="true" class="cursor-particles"> </canvas>
+    <canvas aria-hidden="true" id="flow-bg"> </canvas>
+    <a class="skip-link" href="#main"> 跳转到正文 </a>
+    <header class="site-header" id="top">
+      <nav aria-label="主导航" class="nav-wrap">
+        <a aria-label="翟志刚课题组首页" class="brand" href="index.html">
+          <img
+            alt="中国科学技术大学校徽"
+            class="ustc-seal"
+            decoding="async"
+            fetchpriority="high"
+            height="54"
+            loading="eager"
+            src="assets/logos/ustcblue.png"
+            width="54"
+          />
+          <span class="brand-school">
+            <img
+              alt="中国科学技术大学"
+              decoding="async"
+              height="41"
+              loading="eager"
+              src="assets/logos/ustcnameblue.png"
+              width="270"
+            />
+            <small> University of Science and Technology of China </small>
+          </span>
+          <span aria-hidden="true" class="brand-divider"> </span>
+          <span class="brand-lab">
+            <strong> 翟志刚课题组 </strong>
+            <small> Zhigang Zhai Research Group </small>
+          </span>
+        </a>
+        <button
+          aria-controls="siteMenu"
+          aria-expanded="false"
+          aria-label="打开导航菜单"
+          class="nav-toggle"
+        >
+          <span> </span>
+          <span> </span>
+          <span> </span>
+        </button>
+        <div class="nav-menu" id="siteMenu">
+          <a class="" href="index.html#about"> 简介 </a>
+          <a class="" href="index.html#research"> 研究 </a>
+          <a class="" href="publications.html"> 论文 </a>
+          <a class="" href="people.html"> 成员 </a>
+          <a class="" href="people.html#alumni"> 毕业生 </a>
+          <a aria-current="page" class="active" href="news.html"> 时间轴 </a>
+          <a class="nav-contact" href="index.html#join"> 加入我们 </a>
+          <button
+            aria-label="切换深色或浅色模式"
+            class="theme-toggle"
+            data-theme-toggle=""
+            type="button"
+          >
+            <span aria-hidden="true" class="theme-icon"> ◐ </span>
+            <span class="theme-label"> 深色 </span>
+          </button>
+        </div>
+      </nav>
+    </header>
+    <main id="main">
+      <section class="page-hero">
+        <div class="container reveal">
+          <p class="kicker">Timeline</p>
+          <h1>新闻时间轴</h1>
+          <p class="lead">记录课题组论文发表、会议交流、成员动态与招生信息。</p>
+        </div>
+      </section>
+      <section class="directory-section">
+        <div class="container">
+          <div class="timeline" data-news-page-timeline=""></div>
+        </div>
+      </section>
+    </main>
+    <button aria-label="返回顶部" class="back-to-top" type="button">
+      &uarr;
     </button>
-    <div class="nav-menu" id="siteMenu">
-     <a class="" href="index.html#about">
-      简介
-     </a>
-     <a class="" href="index.html#research">
-      研究
-     </a>
-     <a class="" href="publications.html">
-      论文
-     </a>
-     <a class="" href="people.html">
-      成员
-     </a>
-     <a class="" href="people.html#alumni">
-      毕业生
-     </a>
-     <a class="active" href="news.html">
-      时间轴
-     </a>
-     <a class="nav-contact" href="index.html#join">
-      加入我们
-     </a>
-     <button aria-label="切换深色或浅色模式" class="theme-toggle" data-theme-toggle="" type="button">
-      <span aria-hidden="true" class="theme-icon">
-       🌙
-      </span>
-      <span class="theme-label">
-       深色
-      </span>
-     </button>
+    <div
+      aria-hidden="true"
+      aria-label="图片放大预览"
+      aria-modal="true"
+      class="lightbox"
+      role="dialog"
+      tabindex="-1"
+    >
+      <button aria-label="关闭图片预览" class="lightbox-close" type="button">
+        &times;
+      </button>
+      <img alt="预览图片" />
     </div>
-   </nav>
-  </header>
-  <main id="main">
-   <section class="page-hero">
-    <div class="container reveal">
-     <p class="kicker">
-      Timeline
-     </p>
-     <h1>
-      新闻时间轴
-     </h1>
-     <p class="lead">
-      集中记录课题组论文发表、会议交流、平台建设与招生招聘等进展，以时间轴呈现持续积累。
-     </p>
-    </div>
-   </section>
-   <section class="directory-section">
-    <div class="container">
-     <div class="timeline" data-news-page-timeline="">
-     </div>
-    </div>
-   </section>
-  </main>
-  <button aria-label="返回顶部" class="back-to-top" type="button">
-   &uarr;
-  </button>
-  <div aria-hidden="true" aria-label="图片放大预览" aria-modal="true" class="lightbox" role="dialog" tabindex="-1">
-   <button aria-label="关闭图片预览" class="lightbox-close" type="button">
-    &times;
-   </button>
-   <img alt="预览图片"/>
-  </div>
-  <footer class="site-footer">
-   <div class="container footer-grid">
-    <div class="footer-column footer-identity">
-     <div class="footer-brand compact">
-      <img alt="中国科学技术大学校徽" decoding="async" height="46" loading="lazy" src="assets/logos/ustcblue.png" width="46"/>
-      <span>
-       <strong>
-        翟志刚课题组
-       </strong>
-       <small>
-        Experimental Fluid Mechanics &middot; USTC
-       </small>
-      </span>
-     </div>
-     <p>
-      面向实验流体力学、流动稳定性和激波动力学的基础与应用基础研究。
-     </p>
-    </div>
-    <div class="footer-column">
-     <h3>
-      网站导航
-     </h3>
-     <a href="index.html#about">
-      简介
-     </a>
-     <a href="index.html#research">
-      研究方向
-     </a>
-     <a href="publications.html">
-      论文
-     </a>
-     <a href="people.html">
-      成员
-     </a>
-     <a href="people.html#alumni">
-      毕业生
-     </a>
-     <a href="news.html">
-      时间轴
-     </a>
-    </div>
-    <div class="footer-column">
-     <h3>
-      联系与链接
-     </h3>
-     <a href="mailto:sanjing@ustc.edu.cn">
-      sanjing@ustc.edu.cn
-     </a>
-     <a href="https://faculty.ustc.edu.cn/zhaizhigang/zh_CN/index.htm" rel="noopener" target="_blank">
-      USTC 个人主页
-     </a>
-     <a href="https://scholar.google.com/citations?hl=zh-CN&amp;user=wJDRPKAAAAAJ" rel="noopener" target="_blank">
-      Google Scholar
-     </a>
-     <a href="https://www.researchgate.net/profile/Zhigang-Zhai" rel="noopener" target="_blank">
-      ResearchGate
-     </a>
-    </div>
-<div class="footer-column footer-friends">
-     <h3>
-      友情链接
-     </h3>
-     <a href="https://www.ustc.edu.cn/" rel="noopener" target="_blank">
-      中国科学技术大学主页
-     </a>
-     <a href="https://ses.ustc.edu.cn/main.htm" rel="noopener" target="_blank">
-      工程科学学院主页
-     </a>
-     <a href="https://mech.ustc.edu.cn/main.htm" rel="noopener" target="_blank">
-      近代力学系主页
-     </a>
-     <a href="https://staff.ustc.edu.cn/~xluo/" rel="noopener" target="_blank">
-      罗喜胜教授主页
-     </a>
-     <a href="https://faculty.ustc.edu.cn/tsi/zh_CN/index.htm" rel="noopener" target="_blank">
-      司廷教授主页
-     </a>
-    </div>
-    <div class="footer-bottom">
-     <span>
-      &copy; 2026 翟志刚课题组 版权所有
-     </span>
-     <span>
-      Last updated:
-      <span data-last-updated="">
-       2026-06-17
-      </span>
-     </span>
-    </div>
-   </div>
-  </footer>
-  <script defer="" src="assets/data/site.js"></script>
-  <script defer="" src="assets/data/news.js"></script>
-  <script defer="" src="assets/js/render.js"></script>
-  <script defer="" src="assets/js/common.js"></script>
- </body>
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-column footer-identity">
+          <div class="footer-brand compact">
+            <img
+              alt="中国科学技术大学校徽"
+              decoding="async"
+              height="46"
+              loading="lazy"
+              src="assets/logos/ustcblue.png"
+              width="46"
+            />
+            <span>
+              <strong> 翟志刚课题组 </strong>
+              <small> Experimental Fluid Mechanics &middot; USTC </small>
+            </span>
+          </div>
+          <p>研究方向：实验流体力学、流动稳定性与激波动力学。</p>
+        </div>
+        <div class="footer-column">
+          <h3>网站导航</h3>
+          <a href="index.html#about"> 简介 </a>
+          <a href="index.html#research"> 研究方向 </a>
+          <a href="publications.html"> 论文 </a>
+          <a href="people.html"> 成员 </a>
+          <a href="people.html#alumni"> 毕业生 </a>
+          <a href="news.html"> 时间轴 </a>
+        </div>
+        <div class="footer-column">
+          <h3>联系与链接</h3>
+          <a href="mailto:sanjing@ustc.edu.cn"> sanjing@ustc.edu.cn </a>
+          <a
+            href="https://faculty.ustc.edu.cn/zhaizhigang/zh_CN/index.htm"
+            rel="noopener"
+            target="_blank"
+          >
+            USTC 个人主页
+          </a>
+          <a
+            href="https://scholar.google.com/citations?hl=zh-CN&amp;user=wJDRPKAAAAAJ"
+            rel="noopener"
+            target="_blank"
+          >
+            Google Scholar
+          </a>
+          <a
+            href="https://www.researchgate.net/profile/Zhigang-Zhai"
+            rel="noopener"
+            target="_blank"
+          >
+            ResearchGate
+          </a>
+        </div>
+        <div class="footer-column footer-friends">
+          <h3>友情链接</h3>
+          <a href="https://www.ustc.edu.cn/" rel="noopener" target="_blank">
+            中国科学技术大学主页
+          </a>
+          <a
+            href="https://ses.ustc.edu.cn/main.htm"
+            rel="noopener"
+            target="_blank"
+          >
+            工程科学学院主页
+          </a>
+          <a
+            href="https://mech.ustc.edu.cn/main.htm"
+            rel="noopener"
+            target="_blank"
+          >
+            近代力学系主页
+          </a>
+          <a
+            href="https://staff.ustc.edu.cn/~xluo/"
+            rel="noopener"
+            target="_blank"
+          >
+            罗喜胜教授主页
+          </a>
+          <a
+            href="https://faculty.ustc.edu.cn/tsi/zh_CN/index.htm"
+            rel="noopener"
+            target="_blank"
+          >
+            司廷教授主页
+          </a>
+        </div>
+        <div class="footer-bottom">
+          <span> &copy; 2026 翟志刚课题组 版权所有 </span>
+          <span>
+            Last updated:
+            <span data-last-updated=""> 2026-06-17 </span>
+          </span>
+        </div>
+      </div>
+    </footer>
+    <script defer="" src="assets/js/core.js"></script>
+    <script defer="" src="assets/data/site.js"></script>
+    <script defer="" src="assets/data/news.js"></script>
+    <script defer="" src="assets/js/render.js"></script>
+    <script defer="" src="assets/js/common.js"></script>
+    <script defer="" src="assets/js/polish.js"></script>
+  </body>
 </html>
