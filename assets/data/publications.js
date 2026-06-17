@@ -7,7 +7,7 @@ window.ZHAI_PUBLICATIONS = [
     "detail": "1027, A13",
     "doi": "10.1017/jfm.2025.11064",
     "doiUrl": "https://doi.org/10.1017/jfm.2025.11064",
-    "featured": true
+    "featured": false
   },
   {
     "year": 2025,
@@ -277,7 +277,7 @@ window.ZHAI_PUBLICATIONS = [
     "detail": "956, R2",
     "doi": "10.1017/jfm.2023.9",
     "doiUrl": "https://doi.org/10.1017/jfm.2023.9",
-    "featured": false
+    "featured": true
   },
   {
     "year": 2023,
