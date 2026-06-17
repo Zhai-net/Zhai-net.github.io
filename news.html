@@ -3,11 +3,25 @@
  <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <meta content="翟志刚课题组主页模板" name="description"/>
+  <meta content="翟志刚课题组新闻与学术动态。" name="description"/>
   <title>
    新闻时间轴 | 翟志刚课题组
   </title>
-  <link href="assets/css/global.css" rel="stylesheet"/>
+  <meta content="light dark" name="color-scheme"/>
+<meta content="#f7f5f1" name="theme-color"/>
+<link href="assets/logos/ustcblue.png" rel="icon" type="image/png"/>
+<script>
+  try {
+    const savedTheme = localStorage.getItem('zhai-lab-theme');
+    const theme = savedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+    const themeColor = document.querySelector('meta[name="theme-color"]');
+    if (themeColor) themeColor.content = theme === 'dark' ? '#0c1220' : '#f7f5f1';
+  } catch (error) {
+    document.documentElement.dataset.theme = 'light';
+  }
+</script>
+<link href="assets/css/global.css" rel="stylesheet"/>
  </head>
  <body>
   <div aria-hidden="true" class="scroll-progress">
@@ -91,7 +105,7 @@
       新闻时间轴
      </h1>
      <p class="lead">
-      将课题组论文、会议报告、平台建设、招生招聘等信息统一整理成时间线，比普通列表更有层次感。
+      集中记录课题组论文发表、会议交流、平台建设与招生招聘等进展，以时间轴呈现持续积累。
      </p>
     </div>
    </section>
@@ -105,7 +119,7 @@
   <button aria-label="返回顶部" class="back-to-top" type="button">
    &uarr;
   </button>
-  <div aria-hidden="true" aria-label="图片放大预览" class="lightbox" role="dialog">
+  <div aria-hidden="true" aria-label="图片放大预览" aria-modal="true" class="lightbox" role="dialog" tabindex="-1">
    <button aria-label="关闭图片预览" class="lightbox-close" type="button">
     &times;
    </button>
@@ -196,7 +210,7 @@
      <span>
       Last updated:
       <span data-last-updated="">
-       2026-06-16
+       2026-06-17
       </span>
      </span>
     </div>

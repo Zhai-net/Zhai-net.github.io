@@ -7,7 +7,21 @@
   <title>
    翟志刚课题组 | Zhigang Zhai Research Group
   </title>
-  <link href="assets/css/global.css" rel="stylesheet"/>
+  <meta content="light dark" name="color-scheme"/>
+<meta content="#f7f5f1" name="theme-color"/>
+<link href="assets/logos/ustcblue.png" rel="icon" type="image/png"/>
+<script>
+  try {
+    const savedTheme = localStorage.getItem('zhai-lab-theme');
+    const theme = savedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+    const themeColor = document.querySelector('meta[name="theme-color"]');
+    if (themeColor) themeColor.content = theme === 'dark' ? '#0c1220' : '#f7f5f1';
+  } catch (error) {
+    document.documentElement.dataset.theme = 'light';
+  }
+</script>
+<link href="assets/css/global.css" rel="stylesheet"/>
  </head>
  <body>
   <div aria-hidden="true" class="scroll-progress">
@@ -119,7 +133,7 @@
     </span>
     毕业生
    </a>
-   <a data-section-link="news" href="#news">
+   <a data-section-link="timeline" href="#timeline">
     <span>
     </span>
     动态
@@ -177,7 +191,7 @@
       <p>
        根据中国科学技术大学教师个人主页公开信息，翟志刚教授主要从事实验流体力学、流动稳定性、激波动力学等方面的基础和应用基础科学研究。本网站首页以课题组公开研究方向为基础组织内容，具体成员、论文和新闻可由课题组后续维护更新。
       </p>
-      <div aria-label="首页数据展示位" class="stat-strip">
+      <div aria-label="课题组概况" class="stat-strip">
        <div>
         <strong>
          2012
@@ -354,7 +368,7 @@
        实验平台与测量方法
       </h2>
       <p>
-       模板预留实验平台展示位，可放置激波管、纹影系统、高速摄影系统、定量阴影测量平台等真实照片。点击图片可放大查看。
+       课题组依托激波管、稀疏波管、纹影与高速摄影系统，围绕瞬态高速流动建立可重复的实验与定量测量流程。点击图片可放大查看。
       </p>
       <ul class="method-list">
        <li>
@@ -369,9 +383,9 @@
       </ul>
      </div>
      <figure class="showcase-figure reveal">
-      <img alt="激波与界面相互作用线稿示意图" data-lightbox="" decoding="async" fetchpriority="low" height="520" loading="lazy" src="assets/shock-interface.svg" width="860"/>
+      <img alt="课题组实验平台与光学诊断装置" data-lightbox="" decoding="async" fetchpriority="low" height="520" loading="lazy" src="assets/shock-interface.svg" width="860"/>
       <figcaption>
-       Shock-interface interaction &middot; schematic placeholder
+       Experimental facilities &middot; optical diagnostics
       </figcaption>
      </figure>
     </div>
@@ -388,7 +402,7 @@
        </h2>
       </div>
       <p class="section-hint">
-       用于展示实验平台、学术会议、组会活动和代表性流动图像；当前为统一风格示意图，可直接替换为真实照片。
+       记录实验平台、学术会议、组会活动和代表性流动图像，持续呈现课题组的研究与交流进展。
       </p>
      </div>
      <div class="gallery-grid" data-gallery-grid="">
@@ -524,10 +538,7 @@
        <a href="mailto:sanjing@ustc.edu.cn">
         sanjing@ustc.edu.cn
        </a>
-       <span>
-        0551-6360 xxxx
-       </span>
-       <a href="https://zhai-net.github.io">
+              <a href="https://zhai-net.github.io">
         https://zhai-net.github.io
        </a>
       </address>
@@ -589,7 +600,7 @@
   <button aria-label="返回顶部" class="back-to-top" type="button">
    &uarr;
   </button>
-  <div aria-hidden="true" aria-label="图片放大预览" class="lightbox" role="dialog">
+  <div aria-hidden="true" aria-label="图片放大预览" aria-modal="true" class="lightbox" role="dialog" tabindex="-1">
    <button aria-label="关闭图片预览" class="lightbox-close" type="button">
     &times;
    </button>
@@ -677,7 +688,7 @@
      <span>
       Last updated:
       <span data-last-updated="">
-       2026-06-16
+       2026-06-17
       </span>
      </span>
     </div>

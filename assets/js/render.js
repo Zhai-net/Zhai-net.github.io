@@ -51,12 +51,14 @@
       <article class="${cardClass}"${person.id ? ` data-person-id="${escapeHTML(person.id)}"` : ''}>
         <div class="person-card-inner">
           <div class="person-face front">
+            <button aria-expanded="false" aria-label="查看${escapeHTML(person.name)}的简介" class="person-card-toggle" data-person-card-toggle type="button">i</button>
             <img alt="${escapeHTML(person.imageAlt || `${person.name}照片`)}" data-lightbox="" decoding="async" fetchpriority="low" loading="lazy" src="${escapeHTML(person.image || 'assets/portraits/portrait-placeholder.jpg')}"/>
             <h3>${escapeHTML(person.name)}</h3>
             <p>${escapeHTML(person.title || '')}</p>
             <span class="role">${escapeHTML(person.role || '')}</span>
           </div>
           <div class="person-face back">
+            <button aria-expanded="false" aria-label="返回${escapeHTML(person.name)}的名片正面" class="person-card-toggle person-card-return" data-person-card-toggle type="button">↩</button>
             <h3>${escapeHTML(person.name)}</h3>
             <p class="bio">${escapeHTML(options.short ? (person.shortBio || person.bio) : person.bio)}</p>
             ${contact}
