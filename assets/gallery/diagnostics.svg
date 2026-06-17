@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-label="Optical Diagnostics">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#1c5084" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#2f7ea4" stop-opacity="0.82"/>
+    </linearGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <rect width="900" height="560" rx="34" fill="url(#g)"/>
+  <g opacity="0.22" fill="none" stroke="#fff" stroke-width="2.2">
+    <path d="M-30 120 C150 40 250 210 430 130 S700 40 930 140"/>
+    <path d="M-20 210 C150 130 300 290 470 205 S710 120 925 235"/>
+    <path d="M-35 300 C145 230 280 390 470 315 S725 230 940 340"/>
+    <path d="M-25 395 C160 325 305 475 500 410 S730 330 930 430"/>
+  </g>
+  <circle cx="710" cy="120" r="88" fill="#fff" opacity="0.10" filter="url(#blur)"/>
+  <circle cx="200" cy="395" r="115" fill="#fff" opacity="0.10" filter="url(#blur)"/>
+  <g transform="translate(72 318)">
+    <rect width="760" height="150" rx="24" fill="#ffffff" opacity="0.13"/>
+    <text x="34" y="60" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="800" fill="#fff">Optical Diagnostics</text>
+    <text x="36" y="108" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="500" fill="#f5f8ff" opacity="0.92">Schlieren · Shadowgraph · High-speed imaging</text>
+  </g>
+</svg>
