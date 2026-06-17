@@ -1585,3 +1585,17 @@ img {
   border: 0;
   background: transparent;
 }
+
+
+/* Homepage portrait aspect-ratio fix: CSS owns the display box; image pixels are never stretched. */
+#people .person-card img,
+#alumni .alumni-card img,
+.pi-photo {
+  max-width: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+.showcase-figure img {
+  height: auto;
+  object-fit: contain;
+}
