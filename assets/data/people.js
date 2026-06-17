@@ -3,7 +3,7 @@ window.ZHAI_PEOPLE = [
     "id": "zhigang-zhai",
     "name": "翟志刚",
     "nameEn": "Zhigang Zhai",
-    "title": "教授 / 博士生导师 / 硕士生导师",
+    "title": "教授 / 博士生导师 / 硕士生导师 / 力学五楼6楼党支部书记",
     "role": "PI",
     "category": "pi",
     "homepage": true,
