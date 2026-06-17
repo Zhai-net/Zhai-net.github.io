@@ -7,7 +7,6 @@
   <title>
    新闻时间轴 | 翟志刚课题组
   </title>
-  <link as="image" href="assets/portraits/portrait-placeholder.jpg" rel="preload"/>
   <link href="assets/css/global.css" rel="stylesheet"/>
  </head>
  <body>
@@ -23,9 +22,9 @@
   <header class="site-header" id="top">
    <nav aria-label="主导航" class="nav-wrap">
     <a aria-label="翟志刚课题组首页" class="brand" href="index.html">
-     <img alt="中国科学技术大学校徽" class="ustc-seal" src="assets/logos/ustcblue.png"/>
+     <img alt="中国科学技术大学校徽" class="ustc-seal" decoding="async" fetchpriority="high" height="54" loading="eager" src="assets/logos/ustcblue.png" width="54"/>
      <span class="brand-school">
-      <img alt="中国科学技术大学" src="assets/logos/ustcnameblue.png" width="270"/>
+      <img alt="中国科学技术大学" decoding="async" height="41" loading="eager" src="assets/logos/ustcnameblue.png" width="270"/>
       <small>
        University of Science and Technology of China
       </small>
@@ -116,7 +115,7 @@
    <div class="container footer-grid">
     <div class="footer-column footer-identity">
      <div class="footer-brand compact">
-      <img alt="中国科学技术大学校徽" src="assets/logos/ustcblue.png"/>
+      <img alt="中国科学技术大学校徽" decoding="async" height="46" loading="lazy" src="assets/logos/ustcblue.png" width="46"/>
       <span>
        <strong>
         翟志刚课题组
@@ -203,19 +202,9 @@
     </div>
    </div>
   </footer>
-  <script src="assets/data/site.js">
-  </script>
-  <script src="assets/data/publications.js">
-  </script>
-  <script src="assets/data/people.js">
-  </script>
-  <script src="assets/data/gallery.js">
-  </script>
-  <script src="assets/data/news.js">
-  </script>
-  <script src="assets/js/render.js">
-  </script>
-  <script src="assets/js/common.js">
-  </script>
+  <script defer="" src="assets/data/site.js"></script>
+  <script defer="" src="assets/data/news.js"></script>
+  <script defer="" src="assets/js/render.js"></script>
+  <script defer="" src="assets/js/common.js"></script>
  </body>
 </html>

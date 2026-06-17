@@ -25,7 +25,7 @@
     if (!pi) return;
     target.innerHTML = `
       <div class="pi-card-top">
-        <img alt="${escapeHTML(pi.imageAlt || `${pi.name}照片`)}" class="pi-photo" data-lightbox="" src="${escapeHTML(pi.image || 'assets/portraits/portrait-placeholder.jpg')}"/>
+        <img alt="${escapeHTML(pi.imageAlt || `${pi.name}照片`)}" class="pi-photo" data-lightbox="" decoding="async" fetchpriority="low" height="166" loading="lazy" src="${escapeHTML(pi.image || 'assets/portraits/portrait-placeholder.jpg')}" width="132"/>
         <div class="pi-title-block">
           <p class="eyebrow">Principal Investigator</p>
           <h2>${escapeHTML(pi.name)} <span>${escapeHTML((pi.title || '').split('/')[0].trim() || '教授')}</span></h2>
@@ -51,7 +51,7 @@
       <article class="${cardClass}"${person.id ? ` data-person-id="${escapeHTML(person.id)}"` : ''}>
         <div class="person-card-inner">
           <div class="person-face front">
-            <img alt="${escapeHTML(person.imageAlt || `${person.name}照片`)}" data-lightbox="" src="${escapeHTML(person.image || 'assets/portraits/portrait-placeholder.jpg')}"/>
+            <img alt="${escapeHTML(person.imageAlt || `${person.name}照片`)}" data-lightbox="" decoding="async" fetchpriority="low" height="132" loading="lazy" src="${escapeHTML(person.image || 'assets/portraits/portrait-placeholder.jpg')}" width="112"/>
             <h3>${escapeHTML(person.name)}</h3>
             <p>${escapeHTML(person.title || '')}</p>
             <span class="role">${escapeHTML(person.role || '')}</span>
@@ -72,7 +72,7 @@
     return `
       <article class="alumni-card reveal"${person.id ? ` data-person-id="${escapeHTML(person.id)}"` : ''}>
         <div class="alumni-avatar-wrap">
-          <img alt="${escapeHTML(person.imageAlt || `${person.name}照片`)}" data-lightbox="" src="${escapeHTML(person.image || 'assets/portraits/portrait-placeholder.jpg')}"/>
+          <img alt="${escapeHTML(person.imageAlt || `${person.name}照片`)}" data-lightbox="" decoding="async" fetchpriority="low" height="108" loading="lazy" src="${escapeHTML(person.image || 'assets/portraits/portrait-placeholder.jpg')}" width="92"/>
         </div>
         <div class="alumni-info">
           <h3>${escapeHTML(person.name)}</h3>
@@ -132,7 +132,7 @@
     if (!target) return;
     target.innerHTML = gallery.map((item) => `
       <figure class="gallery-card reveal">
-        <img alt="${escapeHTML(item.alt || item.title)}" data-lightbox="" src="${escapeHTML(item.image)}"/>
+        <img alt="${escapeHTML(item.alt || item.title)}" data-lightbox="" decoding="async" fetchpriority="low" height="360" loading="lazy" src="${escapeHTML(item.image)}" width="576"/>
         <figcaption><strong>${escapeHTML(item.title)}</strong><span>${escapeHTML(item.description || '')}</span></figcaption>
       </figure>
     `).join('');

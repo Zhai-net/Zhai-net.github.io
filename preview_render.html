@@ -7,7 +7,6 @@
   <title>
    翟志刚课题组 | Zhigang Zhai Research Group
   </title>
-  <link as="image" href="assets/portraits/portrait-placeholder.jpg" rel="preload"/>
   <link href="assets/css/global.css" rel="stylesheet"/>
  </head>
  <body>
@@ -23,9 +22,9 @@
   <header class="site-header" id="top">
    <nav aria-label="主导航" class="nav-wrap">
     <a aria-label="翟志刚课题组首页" class="brand" href="index.html">
-     <img alt="中国科学技术大学校徽" class="ustc-seal" src="assets/logos/ustcblue.png"/>
+     <img alt="中国科学技术大学校徽" class="ustc-seal" decoding="async" fetchpriority="high" height="54" loading="eager" src="assets/logos/ustcblue.png" width="54"/>
      <span class="brand-school">
-      <img alt="中国科学技术大学" src="assets/logos/ustcnameblue.png" width="270"/>
+      <img alt="中国科学技术大学" decoding="async" height="41" loading="eager" src="assets/logos/ustcnameblue.png" width="270"/>
       <small>
        University of Science and Technology of China
       </small>
@@ -370,7 +369,7 @@
       </ul>
      </div>
      <figure class="showcase-figure reveal">
-      <img alt="激波与界面相互作用线稿示意图" data-lightbox="" src="assets/shock-interface.svg"/>
+      <img alt="激波与界面相互作用线稿示意图" data-lightbox="" decoding="async" fetchpriority="low" height="520" loading="lazy" src="assets/shock-interface.svg" width="860"/>
       <figcaption>
        Shock-interface interaction &middot; schematic placeholder
       </figcaption>
@@ -535,7 +534,7 @@
      </article>
     </div>
    </section>
-   <section class="section visit-section" id="site-statistics">
+   <section class="section visit-section" data-busuanzi-src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" id="site-statistics">
     <div class="container">
      <div aria-label="网站访问统计与 IP 地图" class="visit-panel final-visit-panel reveal">
       <div class="visit-stat">
@@ -566,7 +565,7 @@
          IP 地图统计
         </span>
         <strong data-visitor-map-status="">
-         加载中
+         等待加载
         </strong>
        </div>
        <div aria-label="访问 IP 地理位置示意图" class="visitor-map" data-visitor-map="">
@@ -574,7 +573,7 @@
         </span>
        </div>
        <p class="visit-map-location" data-visitor-map-location="">
-        正在获取当前访问 IP 的地理位置。
+        滚动到本区域附近后获取当前访问 IP 的地理位置。
        </p>
        <a class="inline-text-link visitor-map-external" data-visitor-map-external="" hidden="" rel="noopener" target="_blank">
         查看聚合访问地图
@@ -600,7 +599,7 @@
    <div class="container footer-grid">
     <div class="footer-column footer-identity">
      <div class="footer-brand compact">
-      <img alt="中国科学技术大学校徽" src="assets/logos/ustcblue.png"/>
+      <img alt="中国科学技术大学校徽" decoding="async" height="46" loading="lazy" src="assets/logos/ustcblue.png" width="46"/>
       <span>
        <strong>
         翟志刚课题组
@@ -684,21 +683,13 @@
     </div>
    </div>
   </footer>
-  <script async="" src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
-  </script>
-  <script src="assets/data/site.js">
-  </script>
-  <script src="assets/data/publications.js">
-  </script>
-  <script src="assets/data/people.js">
-  </script>
-  <script src="assets/data/gallery.js">
-  </script>
-  <script src="assets/data/news.js">
-  </script>
-  <script src="assets/js/render.js">
-  </script>
-  <script src="assets/js/common.js">
-  </script>
+  <script defer="" src="assets/data/site.js"></script>
+  <script defer="" src="assets/data/publications.js"></script>
+  <script defer="" src="assets/data/people.js"></script>
+  <script defer="" src="assets/data/gallery.js"></script>
+  <script defer="" src="assets/data/news.js"></script>
+  <script defer="" src="assets/js/render.js"></script>
+  <script defer="" src="assets/js/statistics.js"></script>
+  <script defer="" src="assets/js/common.js"></script>
  </body>
 </html>

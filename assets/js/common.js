@@ -65,7 +65,7 @@ if (navToggle && navMenu) {
   }
 })();
 
-// Low-key cursor particles: sparse and disabled on touch / reduced motion.
+// Low-key cursor particles: render only while particles are active.
 (() => {
   const canvas = document.querySelector('.cursor-particles');
   if (!canvas || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -77,6 +77,7 @@ if (navToggle && navMenu) {
   let width = 0;
   let height = 0;
   let last = 0;
+  let animationFrame = 0;
 
   function resize() {
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -87,6 +88,10 @@ if (navToggle && navMenu) {
     canvas.style.width = `${width}px`;
     canvas.style.height = `${height}px`;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function scheduleDraw() {
+    if (!animationFrame && !document.hidden) animationFrame = requestAnimationFrame(draw);
   }
 
   function addParticle(x, y) {
@@ -102,17 +107,11 @@ if (navToggle && navMenu) {
       life: 1,
       color: palette[Math.floor(Math.random() * palette.length)]
     });
+    scheduleDraw();
   }
 
-  window.addEventListener('resize', resize, { passive: true });
-  window.addEventListener('mousemove', (event) => {
-    const now = performance.now();
-    if (now - last < 22) return;
-    last = now;
-    addParticle(event.clientX, event.clientY);
-  }, { passive: true });
-
   function draw() {
+    animationFrame = 0;
     ctx.clearRect(0, 0, width, height);
     for (let i = particles.length - 1; i >= 0; i -= 1) {
       const p = particles[i];
@@ -129,14 +128,29 @@ if (navToggle && navMenu) {
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
       ctx.fill();
     }
-    requestAnimationFrame(draw);
+    if (particles.length) scheduleDraw();
   }
 
+  window.addEventListener('resize', resize, { passive: true });
+  window.addEventListener('mousemove', (event) => {
+    const now = performance.now();
+    if (now - last < 22) return;
+    last = now;
+    addParticle(event.clientX, event.clientY);
+  }, { passive: true });
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden && animationFrame) {
+      cancelAnimationFrame(animationFrame);
+      animationFrame = 0;
+    } else if (particles.length) {
+      scheduleDraw();
+    }
+  });
+
   resize();
-  draw();
 })();
 
-// Subtle flow-line background for fluid-mechanics identity.
+// Subtle flow-line background, throttled to reduce CPU and battery use.
 (() => {
   const canvas = document.querySelector('#flow-bg');
   if (!canvas || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -146,6 +160,9 @@ if (navToggle && navMenu) {
   let height = 0;
   let dpr = 1;
   let t = 0;
+  let animationFrame = 0;
+  let lastFrame = 0;
+  const frameInterval = 1000 / 30;
 
   function resize() {
     dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -173,18 +190,35 @@ if (navToggle && navMenu) {
     ctx.stroke();
   }
 
-  function draw() {
-    ctx.clearRect(0, 0, width, height);
-    for (let i = 0; i < 16; i += 1) {
-      drawStreamline((height / 17) * (i + 1), i * 0.72, 0.075 + (i % 4) * 0.012);
+  function draw(now) {
+    animationFrame = 0;
+    if (document.hidden) return;
+    if (now - lastFrame >= frameInterval) {
+      ctx.clearRect(0, 0, width, height);
+      for (let i = 0; i < 16; i += 1) {
+        drawStreamline((height / 17) * (i + 1), i * 0.72, 0.075 + (i % 4) * 0.012);
+      }
+      t += 1;
+      lastFrame = now;
     }
-    t += 1;
-    requestAnimationFrame(draw);
+    animationFrame = requestAnimationFrame(draw);
+  }
+
+  function start() {
+    if (!animationFrame && !document.hidden) animationFrame = requestAnimationFrame(draw);
   }
 
   window.addEventListener('resize', resize, { passive: true });
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden && animationFrame) {
+      cancelAnimationFrame(animationFrame);
+      animationFrame = 0;
+    } else {
+      start();
+    }
+  });
   resize();
-  draw();
+  start();
 })();
 
 // Image lightbox for portraits and research figures.
@@ -281,62 +315,6 @@ if (navToggle && navMenu) {
   sections.forEach((section) => observer.observe(section));
 })();
 
-
-// Visitor IP map: client-side fallback for static deployments.
-(() => {
-  const mapCard = document.querySelector('[data-visitor-map-card]');
-  const map = document.querySelector('[data-visitor-map]');
-  const dot = document.querySelector('[data-visitor-map-dot]');
-  const status = document.querySelector('[data-visitor-map-status]');
-  const location = document.querySelector('[data-visitor-map-location]');
-  const external = document.querySelector('[data-visitor-map-external]');
-  const config = (window.ZHAI_SITE && window.ZHAI_SITE.visitorMap) || {};
-
-  if (!mapCard || !map || !dot) return;
-
-  const setStatus = (text) => { if (status) status.textContent = text; };
-  const setLocation = (text) => { if (location) location.textContent = text; };
-
-  if (config.aggregateMapUrl && external) {
-    external.href = config.aggregateMapUrl;
-    external.hidden = false;
-  }
-
-  if (config.enabled === false) {
-    mapCard.hidden = true;
-    return;
-  }
-
-  const endpoint = config.endpoint || 'https://ipwho.is/';
-  const placeDot = (latitude, longitude) => {
-    const lat = Math.max(-85, Math.min(85, Number(latitude)));
-    const lon = Math.max(-180, Math.min(180, Number(longitude)));
-    if (!Number.isFinite(lat) || !Number.isFinite(lon)) return false;
-    const x = ((lon + 180) / 360) * 100;
-    const y = ((90 - lat) / 180) * 100;
-    dot.style.left = `${x}%`;
-    dot.style.top = `${y}%`;
-    dot.classList.add('show');
-    return true;
-  };
-
-  fetch(endpoint, { cache: 'no-store' })
-    .then((response) => response.ok ? response.json() : Promise.reject(new Error('IP lookup failed')))
-    .then((data) => {
-      const ok = data && data.success !== false;
-      if (!ok) throw new Error(data && data.message ? data.message : 'IP lookup failed');
-      const city = data.city || data.region || '';
-      const country = data.country || '';
-      const ip = data.ip ? ` · ${data.ip}` : '';
-      const mapped = placeDot(data.latitude, data.longitude);
-      setStatus(mapped ? '已定位' : '已连接');
-      setLocation([city, country].filter(Boolean).join('，') + ip || '已获取访问来源，但未返回可定位坐标。');
-    })
-    .catch(() => {
-      setStatus('待部署');
-      setLocation('IP 地图需要联网部署后加载；本地预览或浏览器隐私策略可能阻止定位请求。');
-    });
-})();
 
 // Publication search and year quick index.
 (() => {

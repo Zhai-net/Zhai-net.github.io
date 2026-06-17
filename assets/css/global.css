@@ -1566,3 +1566,22 @@ body[data-theme="dark"] .copy-email { background: rgba(15, 23, 42, 0.72); }
 #site-statistics .final-visit-panel {
   max-width: 1080px;
 }
+
+
+/* Performance: reserve image space and isolate deferred third-party map rendering. */
+img {
+  max-width: 100%;
+}
+.mapmyvisitors-frame {
+  contain: layout paint;
+}
+.mapmyvisitors-frame[data-loading="true"] {
+  cursor: progress;
+}
+.mapmyvisitors-embed {
+  display: block;
+  width: 100%;
+  min-height: 184px;
+  border: 0;
+  background: transparent;
+}
