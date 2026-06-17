@@ -479,6 +479,69 @@
     });
   }
 
+  function initRMIFreezeEasterEgg() {
+    const card = query('.person-card[data-person-id="chen-chenren"]');
+    if (!card) return;
+
+    const interactiveSelector =
+      'a, button, input, select, textarea, [role="button"], [data-lightbox]';
+    const clickWindow = 1800;
+    const freezeDuration = 1500;
+    let clickCount = 0;
+    let resetTimer = 0;
+    let freezeTimer = 0;
+
+    const resetClicks = () => {
+      clickCount = 0;
+      window.clearTimeout(resetTimer);
+      resetTimer = 0;
+    };
+
+    const triggerFreeze = () => {
+      if (document.body.classList.contains("rmi-freeze-active")) return;
+
+      let overlay = query("[data-rmi-freeze-overlay]");
+      if (!overlay) {
+        overlay = document.createElement("div");
+        overlay.className = "rmi-freeze-overlay";
+        overlay.dataset.rmiFreezeOverlay = "";
+        overlay.setAttribute("aria-live", "assertive");
+        overlay.setAttribute("aria-atomic", "true");
+        overlay.innerHTML = `
+          <div class="rmi-freeze-crystals" aria-hidden="true"></div>
+          <p class="rmi-freeze-title">RM不稳定性冻结</p>
+        `;
+        document.body.appendChild(overlay);
+      }
+
+      document.body.classList.add("rmi-freeze-active");
+      overlay.classList.remove("is-visible");
+      void overlay.offsetWidth;
+      overlay.classList.add("is-visible");
+
+      window.clearTimeout(freezeTimer);
+      freezeTimer = window.setTimeout(() => {
+        document.body.classList.remove("rmi-freeze-active");
+        overlay.classList.remove("is-visible");
+      }, freezeDuration);
+    };
+
+    card.addEventListener("click", (event) => {
+      if (event.target.closest(interactiveSelector)) return;
+
+      clickCount += 1;
+      window.clearTimeout(resetTimer);
+
+      if (clickCount >= 3) {
+        resetClicks();
+        triggerFreeze();
+        return;
+      }
+
+      resetTimer = window.setTimeout(resetClicks, clickWindow);
+    });
+  }
+
   function initRevealOnScroll() {
     const nodes = queryAll(".reveal");
     if (!nodes.length || prefersReducedMotion()) {
@@ -668,6 +731,7 @@
     initFlowBackground,
     initLightbox,
     initPersonCards,
+    initRMIFreezeEasterEgg,
     initRevealOnScroll,
     initPublicationFilters,
     initSectionNavigator,
