@@ -1641,9 +1641,7 @@ p {
     padding: 58px 0 54px;
   }
   .hero::before {
-    width: 420px;
-    right: -220px;
-    top: 8%;
+    display: none;
   }
   .hero::after {
     display: none;
