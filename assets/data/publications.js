@@ -1,6 +1,26 @@
 window.ZHAI_PUBLICATIONS = [
   {
     year: 2026,
+    authors: "Yifan Ma, Chenren Chen, Zhigang Zhai",
+    title: "Interface-coupling effects in shock-driven multi-layer fluid system",
+    journal: "Physical Review Fluids",
+    detail: "Accepted 9 June 2026",
+    doi: "10.1103/2gxr-ydgy",
+    doiUrl: "https://doi.org/10.1103/2gxr-ydgy",
+    featured: false,
+  },
+  {
+    year: 2026,
+    authors: "Siqi Wang, Chaofan Yang, Baoqing Meng, Xu Guo, Zhigang Zhai, Xisheng Luo",
+    title: "Shock-induced dispersal of dense particle curtains with different particle diameters",
+    journal: "Acta Mechanica Sinica",
+    detail: "Published online 26 May 2026",
+    doi: "10.1007/s10409-026-60440-x",
+    doiUrl: "https://doi.org/10.1007/s10409-026-60440-x",
+    featured: false,
+  },
+  {
+    year: 2026,
     authors: "Chenren Chen, Jiaxuan Li, Zhigang Zhai",
     title:
       "Atwood-number dependence of the instability evolution at a shock-accelerated heavy fluid layer",

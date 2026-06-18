@@ -83,7 +83,8 @@ http://localhost:8000/
   imageAlt: "李佳轩照片",
   bio: "研究方向说明。",
   shortBio: "首页使用的简短说明。",
-  email: "name@ustc.edu.cn"
+  email: "name@ustc.edu.cn",
+  website: "https://example.com"
 }
 ```
 
@@ -94,6 +95,7 @@ http://localhost:8000/
 - `homepage: false` 可将非毕业生成员从首页隐藏，但仍保留在成员页。
 - 照片建议使用 WebP，文件名与 `id` 一致；没有照片时使用 `portrait-placeholder.jpg`。
 - 毕业生可补充 `graduation` 和 `destination` 字段。
+- 个人主页使用可选的 `website` 字段；不要把 HTML 链接直接写入 `name`。
 
 ### 更新论文
 
