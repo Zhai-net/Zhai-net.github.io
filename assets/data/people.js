@@ -263,12 +263,13 @@ window.ZHAI_PEOPLE = [
   },
   {
     id: "jiaxuan-li",
-    name: "<a href="https://www.jia-xuan.li">李佳轩</a>",
+    name: "李佳轩",
     nameEn: "Jiaxuan Li",
     title: "2023级博士毕业生",
     role: "Alumni",
     category: "alumni",
     homepage: true,
+    website: "https://www.jia-xuan.li",
     image: "assets/portraits/portrait-placeholder.jpg",
     imageAlt: "李佳轩照片（占位）",
     graduation: "2023级博士毕业生",
@@ -276,7 +277,7 @@ window.ZHAI_PEOPLE = [
     bio: "重-轻型界面不稳定性研究。",
   },
   {
-    id: "Yue-li",
+    id: "yue-li",
     name: "李玥",
     nameEn: "Yue Li",
     title: "2023级博士毕业生",
