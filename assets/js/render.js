@@ -41,6 +41,15 @@
     return target;
   };
 
+  const renderPersonName = (person) => {
+    const name = escapeHTML(person.name || "");
+    const website = String(person.website || "").trim();
+
+    if (!/^https?:\/\//i.test(website)) return name;
+
+    return `<a class="person-name-link" href="${escapeHTML(website)}" rel="noopener noreferrer" target="_blank">${name}</a>`;
+  };
+
   function renderPiFeature() {
     const target = query("[data-pi-feature]");
     if (!target) return;
@@ -130,7 +139,7 @@
           <img alt="${escapeHTML(person.imageAlt || `${person.name}照片`)}" data-lightbox="" decoding="async" fetchpriority="low" loading="lazy" src="${escapeHTML(image)}"/>
         </div>
         <div class="alumni-info">
-          <h3>${escapeHTML(person.name)}</h3>
+          <h3>${renderPersonName(person)}</h3>
           ${englishName}
           <p>${escapeHTML(person.graduation || person.title || "毕业生")}</p>
           <span>${escapeHTML(person.destination || person.bio || "信息待补充")}</span>
