@@ -42,7 +42,7 @@ window.ZHAI_PEOPLE = [
     homepage: true,
     image: "assets/portraits/ccr.webp",
     imageAlt: "陈辰稔照片",
-    bio: "研究重气层演化及扰动激波与界面的耦合。",
+    bio: "研究RM不稳定性界面耦合机理，RM不稳定性的调控。",
     shortBio: "重气层演化、扰动激波与界面耦合。",
     email: "ccr1348742256@mail.ustc.edu.cn",
   },
@@ -56,7 +56,7 @@ window.ZHAI_PEOPLE = [
     homepage: true,
     image: "assets/portraits/portrait-placeholder.jpg",
     imageAlt: "杨超凡照片（占位）",
-    bio: "研究方向待课题组补充。",
+    bio: "开展激波与颗粒幕相互作用实验。",
     email: "",
   },
   {
@@ -95,7 +95,7 @@ window.ZHAI_PEOPLE = [
     homepage: true,
     image: "assets/portraits/portrait-placeholder.jpg",
     imageAlt: "蒲靖乾照片（占位）",
-    bio: "平面激波冲击气层界面演化相关实验研究。",
+    bio: "激波动力学以及多体分离研究。",
     email: "",
   },
   {
@@ -108,7 +108,7 @@ window.ZHAI_PEOPLE = [
     homepage: true,
     image: "assets/portraits/portrait-placeholder.jpg",
     imageAlt: "马伊凡照片（占位）",
-    bio: "研究方向待课题组补充。",
+    bio: "多层界面RM不稳定性研究。",
     email: "",
   },
   {
@@ -263,7 +263,7 @@ window.ZHAI_PEOPLE = [
   },
   {
     id: "jiaxuan-li",
-    name: "李佳轩",
+    name: "<a href="https://www.jia-xuan.li">李佳轩</a>",
     nameEn: "Jiaxuan Li",
     title: "2023级博士毕业生",
     role: "Alumni",
