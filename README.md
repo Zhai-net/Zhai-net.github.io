@@ -40,6 +40,7 @@
 │   │   ├── polish.js           # 页眉状态、入场节奏和图片加载状态
 │   │   └── statistics.js       # 不蒜子与访问地图的延迟加载
 │   ├── gallery                 # 图集图片
+│   ├── results                 # 首页顶部实验结果图片（静态/动态 WebP）
 │   ├── logos                   # 校徽与校名图片
 │   └── portraits               # 成员照片
 └── tools
@@ -138,6 +139,18 @@ http://localhost:8000/
 ```
 
 首页显示最新三条，新闻页显示全部条目。建议按时间倒序排列。
+
+### 更新首页实验图像
+
+首页顶部实验结果条使用 `assets/results/` 中的图片。展示区保持统一图像高度，每张卡片根据原始宽高比使用独立宽度，不对图片横向拉伸，也不在两侧添加留白。
+
+静态图片建议保存为 WebP。GIF 建议转为动态 WebP，以保留循环动画并显著减小体积：
+
+```bash
+ffmpeg -i input.gif -an -c:v libwebp_anim -lossless 0 -quality 82 -compression_level 6 -loop 0 output.webp
+```
+
+替换图片后，应同步核对 `index.html` 中两组连续滚动图片的文件名、`alt`、`width`、`height` 与对应的 `result-size-*` 尺寸类。尺寸类集中定义在 `assets/css/refinement.css` 的首页实验图像区域。
 
 ### 更新图集
 
