@@ -12,6 +12,12 @@
     query,
     queryAll,
   } = window.ZHAI_UTILS;
+  const language = document.documentElement.lang.toLowerCase().startsWith("en")
+    ? "en"
+    : "zh";
+  const ui = window.ZHAI_I18N?.[language]?.ui || {};
+  const isEnglish = language === "en";
+  const text = (zh, en) => (isEnglish ? en : zh);
 
   function initMobileNavigation() {
     const toggle = query(".nav-toggle");
@@ -21,7 +27,7 @@
     const setOpen = (open) => {
       menu.classList.toggle("open", open);
       toggle.setAttribute("aria-expanded", String(open));
-      toggle.setAttribute("aria-label", open ? "关闭导航菜单" : "打开导航菜单");
+      toggle.setAttribute("aria-label", open ? (ui.navClose || text("关闭导航菜单", "Close navigation menu")) : (ui.navOpen || text("打开导航菜单", "Open navigation menu")));
       document.body.classList.toggle("menu-open", open);
     };
 
@@ -104,7 +110,7 @@
       const icon = query(".theme-icon", toggle);
       const label = query(".theme-label", toggle);
       if (icon) icon.textContent = theme === "dark" ? "☼" : "◐";
-      if (label) label.textContent = theme === "dark" ? "浅色" : "深色";
+      if (label) label.textContent = theme === "dark" ? (ui.lightMode || text("浅色", "Light")) : (ui.darkMode || text("深色", "Dark"));
     };
 
     applyTheme(savedTheme || systemTheme);
@@ -118,6 +124,19 @@
         // The selected theme still applies for the current page view.
       }
       applyTheme(nextTheme);
+    });
+  }
+
+  function initLanguageSwitch() {
+    queryAll("[data-language-switch]").forEach((link) => {
+      const syncHash = () => {
+        const base = link.dataset.languageTarget || link.getAttribute("href") || "";
+        if (!base) return;
+        const cleanBase = base.split("#")[0];
+        link.href = `${cleanBase}${window.location.hash || ""}`;
+      };
+      syncHash();
+      window.addEventListener("hashchange", syncHash, { passive: true });
     });
   }
 
@@ -164,9 +183,10 @@
     if (!context) return;
 
     const hero = query(".hero, .page-hero");
+    const globalOnHome = document.body.classList.contains("page-home");
     const palette = ["28,80,132", "167,45,58", "184,145,66", "40,109,114"];
     const particles = [];
-    let pointerInHero = hero ? hero.matches(":hover") : false;
+    let pointerInHero = globalOnHome || (hero ? hero.matches(":hover") : false);
     let width = 0;
     let height = 0;
     let lastParticleTime = 0;
@@ -189,15 +209,15 @@
     };
 
     const addParticle = (x, y) => {
-      if (particles.length > 42) particles.shift();
+      if (particles.length > 54) particles.shift();
       const angle = Math.random() * Math.PI * 2;
-      const speed = 0.22 + Math.random() * 0.58;
+      const speed = 0.26 + Math.random() * 0.7;
       particles.push({
         x,
         y,
         vx: Math.cos(angle) * speed,
         vy: Math.sin(angle) * speed - 0.08,
-        radius: 1 + Math.random() * 1.9,
+        radius: 1.25 + Math.random() * 2.05,
         life: 1,
         color: palette[Math.floor(Math.random() * palette.length)],
       });
@@ -213,7 +233,7 @@
         particle.x += particle.vx;
         particle.y += particle.vy;
         particle.vy += 0.004;
-        particle.life -= 0.014;
+        particle.life -= 0.012;
 
         if (particle.life <= 0) {
           particles.splice(index, 1);
@@ -221,7 +241,7 @@
         }
 
         context.beginPath();
-        context.fillStyle = `rgba(${particle.color}, ${0.2 * particle.life})`;
+        context.fillStyle = `rgba(${particle.color}, ${0.29 * particle.life})`;
         context.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
         context.fill();
       }
@@ -241,9 +261,9 @@
     window.addEventListener(
       "mousemove",
       (event) => {
-        if (hero && !pointerInHero) return;
+        if (!globalOnHome && hero && !pointerInHero) return;
         const now = performance.now();
-        if (now - lastParticleTime < 22) return;
+        if (now - lastParticleTime < 24) return;
         lastParticleTime = now;
         addParticle(event.clientX, event.clientY);
       },
@@ -268,14 +288,13 @@
     const context = canvas.getContext("2d");
     if (!context) return;
 
-    const frameInterval = 1000 / 20;
+    const frameInterval = 1000 / 22;
     let width = 0;
     let height = 0;
     let time = 0;
     let animationFrame = 0;
     let lastFrame = 0;
-    let inActiveRange =
-      window.scrollY < Math.max(window.innerHeight * 1.35, 1100);
+    let inActiveRange = true;
 
     const resize = () => {
       const ratio = Math.min(window.devicePixelRatio || 1, 1.5);
@@ -293,16 +312,16 @@
       for (let x = -40; x <= width + 40; x += 16) {
         const y =
           startY +
-          Math.sin(x * 0.009 + phase + time * 0.01) * 18 +
-          Math.sin(x * 0.018 - phase + time * 0.007) * 8;
+          Math.sin(x * 0.0086 + phase + time * 0.009) * 19 +
+          Math.sin(x * 0.017 - phase + time * 0.0065) * 8.5;
         if (x === -40) context.moveTo(x, y);
         else context.lineTo(x, y);
       }
       context.strokeStyle =
         document.body.dataset.theme === "dark"
-          ? `rgba(107, 182, 255, ${alpha + 0.04})`
+          ? `rgba(107, 182, 255, ${alpha + 0.045})`
           : `rgba(28, 80, 132, ${alpha})`;
-      context.lineWidth = 1.35;
+      context.lineWidth = 1.25;
       context.stroke();
     };
 
@@ -318,11 +337,11 @@
 
       if (now - lastFrame >= frameInterval) {
         context.clearRect(0, 0, width, height);
-        for (let index = 0; index < 11; index += 1) {
+        for (let index = 0; index < 13; index += 1) {
           drawStreamline(
-            (height / 12) * (index + 1),
+            (height / 14) * (index + 1),
             index * 0.82,
-            0.062 + (index % 4) * 0.01,
+            0.082 + (index % 4) * 0.009,
           );
         }
         time += 1;
@@ -332,15 +351,8 @@
     }
 
     const updateActiveRange = () => {
-      const next = window.scrollY < Math.max(window.innerHeight * 1.35, 1100);
-      if (next === inActiveRange) return;
-      inActiveRange = next;
-
-      if (inActiveRange) start();
-      else if (animationFrame) {
-        cancelAnimationFrame(animationFrame);
-        animationFrame = 0;
-      }
+      inActiveRange = true;
+      start();
     };
 
     window.addEventListener(
@@ -378,7 +390,7 @@
     const open = (source, alt, trigger) => {
       returnFocus = trigger || document.activeElement;
       image.src = source;
-      image.alt = alt || "预览图片";
+      image.alt = alt || ui.imagePreview || text("预览图片", "Image preview");
       lightbox.classList.add("open");
       lightbox.setAttribute("aria-hidden", "false");
       document.body.classList.add("lightbox-open");
@@ -509,7 +521,7 @@
         overlay.setAttribute("aria-atomic", "true");
         overlay.innerHTML = `
           <div class="rmi-freeze-crystals" aria-hidden="true"></div>
-          <p class="rmi-freeze-title">RM不稳定性冻结</p>
+          <p class="rmi-freeze-title">${ui.freezeTitle || text("RM不稳定性冻结", "RM Instability Frozen")}</p>
         `;
         document.body.appendChild(overlay);
       }
@@ -700,21 +712,21 @@
       const button = document.createElement("button");
       button.className = "copy-email";
       button.type = "button";
-      button.textContent = "复制邮箱";
-      button.setAttribute("aria-label", `复制邮箱 ${email}`);
+      button.textContent = ui.copyEmail || text("复制邮箱", "Copy email");
+      button.setAttribute("aria-label", `${ui.copyEmail || text("复制邮箱", "Copy email")} ${email}`);
       button.addEventListener("click", async () => {
         try {
           await copyText(email);
-          button.textContent = "已复制";
+          button.textContent = ui.copied || text("已复制", "Copied");
           button.classList.add("copied");
           window.setTimeout(() => {
-            button.textContent = "复制邮箱";
+            button.textContent = ui.copyEmail || text("复制邮箱", "Copy email");
             button.classList.remove("copied");
           }, 1600);
         } catch {
-          button.textContent = "复制失败";
+          button.textContent = ui.copyFailed || text("复制失败", "Copy failed");
           window.setTimeout(() => {
-            button.textContent = "复制邮箱";
+            button.textContent = ui.copyEmail || text("复制邮箱", "Copy email");
           }, 1600);
         }
       });
@@ -726,6 +738,7 @@
     initMobileNavigation,
     initHashNavigation,
     initTheme,
+    initLanguageSwitch,
     initScrollUI,
     initCursorParticles,
     initFlowBackground,

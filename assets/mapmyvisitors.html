@@ -10,14 +10,17 @@
     html,
     body {
       width: 100%;
-      min-height: 184px;
+      min-height: 250px;
       margin: 0;
-      overflow: hidden;
+      overflow: visible;
       background: transparent;
     }
     body {
-      display: grid;
-      place-items: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+      box-sizing: border-box;
     }
     body > * {
       max-width: 100% !important;
@@ -28,16 +31,15 @@
     object,
     embed,
     iframe {
+      display: block;
       max-width: 100% !important;
+      height: auto;
       border: 0;
     }
   </style>
 </head>
 <body>
-  <!--
-    Keep this script parser-inserted. MapMyVisitors may use document.write(),
-    which is unreliable when the script is appended dynamically after parsing.
-  -->
+  <!-- Keep this script parser-inserted because the provider may use document.write(). -->
   <script
     id="mapmyvisitors"
     type="text/javascript"

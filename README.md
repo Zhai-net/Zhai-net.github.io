@@ -8,10 +8,10 @@
 
 | 文件                  | 内容                                                                                       |
 | --------------------- | ------------------------------------------------------------------------------------------ |
-| `index.html`          | 首页：课题组简介、研究方向、教学内容、实验平台、图集、代表论文、成员、新闻、招生与访问统计 |
-| `people.html`         | 成员与毕业生名录                                                                           |
-| `publications.html`   | 完整论文列表、年份索引与检索                                                               |
-| `news.html`           | 课题组新闻与时间轴                                                                         |
+| `index.html` / `index-en.html` | 中英文首页：课题组简介、研究方向、教学、平台、成果、成员、新闻、招生与访问统计 |
+| `people.html` / `people-en.html` | 中英文成员与毕业生名录 |
+| `publications.html` / `publications-en.html` | 中英文论文列表、年份索引与检索 |
+| `news.html` / `news-en.html` | 中英文课题组新闻与时间轴 |
 | `preview_render.html` | 首页结构预览文件，保留用于检查基础布局                                                     |
 
 ## 目录结构
@@ -19,9 +19,13 @@
 ```text
 .
 ├── index.html
+├── index-en.html
 ├── people.html
+├── people-en.html
 ├── publications.html
+├── publications-en.html
 ├── news.html
+├── news-en.html
 ├── preview_render.html
 ├── assets
 │   ├── css
@@ -29,6 +33,7 @@
 │   │   └── refinement.css      # 视觉细节与页面级覆盖
 │   ├── data
 │   │   ├── site.js             # 网站名称、更新时间、外部链接等全局信息
+│   │   ├── i18n.js             # 英文动态内容与交互文案
 │   │   ├── people.js           # 成员与毕业生
 │   │   ├── publications.js     # 论文
 │   │   ├── news.js             # 新闻
@@ -62,6 +67,20 @@ http://localhost:8000/
 ```
 
 不要直接双击 HTML 文件预览。使用本地 HTTP 服务可以避免浏览器对本地资源、剪贴板和第三方脚本的限制。
+
+
+## 中英文页面维护
+
+网站采用独立静态页面提供中英文版本，导航栏中的 `EN / 中文` 按钮负责切换，并保留当前页面的锚点位置。对应关系如下：
+
+- `index.html` ↔ `index-en.html`；
+- `people.html` ↔ `people-en.html`；
+- `publications.html` ↔ `publications-en.html`；
+- `news.html` ↔ `news-en.html`。
+
+首页、页眉、页脚等固定文字分别维护在对应 HTML 文件中。成员、图库、新闻以及 JavaScript 交互产生的英文文字集中维护在 `assets/data/i18n.js`。新增成员或新闻时，应同时在原始数据文件和 `i18n.js` 中补充英文内容。论文题目和作者信息本身采用英文，不需要重复维护。
+
+所有中英文页面均包含 `hreflang` 声明，新增页面时应同时建立中英文文件、语言切换按钮和对应的内部链接。
 
 ## 内容维护
 
@@ -193,6 +212,7 @@ ffmpeg -i input.gif -an -c:v libwebp_anim -lossless 0 -quality 82 -compression_l
 
 - 公共工具放在 `core.js`；
 - 数据到 HTML 的转换放在 `render.js`；
+- 英文动态内容和交互文案放在 `assets/data/i18n.js`；
 - 用户操作和页面交互放在 `common.js`；
 - 非必要的展示增强放在 `polish.js`；
 - 第三方统计加载放在 `statistics.js`。
@@ -213,7 +233,7 @@ ffmpeg -i input.gif -an -c:v libwebp_anim -lossless 0 -quality 82 -compression_l
 相关配置位置：
 
 - 不蒜子脚本地址：`index.html` 中 `#site-statistics` 的 `data-busuanzi-src`；
-- 地图包装页：`assets/mapmyvisitors.html`；
+- 地图包装页：`assets/mapmyvisitors.html`；包装页和 `statistics.js` 会根据地图实际内容自动调整高度，避免 iframe 裁切；
 - 地图入口：`index.html` 中 `data-mapmyvisitors-frame-src`。
 
 ## 检查
@@ -233,7 +253,7 @@ python3 tools/check_site.py
 
 建议再手动检查：
 
-- 首页和三个子页面是否正常打开；
+- 中英文首页及各子页面是否正常打开；
 - 导航、深浅色切换、返回顶部和图片预览是否正常；
 - 成员卡片正反面与复制邮箱按钮是否正常；
 - 论文检索、年份跳转和重新编号是否正常；

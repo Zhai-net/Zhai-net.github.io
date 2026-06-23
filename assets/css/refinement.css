@@ -2992,3 +2992,293 @@ body.rmi-freeze-active > :not(.rmi-freeze-overlay):not(script) {
     font-size: 10px;
   }
 }
+
+/* 2026 bilingual and homepage density refinement. */
+:root {
+  --section-space: clamp(46px, 5vw, 70px);
+}
+
+#flow-bg {
+  opacity: 0.72;
+}
+
+[data-theme="dark"] #flow-bg {
+  opacity: 0.68;
+}
+
+.cursor-particles {
+  opacity: 0.9;
+}
+
+.language-toggle {
+  display: inline-flex;
+  min-width: 46px;
+  min-height: 36px;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 11px;
+  border: 1px solid color-mix(in srgb, var(--blue) 18%, var(--line));
+  border-radius: 999px;
+  color: var(--blue);
+  background: color-mix(in srgb, var(--paper) 91%, transparent);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.34);
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.25s var(--ease-out),
+    box-shadow 0.2s ease;
+}
+
+.language-toggle::after {
+  display: none;
+}
+
+.language-toggle:hover,
+.language-toggle:focus-visible {
+  color: var(--paper);
+  border-color: var(--blue);
+  background: var(--blue);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--blue) 18%, transparent);
+}
+
+html[lang^="en"] .brand-lab strong {
+  font-size: 16px;
+}
+
+html[lang^="en"] .brand-lab small {
+  letter-spacing: 0.01em;
+}
+
+html[lang^="en"] .nav-menu {
+  font-size: 13px;
+}
+
+.page-home .hero {
+  padding: clamp(40px, 4.6vw, 60px) 0 clamp(40px, 4.5vw, 58px);
+}
+
+.page-home .section,
+.page-home .teaching-section {
+  padding-top: clamp(42px, 4.6vw, 62px);
+  padding-bottom: clamp(42px, 4.6vw, 62px);
+}
+
+.page-home #career,
+.page-home #research,
+.page-home #teaching {
+  padding-top: clamp(42px, 4.6vw, 62px);
+  padding-bottom: clamp(42px, 4.6vw, 62px);
+}
+
+.page-home .section-heading.center {
+  margin-bottom: 28px;
+}
+
+.page-home .section-title-row {
+  margin-bottom: 24px;
+  padding-bottom: 15px;
+}
+
+.page-home .career-grid,
+.page-home .research-grid,
+.page-home .showcase-grid,
+.page-home .panel-grid {
+  gap: clamp(18px, 2.4vw, 28px);
+}
+
+.page-home .gallery-grid,
+.page-home .people-grid,
+.page-home .alumni-grid {
+  row-gap: 18px;
+}
+
+.page-home .bottom-panels {
+  padding-bottom: clamp(34px, 4vw, 52px);
+}
+
+.page-home .visit-section {
+  padding-top: clamp(28px, 3vw, 42px);
+  padding-bottom: clamp(40px, 4.4vw, 58px);
+}
+
+#site-statistics .final-visit-panel {
+  max-width: var(--max);
+}
+
+.final-visit-panel.visit-panel-minimal {
+  grid-template-columns: minmax(210px, 0.72fr) minmax(480px, 2fr);
+  align-items: stretch;
+}
+
+.mapmyvisitors-card {
+  min-height: 300px;
+}
+
+.mapmyvisitors-frame {
+  contain: none;
+  display: block;
+  min-height: 260px;
+  overflow: hidden;
+}
+
+.mapmyvisitors-embed {
+  display: block;
+  width: 100%;
+  height: 300px;
+  min-height: 260px;
+  border: 0;
+  background: transparent;
+}
+
+@media (max-width: 1050px) {
+  .final-visit-panel.visit-panel-minimal {
+    grid-template-columns: minmax(190px, 0.7fr) minmax(390px, 1.6fr);
+  }
+}
+
+@media (max-width: 860px) {
+  :root {
+    --section-space: 44px;
+  }
+
+  .language-toggle {
+    width: 100%;
+    min-height: 42px;
+  }
+
+  .page-home .hero {
+    padding: 38px 0 40px;
+  }
+
+  .page-home .section,
+  .page-home .teaching-section,
+  .page-home #career,
+  .page-home #research,
+  .page-home #teaching {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .final-visit-panel.visit-panel-minimal {
+    grid-template-columns: 1fr;
+  }
+
+  .visit-counts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --section-space: 38px;
+  }
+
+  #flow-bg {
+    opacity: 0.58;
+  }
+
+  .cursor-particles {
+    opacity: 0.76;
+  }
+
+  .page-home .hero {
+    padding: 32px 0 34px;
+  }
+
+  .page-home .section,
+  .page-home .teaching-section,
+  .page-home #career,
+  .page-home #research,
+  .page-home #teaching {
+    padding-top: 36px;
+    padding-bottom: 36px;
+  }
+
+  .page-home .section-title-row {
+    margin-bottom: 20px;
+  }
+
+  .visit-counts {
+    grid-template-columns: 1fr;
+  }
+
+  .mapmyvisitors-card {
+    min-height: 280px;
+  }
+
+  .mapmyvisitors-frame,
+  .mapmyvisitors-embed {
+    min-height: 250px;
+  }
+}
+
+/* Keep the homepage member directories compact on common phone widths. */
+@media (max-width: 540px) and (min-width: 361px) {
+  #people .people-grid,
+  #alumni .alumni-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  #people .person-card,
+  #people .person-card-inner {
+    min-height: 268px;
+  }
+
+  #people .person-card img {
+    width: 88px;
+    height: 106px;
+  }
+
+  #alumni .alumni-card {
+    min-height: 202px;
+    padding-inline: 9px;
+  }
+
+  #alumni .alumni-card img {
+    width: 70px;
+    height: 84px;
+  }
+}
+
+/* Language control must retain button styling inside the navigation link rules. */
+.nav-menu .language-toggle {
+  display: inline-flex;
+  min-width: 46px;
+  min-height: 36px;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 11px;
+  border: 1px solid color-mix(in srgb, var(--blue) 18%, var(--line));
+  border-radius: 999px;
+  color: var(--blue);
+  background: color-mix(in srgb, var(--paper) 91%, transparent);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.34);
+}
+
+.nav-menu .language-toggle::after {
+  display: none;
+}
+
+.nav-menu .language-toggle:hover,
+.nav-menu .language-toggle:focus-visible {
+  color: var(--paper);
+  border-color: var(--blue);
+  background: var(--blue);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--blue) 18%, transparent);
+}
+
+@media (max-width: 860px) {
+  .nav-menu .language-toggle {
+    width: 100%;
+    min-height: 42px;
+  }
+}

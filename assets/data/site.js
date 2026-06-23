@@ -1,5 +1,5 @@
 window.ZHAI_SITE = {
-  lastUpdated: "2026-06-17",
+  lastUpdated: "2026-06-23",
   labName: "翟志刚课题组",
   labNameEn: "Zhigang Zhai Research Group",
   footerDescription: "研究方向：实验流体力学、流动稳定性与激波动力学。",

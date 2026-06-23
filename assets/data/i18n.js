@@ -1,0 +1,308 @@
+window.ZHAI_I18N = {
+  en: {
+    ui: {
+      principalInvestigator: "Principal Investigator",
+      researchInterests: "Research interests",
+      affiliation: "Affiliation",
+      contact: "Contact",
+      learnMore: "Meet the group",
+      contactPending: "Contact information pending",
+      viewBio: "View the profile of",
+      returnCard: "Return to the front of",
+      alumni: "Alumni",
+      informationPending: "Information pending",
+      alumniPending: "Alumni information will be added after verification.",
+      leaderPending: "Principal investigator information pending.",
+      studentPending: "Student information will be added soon.",
+      groupLeader: "Principal Investigator",
+      postdocs: "Postdoctoral Researchers",
+      students: "Students",
+      allAlumni: "Alumni",
+      doiPending: "DOI pending",
+      publicationAria: "Publication",
+      imagePreview: "Image preview",
+      navOpen: "Open navigation menu",
+      navClose: "Close navigation menu",
+      lightMode: "Light",
+      darkMode: "Dark",
+      mapLoading: "Loading the global visitor map…",
+      mapFailure: "The visitor map is temporarily unavailable. Please refresh later.",
+      mapTitle: "Global visitor map",
+      freezeTitle: "RM Instability Frozen",
+      copyEmail: "Copy email",
+      copied: "Copied",
+      copyFailed: "Copy failed"
+    },
+    people: {
+      "zhigang-zhai": {
+        name: "Zhigang Zhai",
+        secondaryName: "翟志刚",
+        title: "Professor / Ph.D. Supervisor",
+        role: "Professor",
+        bio: "Professor in the Department of Modern Mechanics at the University of Science and Technology of China. He received his Ph.D. in Fluid Mechanics from USTC in November 2012. His research focuses on experimental fluid mechanics, flow stability, and shock dynamics.",
+        shortBio: "Experimental fluid mechanics, flow stability, and shock dynamics.",
+        profile: "Ph.D. Supervisor / Party Branch Secretary, Mechanics Building 5, Floor 6",
+        unit: "University of Science and Technology of China\nDepartment of Modern Mechanics, School of Engineering Science",
+        office: "Mechanics Building 5, USTC West Campus",
+        research: "Experimental fluid mechanics, flow stability, and shock dynamics",
+        imageAlt: "Photo of Professor Zhigang Zhai (placeholder)"
+      },
+      "xu-guo": {
+        name: "Xu Guo",
+        secondaryName: "郭旭",
+        title: "Specially Appointed Associate Researcher",
+        role: "Associate Researcher",
+        bio: "Research on shock-induced interface evolution and coupled rarefaction/shock processes.",
+        shortBio: "Shock-induced interface evolution and rarefaction/shock coupling.",
+        imageAlt: "Photo of Xu Guo"
+      },
+      "chen-chenren": {
+        name: "Chenren Chen",
+        secondaryName: "陈辰稔",
+        title: "Postdoctoral Researcher",
+        role: "Postdoc",
+        bio: "Research on interface-coupling mechanisms and control strategies in Richtmyer–Meshkov instability.",
+        shortBio: "Heavy-fluid-layer evolution and shock–interface coupling.",
+        imageAlt: "Photo of Chenren Chen"
+      },
+      "chaofan-yang": {
+        name: "Chaofan Yang",
+        secondaryName: "杨超凡",
+        title: "Ph.D. Student, 2024 Cohort",
+        role: "Ph.D. Student",
+        bio: "Experimental research on shock–particle-curtain interaction.",
+        imageAlt: "Photo of Chaofan Yang (placeholder)"
+      },
+      "ning-zhou": {
+        name: "Ning Zhou",
+        secondaryName: "周宁",
+        title: "Ph.D. Student, 2024 Cohort",
+        role: "Ph.D. Student",
+        bio: "Experimental research on the evolution of gas-layer interfaces impacted by planar shocks.",
+        imageAlt: "Photo of Ning Zhou (placeholder)"
+      },
+      "yinuo-xing": {
+        name: "Yinuo Xing",
+        secondaryName: "邢一诺",
+        title: "Ph.D. Student, 2025 Cohort",
+        role: "Ph.D. Student",
+        bio: "Research on shock-induced interfacial instability.",
+        imageAlt: "Photo of Yinuo Xing (placeholder)"
+      },
+      "jingqian-pu": {
+        name: "Jingqian Pu",
+        secondaryName: "蒲靖乾",
+        title: "Ph.D. Student, 2025 Cohort",
+        role: "Ph.D. Student",
+        bio: "Research on shock dynamics and multi-body separation.",
+        imageAlt: "Photo of Jingqian Pu (placeholder)"
+      },
+      "yifan-ma": {
+        name: "Yifan Ma",
+        secondaryName: "马伊凡",
+        title: "Ph.D. Student, 2026 Cohort",
+        role: "Ph.D. Student",
+        bio: "Research on Richtmyer–Meshkov instability in multilayer interfaces.",
+        imageAlt: "Photo of Yifan Ma (placeholder)"
+      },
+      "he-huang": {
+        name: "He Huang",
+        secondaryName: "黄何",
+        title: "Master's Student, 2024 Cohort",
+        role: "Master's Student",
+        bio: "Research topic to be added.",
+        imageAlt: "Photo of He Huang (placeholder)"
+      },
+      "bo-chen": {
+        name: "Bo Chen",
+        secondaryName: "陈博",
+        title: "Master's Student, 2025 Cohort",
+        role: "Master's Student",
+        bio: "Research topic to be added.",
+        imageAlt: "Photo of Bo Chen (placeholder)"
+      },
+      "zhiming-dong": {
+        name: "Zhiming Dong",
+        secondaryName: "董直铭",
+        title: "Master's Student, 2025 Cohort",
+        role: "Master's Student",
+        bio: "Research topic to be added.",
+        imageAlt: "Photo of Zhiming Dong (placeholder)"
+      },
+      "xusheng-liao": {
+        name: "Xusheng Liao",
+        secondaryName: "廖旭升",
+        title: "Master's Student, 2025 Cohort",
+        role: "Master's Student",
+        bio: "Research topic to be added.",
+        imageAlt: "Photo of Xusheng Liao (placeholder)"
+      },
+      "guo-xu": {
+        name: "Xu Guo",
+        secondaryName: "郭旭",
+        title: "Ph.D. Alumnus, 2018 Cohort",
+        role: "Alumni",
+        graduation: "Ph.D. Alumnus, 2018 Cohort",
+        destination: "University of Science and Technology of China",
+        bio: "Alumni information will be added after verification.",
+        imageAlt: "Photo of Xu Guo (placeholder)"
+      },
+      "jinggang-tang": {
+        name: "Jinggang Tang",
+        secondaryName: "唐景刚",
+        title: "Master's Alumnus, 2018 Cohort",
+        role: "Alumni",
+        graduation: "Master's Alumnus, 2018 Cohort",
+        destination: "Information pending",
+        bio: "Alumni information will be added after verification.",
+        imageAlt: "Photo of Jinggang Tang (placeholder)"
+      },
+      "dugang-zheng": {
+        name: "Dugang Zheng",
+        secondaryName: "郑渡刚",
+        title: "Ph.D. Alumnus, 2019 Cohort",
+        role: "Alumni",
+        graduation: "Ph.D. Alumnus, 2019 Cohort",
+        destination: "Information pending",
+        bio: "Alumni information will be added after verification.",
+        imageAlt: "Photo of Dugang Zheng (placeholder)"
+      },
+      "lili-feng": {
+        name: "Lili Feng",
+        secondaryName: "冯莉莉",
+        title: "Master's Alumna, 2019 Cohort",
+        role: "Alumni",
+        graduation: "Master's Alumna, 2019 Cohort",
+        destination: "Information pending",
+        bio: "Alumni information will be added after verification.",
+        imageAlt: "Photo of Lili Feng (placeholder)"
+      },
+      "hui-wang": {
+        name: "Hui Wang",
+        secondaryName: "王辉",
+        title: "Ph.D. Alumnus, 2020 Cohort",
+        role: "Alumni",
+        graduation: "Ph.D. Alumnus, 2020 Cohort",
+        destination: "Information pending",
+        bio: "Alumni information will be added after verification.",
+        imageAlt: "Photo of Hui Wang (placeholder)"
+      },
+      "jinru-xu": {
+        name: "Jinru Xu",
+        secondaryName: "徐瑾儒",
+        title: "Ph.D. Alumnus, 2021 Cohort",
+        role: "Alumni",
+        graduation: "Ph.D. Alumnus, 2021 Cohort",
+        destination: "Information pending",
+        bio: "Alumni information will be added after verification.",
+        imageAlt: "Photo of Jinru Xu (placeholder)"
+      },
+      "qing-cao": {
+        name: "Qing Cao",
+        secondaryName: "曹青",
+        title: "Ph.D. Alumnus, 2022 Cohort",
+        role: "Alumni",
+        graduation: "Ph.D. Alumnus, 2022 Cohort",
+        destination: "Institute of Mechanics, Chinese Academy of Sciences",
+        bio: "Research on interface instability driven by successive co-directional shocks and coupled RM–KH instability.",
+        imageAlt: "Photo of Qing Cao (placeholder)"
+      },
+      "xing-gao": {
+        name: "Xing Gao",
+        secondaryName: "高兴",
+        title: "Ph.D. Alumnus, 2022 Cohort",
+        role: "Alumni",
+        graduation: "Ph.D. Alumnus, 2022 Cohort",
+        destination: "China Aerodynamics Research and Development Center",
+        bio: "Research on interface evolution induced by rarefaction and shock waves.",
+        imageAlt: "Photo of Xing Gao"
+      },
+      "zhu-xu": {
+        name: "Zhu Xu",
+        secondaryName: "许竹",
+        title: "Master's Alumnus, 2022 Cohort",
+        role: "Alumni",
+        graduation: "Master's Alumnus, 2022 Cohort",
+        destination: "Information pending",
+        bio: "Research on rarefaction-induced interfacial instability.",
+        imageAlt: "Photo of Zhu Xu (placeholder)"
+      },
+      "chenren-chen": {
+        name: "Chenren Chen",
+        secondaryName: "陈辰稔",
+        title: "Ph.D. Alumnus, 2023 Cohort",
+        role: "Alumni",
+        graduation: "Ph.D. Alumnus, 2023 Cohort",
+        destination: "University of Science and Technology of China",
+        bio: "Research on instability control.",
+        imageAlt: "Photo of Chenren Chen"
+      },
+      "jiaxuan-li": {
+        name: "Jiaxuan Li",
+        secondaryName: "李佳轩",
+        title: "Ph.D. Alumnus, 2023 Cohort",
+        role: "Alumni",
+        graduation: "Ph.D. Alumnus, 2023 Cohort",
+        destination: "Institute of Mechanics, Chinese Academy of Sciences",
+        bio: "Research on heavy-to-light interfacial instability.",
+        imageAlt: "Photo of Jiaxuan Li (placeholder)"
+      },
+      "yue-li": {
+        name: "Yue Li",
+        secondaryName: "李玥",
+        title: "Ph.D. Alumna, 2023 Cohort",
+        role: "Alumni",
+        graduation: "Ph.D. Alumna, 2023 Cohort",
+        destination: "Information pending",
+        bio: "Research on rarefaction-induced Rayleigh–Taylor instability.",
+        imageAlt: "Photo of Yue Li (placeholder)"
+      },
+      "siqi-wang": {
+        name: "Siqi Wang",
+        secondaryName: "王思奇",
+        title: "Master's Alumna, 2023 Cohort",
+        role: "Alumni",
+        graduation: "Master's Alumna, 2023 Cohort",
+        destination: "Information pending",
+        bio: "Research on shock–particle-curtain interaction.",
+        imageAlt: "Photo of Siqi Wang (placeholder)"
+      }
+    },
+    gallery: {
+      Diagnostics: {
+        title: "Diagnostics",
+        description: "Optical diagnostics and high-speed imaging",
+        alt: "Illustration of optical diagnostics and high-speed imaging"
+      },
+      "Shock Tube": {
+        title: "Shock Tube",
+        description: "Shock-tube and interface-experiment facilities",
+        alt: "Illustration of the shock-tube experimental facility"
+      },
+      Interface: {
+        title: "Interface",
+        description: "Shock-induced interface evolution",
+        alt: "Illustration of interface evolution and instability"
+      },
+      "Group Life": {
+        title: "Group Life",
+        description: "Conferences, group meetings, and daily activities",
+        alt: "Illustration of group activities and conferences"
+      }
+    },
+    news: [
+      {
+        title: "Study on controlling gas-layer instability across different Atwood numbers published in Journal of Fluid Mechanics",
+        description: ""
+      },
+      {
+        title: "Ph.D. candidates Chenren Chen and Jiaxuan Li successfully defended their dissertations",
+        description: ""
+      },
+      {
+        title: "Group members attended the 22nd National Conference on Shock Waves and Shock Tubes and received an Outstanding Oral Presentation Award",
+        description: ""
+      }
+    ]
+  }
+};
