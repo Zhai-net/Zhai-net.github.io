@@ -1,15 +1,19 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="zh-CN">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="翟志刚课题组主页：实验流体力学、流动稳定性、激波动力学与界面不稳定性研究。" name="description"/>
-<title>翟志刚课题组 | Zhigang Zhai Research Group</title>
-<meta content="light dark" name="color-scheme"/>
-<meta content="#f7f5f1" name="theme-color"/>
-<link href="assets/logos/ustcblue.png" rel="icon" type="image/png"/><link href="index.html" hreflang="zh-CN" rel="alternate"/><link href="index-en.html" hreflang="en" rel="alternate"/>
-<script>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta
+      content="翟志刚课题组主页：实验流体力学、流动稳定性、激波动力学与界面不稳定性研究。"
+      name="description"
+    />
+    <title>翟志刚课题组 | Zhigang Zhai Research Group</title>
+    <meta content="light dark" name="color-scheme" />
+    <meta content="#f7f5f1" name="theme-color" />
+    <link href="assets/logos/ustcblue.png" rel="icon" type="image/png" />
+    <link href="index.html" hreflang="zh-CN" rel="alternate" />
+    <link href="index-en.html" hreflang="en" rel="alternate" />
+    <script>
       try {
         const savedTheme = localStorage.getItem("zhai-lab-theme");
         const theme =
@@ -25,605 +29,905 @@
         document.documentElement.dataset.theme = "light";
       }
     </script>
-<link href="assets/css/global.css" rel="stylesheet"/>
-<link href="assets/css/refinement.css" rel="stylesheet"/>
-</head>
-<body class="page-home" data-lang="zh" data-page="home">
-<div aria-hidden="true" class="scroll-progress"></div>
-<canvas aria-hidden="true" class="cursor-particles"> </canvas>
-<canvas aria-hidden="true" id="flow-bg"> </canvas>
-<a class="skip-link" href="#main"> 跳转到正文 </a>
-<header class="site-header" id="top">
-<nav aria-label="主导航" class="nav-wrap">
-<a aria-label="翟志刚课题组首页" class="brand" href="index.html">
-<img alt="中国科学技术大学校徽" class="ustc-seal" decoding="async" fetchpriority="high" height="54" loading="eager" src="assets/logos/ustcblue.png" width="54"/>
-<span class="brand-school">
-<img alt="中国科学技术大学" decoding="async" height="41" loading="eager" src="assets/logos/ustcnameblue.png" width="270"/>
-<small> University of Science and Technology of China </small>
-</span>
-<span aria-hidden="true" class="brand-divider"> </span>
-<span class="brand-lab">
-<strong> 翟志刚课题组 </strong>
-<small> Zhigang Zhai Research Group </small>
-</span>
-</a>
-<button aria-controls="siteMenu" aria-expanded="false" aria-label="打开导航菜单" class="nav-toggle">
-<span> </span>
-<span> </span>
-<span> </span>
-</button>
-<div class="nav-menu" id="siteMenu">
-<a class="" href="index.html#about"> 简介 </a>
-<a class="" href="index.html#research"> 研究 </a>
-<a class="" href="publications.html"> 论文 </a>
-<a class="" href="people.html"> 成员 </a>
-<a class="" href="news.html"> 时间轴 </a>
-<a class="nav-contact" href="index.html#join"> 加入我们 </a>
-<a aria-label="Switch to English" class="language-toggle" data-language-switch="" data-language-target="index-en.html" href="index-en.html">EN</a><button aria-label="切换深色或浅色模式" class="theme-toggle" data-theme-toggle="" type="button">
-<span aria-hidden="true" class="theme-icon"> ◐ </span>
-<span class="theme-label"> 深色 </span>
-</button>
-</div>
-</nav>
-</header>
-<nav aria-label="首页分区导航" class="section-navigator">
-<a data-section-link="about" href="#about">
-<span> </span>
+    <link href="assets/css/global.css" rel="stylesheet" />
+    <link href="assets/css/refinement.css" rel="stylesheet" />
+  </head>
+  <body class="page-home" data-lang="zh" data-page="home">
+    <div aria-hidden="true" class="scroll-progress"></div>
+    <canvas aria-hidden="true" class="cursor-particles"> </canvas>
+    <canvas aria-hidden="true" id="flow-bg"> </canvas>
+    <a class="skip-link" href="#main"> 跳转到正文 </a>
+    <header class="site-header" id="top">
+      <nav aria-label="主导航" class="nav-wrap">
+        <div class="brand">
+          <a
+            aria-label="访问中国科学技术大学主页"
+            class="brand-ustc-link"
+            data-site-link="ustc"
+            href="https://www.ustc.edu.cn/"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="访问中国科学技术大学主页"
+          >
+            <img
+              alt="中国科学技术大学校徽"
+              class="ustc-seal"
+              decoding="async"
+              fetchpriority="high"
+              height="54"
+              loading="eager"
+              src="assets/logos/ustcblue.png"
+              width="54"
+            />
+            <span class="brand-school">
+              <img
+                alt="中国科学技术大学"
+                decoding="async"
+                height="41"
+                loading="eager"
+                src="assets/logos/ustcnameblue.png"
+                width="270"
+              />
+              <small> University of Science and Technology of China </small>
+            </span>
+          </a>
+          <span aria-hidden="true" class="brand-divider"> </span>
+          <a
+            aria-label="翟志刚课题组主页"
+            class="brand-lab brand-lab-link"
+            href="index.html"
+          >
+            <strong>
+              <span class="brand-lab-full"> 翟志刚课题组 </span>
+              <span class="brand-lab-short"> 翟志刚课题组 </span>
+            </strong>
+            <small> Zhigang Zhai Research Group </small>
+          </a>
+        </div>
+        <button
+          aria-controls="siteMenu"
+          aria-expanded="false"
+          aria-label="打开导航菜单"
+          class="nav-toggle"
+        >
+          <span> </span>
+          <span> </span>
+          <span> </span>
+        </button>
+        <div class="nav-menu" id="siteMenu">
+          <a class="" href="index.html#about"> 简介 </a>
+          <a class="" href="index.html#research"> 研究 </a>
+          <a class="" href="publications.html"> 论文 </a>
+          <a class="" href="people.html"> 成员 </a>
+          <a class="" href="news.html"> 时间轴 </a>
+          <a class="nav-contact" href="index.html#join"> 加入我们 </a>
+          <a
+            aria-label="Switch to English"
+            class="language-toggle"
+            data-language-switch=""
+            data-language-target="index-en.html"
+            href="index-en.html"
+            title="Switch to English"
+          >
+            EN
+          </a>
+          <button
+            aria-label="切换至深色模式"
+            class="theme-toggle"
+            data-theme-toggle=""
+            title="切换至深色模式"
+            type="button"
+          >
+            <span aria-hidden="true" class="theme-icon"> ◐ </span>
+            <span class="theme-label"> 深色模式 </span>
+          </button>
+        </div>
+      </nav>
+    </header>
+    <nav aria-label="首页分区导航" class="section-navigator">
+      <a data-section-link="about" href="#about">
+        <span> </span>
         简介
       </a>
-<a data-section-link="career" href="#career">
-<span> </span>
+      <a data-section-link="career" href="#career">
+        <span> </span>
         经历
       </a>
-<a data-section-link="research" href="#research">
-<span> </span>
+      <a data-section-link="research" href="#research">
+        <span> </span>
         研究
       </a>
-<a data-section-link="teaching" href="#teaching">
-<span> </span>
+      <a data-section-link="teaching" href="#teaching">
+        <span> </span>
         教学
       </a>
-<a data-section-link="platform" href="#platform">
-<span> </span>
+      <a data-section-link="platform" href="#platform">
+        <span> </span>
         平台
       </a>
-<a data-section-link="gallery" href="#gallery">
-<span> </span>
+      <a data-section-link="gallery" href="#gallery">
+        <span> </span>
         图库
       </a>
-<a data-section-link="publications" href="#publications">
-<span> </span>
+      <a data-section-link="publications" href="#publications">
+        <span> </span>
         论文
       </a>
-<a data-section-link="people" href="#people">
-<span> </span>
+      <a data-section-link="people" href="#people">
+        <span> </span>
         成员
       </a>
-<a data-section-link="alumni" href="#alumni">
-<span> </span>
+      <a data-section-link="alumni" href="#alumni">
+        <span> </span>
         毕业生
       </a>
-<a data-section-link="timeline" href="#timeline">
-<span> </span>
+      <a data-section-link="timeline" href="#timeline">
+        <span> </span>
         动态
       </a>
-<a data-section-link="join" href="#join">
-<span> </span>
+      <a data-section-link="join" href="#join">
+        <span> </span>
         联系
       </a>
-</nav>
-<main id="main">
-<section aria-labelledby="result-ribbon-title" class="result-ribbon" id="about">
-<div class="result-ribbon-heading">
-<p>Experimental Results</p>
-<h2 id="result-ribbon-title">实验图像</h2>
-<span>Schlieren preview</span>
-</div>
-<div class="result-ribbon-viewport">
-<div class="result-ribbon-track">
-<div class="result-ribbon-set">
-<figure class="result-ribbon-item result-size-260x170">
-<div class="result-ribbon-media">
-<img alt="RM–KH耦合界面不稳定性" decoding="async" fetchpriority="high" height="170" loading="eager" src="assets/results/RM–KH耦合界面不稳定性.webp" width="260"/>
-</div>
-<figcaption title="RM–KH耦合界面不稳定性">
-<strong>RM–KH耦合界面不稳定性</strong>
-</figcaption>
-</figure>
-<figure class="result-ribbon-item result-size-960x671">
-<div class="result-ribbon-media">
-<img alt="RM不稳定性模态耦合研究" decoding="async" height="671" loading="eager" src="assets/results/RM不稳定性模态耦合研究.webp" width="960"/>
-</div>
-<figcaption title="RM不稳定性模态耦合研究">
-<strong>RM不稳定性模态耦合研究</strong>
-</figcaption>
-</figure>
-<figure class="result-ribbon-item result-size-498x357">
-<div class="result-ribbon-media">
-<img alt="多层界面RM不稳定性调控" decoding="async" height="357" loading="lazy" src="assets/results/多层界面RM不稳定性调控.webp" width="498"/>
-</div>
-<figcaption title="多层界面RM不稳定性调控">
-<strong>多层界面RM不稳定性调控</strong>
-</figcaption>
-</figure>
-<figure class="result-ribbon-item result-size-700x357">
-<div class="result-ribbon-media">
-<img alt="激波诱导单模界面演化" decoding="async" height="357" loading="lazy" src="assets/results/激波诱导单模界面演化.webp" width="700"/>
-</div>
-<figcaption title="激波诱导单模界面演化">
-<strong>激波诱导单模界面演化</strong>
-</figcaption>
-</figure>
-<figure class="result-ribbon-item result-size-864x720">
-<div class="result-ribbon-media">
-<img alt="激波折射研究" decoding="async" height="720" loading="lazy" src="assets/results/激波折射研究.webp" width="864"/>
-</div>
-<figcaption title="激波折射研究">
-<strong>激波折射研究</strong>
-</figcaption>
-</figure>
-<figure class="result-ribbon-item result-size-864x720">
-<div class="result-ribbon-media">
-<img alt="稀疏波诱导RT不稳定性研究" decoding="async" height="720" loading="lazy" src="assets/results/稀疏波诱导RT不稳定性研究.webp" width="864"/>
-</div>
-<figcaption title="稀疏波诱导RT不稳定性研究">
-<strong>稀疏波诱导RT不稳定性研究</strong>
-</figcaption>
-</figure>
-<figure class="result-ribbon-item result-size-382x418">
-<div class="result-ribbon-media">
-<img alt="汇聚激波冲击多模界面研究" decoding="async" height="418" loading="lazy" src="assets/results/汇聚激波冲击多模界面研究.webp" width="382"/>
-</div>
-<figcaption title="汇聚激波冲击多模界面研究">
-<strong>汇聚激波冲击多模界面研究</strong>
-</figcaption>
-</figure>
-<figure class="result-ribbon-item result-size-269x142">
-<div class="result-ribbon-media">
-<img alt="激波冲击颗粒幕研究" decoding="async" height="142" loading="lazy" src="assets/results/激波冲击颗粒幕研究.webp" width="269"/>
-</div>
-<figcaption title="激波冲击颗粒幕研究">
-<strong>激波冲击颗粒幕研究</strong>
-</figcaption>
-</figure>
-</div>
-<div aria-hidden="true" class="result-ribbon-set">
-<figure class="result-ribbon-item result-size-260x170" tabindex="-1">
-<div class="result-ribbon-media">
-<img alt="" decoding="async" height="170" loading="lazy" src="assets/results/RM–KH耦合界面不稳定性.webp" width="260"/>
-</div>
-<figcaption title="RM–KH耦合界面不稳定性">
-<strong>RM–KH耦合界面不稳定性</strong>
-</figcaption>
-</figure>
-<figure class="result-ribbon-item result-size-960x671" tabindex="-1">
-<div class="result-ribbon-media">
-<img alt="" decoding="async" height="671" loading="lazy" src="assets/results/RM不稳定性模态耦合研究.webp" width="960"/>
-</div>
-<figcaption title="RM不稳定性模态耦合研究">
-<strong>RM不稳定性模态耦合研究</strong>
-</figcaption>
-</figure>
-<figure class="result-ribbon-item result-size-498x357" tabindex="-1">
-<div class="result-ribbon-media">
-<img alt="" decoding="async" height="357" loading="lazy" src="assets/results/多层界面RM不稳定性调控.webp" width="498"/>
-</div>
-<figcaption title="多层界面RM不稳定性调控">
-<strong>多层界面RM不稳定性调控</strong>
-</figcaption>
-</figure>
-<figure class="result-ribbon-item result-size-700x357" tabindex="-1">
-<div class="result-ribbon-media">
-<img alt="" decoding="async" height="357" loading="lazy" src="assets/results/激波诱导单模界面演化.webp" width="700"/>
-</div>
-<figcaption title="激波诱导单模界面演化">
-<strong>激波诱导单模界面演化</strong>
-</figcaption>
-</figure>
-<figure class="result-ribbon-item result-size-864x720" tabindex="-1">
-<div class="result-ribbon-media">
-<img alt="" decoding="async" height="720" loading="lazy" src="assets/results/激波折射研究.webp" width="864"/>
-</div>
-<figcaption title="激波折射研究">
-<strong>激波折射研究</strong>
-</figcaption>
-</figure>
-<figure class="result-ribbon-item result-size-864x720" tabindex="-1">
-<div class="result-ribbon-media">
-<img alt="" decoding="async" height="720" loading="lazy" src="assets/results/稀疏波诱导RT不稳定性研究.webp" width="864"/>
-</div>
-<figcaption title="稀疏波诱导RT不稳定性研究">
-<strong>稀疏波诱导RT不稳定性研究</strong>
-</figcaption>
-</figure>
-<figure class="result-ribbon-item result-size-382x418" tabindex="-1">
-<div class="result-ribbon-media">
-<img alt="" decoding="async" height="418" loading="lazy" src="assets/results/汇聚激波冲击多模界面研究.webp" width="382"/>
-</div>
-<figcaption title="汇聚激波冲击多模界面研究">
-<strong>汇聚激波冲击多模界面研究</strong>
-</figcaption>
-</figure>
-<figure class="result-ribbon-item result-size-269x142" tabindex="-1">
-<div class="result-ribbon-media">
-<img alt="" decoding="async" height="142" loading="lazy" src="assets/results/激波冲击颗粒幕研究.webp" width="269"/>
-</div>
-<figcaption title="激波冲击颗粒幕研究">
-<strong>激波冲击颗粒幕研究</strong>
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section class="hero">
-<div aria-hidden="true" class="hero-bg"></div>
-<div class="container hero-grid">
-<div class="hero-copy reveal">
-<p class="kicker">Experimental Fluid Mechanics · Shock Dynamics</p>
-<h1>
+    </nav>
+    <main id="main">
+      <section
+        aria-labelledby="result-ribbon-title"
+        class="result-ribbon"
+        id="about"
+      >
+        <div class="result-ribbon-heading">
+          <p>Experimental Results</p>
+          <h2 id="result-ribbon-title">实验图像</h2>
+          <span> Schlieren preview </span>
+        </div>
+        <div class="result-ribbon-viewport">
+          <div class="result-ribbon-track">
+            <div class="result-ribbon-set">
+              <figure class="result-ribbon-item result-size-260x170">
+                <div class="result-ribbon-media">
+                  <img
+                    alt="RM–KH耦合界面不稳定性"
+                    decoding="async"
+                    fetchpriority="high"
+                    height="170"
+                    loading="eager"
+                    src="assets/results/RM–KH耦合界面不稳定性.webp"
+                    width="260"
+                  />
+                </div>
+                <figcaption title="RM–KH耦合界面不稳定性">
+                  <strong> RM–KH耦合界面不稳定性 </strong>
+                </figcaption>
+              </figure>
+              <figure class="result-ribbon-item result-size-960x671">
+                <div class="result-ribbon-media">
+                  <img
+                    alt="RM不稳定性模态耦合研究"
+                    decoding="async"
+                    height="671"
+                    loading="eager"
+                    src="assets/results/RM不稳定性模态耦合研究.webp"
+                    width="960"
+                  />
+                </div>
+                <figcaption title="RM不稳定性模态耦合研究">
+                  <strong> RM不稳定性模态耦合研究 </strong>
+                </figcaption>
+              </figure>
+              <figure class="result-ribbon-item result-size-498x357">
+                <div class="result-ribbon-media">
+                  <img
+                    alt="多层界面RM不稳定性调控"
+                    decoding="async"
+                    height="357"
+                    loading="lazy"
+                    src="assets/results/多层界面RM不稳定性调控.webp"
+                    width="498"
+                  />
+                </div>
+                <figcaption title="多层界面RM不稳定性调控">
+                  <strong> 多层界面RM不稳定性调控 </strong>
+                </figcaption>
+              </figure>
+              <figure class="result-ribbon-item result-size-700x357">
+                <div class="result-ribbon-media">
+                  <img
+                    alt="激波诱导单模界面演化"
+                    decoding="async"
+                    height="357"
+                    loading="lazy"
+                    src="assets/results/激波诱导单模界面演化.webp"
+                    width="700"
+                  />
+                </div>
+                <figcaption title="激波诱导单模界面演化">
+                  <strong> 激波诱导单模界面演化 </strong>
+                </figcaption>
+              </figure>
+              <figure class="result-ribbon-item result-size-864x720">
+                <div class="result-ribbon-media">
+                  <img
+                    alt="激波折射研究"
+                    decoding="async"
+                    height="720"
+                    loading="lazy"
+                    src="assets/results/激波折射研究.webp"
+                    width="864"
+                  />
+                </div>
+                <figcaption title="激波折射研究">
+                  <strong> 激波折射研究 </strong>
+                </figcaption>
+              </figure>
+              <figure class="result-ribbon-item result-size-864x720">
+                <div class="result-ribbon-media">
+                  <img
+                    alt="稀疏波诱导RT不稳定性研究"
+                    decoding="async"
+                    height="720"
+                    loading="lazy"
+                    src="assets/results/稀疏波诱导RT不稳定性研究.webp"
+                    width="864"
+                  />
+                </div>
+                <figcaption title="稀疏波诱导RT不稳定性研究">
+                  <strong> 稀疏波诱导RT不稳定性研究 </strong>
+                </figcaption>
+              </figure>
+              <figure class="result-ribbon-item result-size-382x418">
+                <div class="result-ribbon-media">
+                  <img
+                    alt="汇聚激波冲击多模界面研究"
+                    decoding="async"
+                    height="418"
+                    loading="lazy"
+                    src="assets/results/汇聚激波冲击多模界面研究.webp"
+                    width="382"
+                  />
+                </div>
+                <figcaption title="汇聚激波冲击多模界面研究">
+                  <strong> 汇聚激波冲击多模界面研究 </strong>
+                </figcaption>
+              </figure>
+              <figure class="result-ribbon-item result-size-269x142">
+                <div class="result-ribbon-media">
+                  <img
+                    alt="激波冲击颗粒幕研究"
+                    decoding="async"
+                    height="142"
+                    loading="lazy"
+                    src="assets/results/激波冲击颗粒幕研究.webp"
+                    width="269"
+                  />
+                </div>
+                <figcaption title="激波冲击颗粒幕研究">
+                  <strong> 激波冲击颗粒幕研究 </strong>
+                </figcaption>
+              </figure>
+            </div>
+            <div aria-hidden="true" class="result-ribbon-set">
+              <figure
+                class="result-ribbon-item result-size-260x170"
+                tabindex="-1"
+              >
+                <div class="result-ribbon-media">
+                  <img
+                    alt=""
+                    decoding="async"
+                    height="170"
+                    loading="lazy"
+                    src="assets/results/RM–KH耦合界面不稳定性.webp"
+                    width="260"
+                  />
+                </div>
+                <figcaption title="RM–KH耦合界面不稳定性">
+                  <strong> RM–KH耦合界面不稳定性 </strong>
+                </figcaption>
+              </figure>
+              <figure
+                class="result-ribbon-item result-size-960x671"
+                tabindex="-1"
+              >
+                <div class="result-ribbon-media">
+                  <img
+                    alt=""
+                    decoding="async"
+                    height="671"
+                    loading="lazy"
+                    src="assets/results/RM不稳定性模态耦合研究.webp"
+                    width="960"
+                  />
+                </div>
+                <figcaption title="RM不稳定性模态耦合研究">
+                  <strong> RM不稳定性模态耦合研究 </strong>
+                </figcaption>
+              </figure>
+              <figure
+                class="result-ribbon-item result-size-498x357"
+                tabindex="-1"
+              >
+                <div class="result-ribbon-media">
+                  <img
+                    alt=""
+                    decoding="async"
+                    height="357"
+                    loading="lazy"
+                    src="assets/results/多层界面RM不稳定性调控.webp"
+                    width="498"
+                  />
+                </div>
+                <figcaption title="多层界面RM不稳定性调控">
+                  <strong> 多层界面RM不稳定性调控 </strong>
+                </figcaption>
+              </figure>
+              <figure
+                class="result-ribbon-item result-size-700x357"
+                tabindex="-1"
+              >
+                <div class="result-ribbon-media">
+                  <img
+                    alt=""
+                    decoding="async"
+                    height="357"
+                    loading="lazy"
+                    src="assets/results/激波诱导单模界面演化.webp"
+                    width="700"
+                  />
+                </div>
+                <figcaption title="激波诱导单模界面演化">
+                  <strong> 激波诱导单模界面演化 </strong>
+                </figcaption>
+              </figure>
+              <figure
+                class="result-ribbon-item result-size-864x720"
+                tabindex="-1"
+              >
+                <div class="result-ribbon-media">
+                  <img
+                    alt=""
+                    decoding="async"
+                    height="720"
+                    loading="lazy"
+                    src="assets/results/激波折射研究.webp"
+                    width="864"
+                  />
+                </div>
+                <figcaption title="激波折射研究">
+                  <strong> 激波折射研究 </strong>
+                </figcaption>
+              </figure>
+              <figure
+                class="result-ribbon-item result-size-864x720"
+                tabindex="-1"
+              >
+                <div class="result-ribbon-media">
+                  <img
+                    alt=""
+                    decoding="async"
+                    height="720"
+                    loading="lazy"
+                    src="assets/results/稀疏波诱导RT不稳定性研究.webp"
+                    width="864"
+                  />
+                </div>
+                <figcaption title="稀疏波诱导RT不稳定性研究">
+                  <strong> 稀疏波诱导RT不稳定性研究 </strong>
+                </figcaption>
+              </figure>
+              <figure
+                class="result-ribbon-item result-size-382x418"
+                tabindex="-1"
+              >
+                <div class="result-ribbon-media">
+                  <img
+                    alt=""
+                    decoding="async"
+                    height="418"
+                    loading="lazy"
+                    src="assets/results/汇聚激波冲击多模界面研究.webp"
+                    width="382"
+                  />
+                </div>
+                <figcaption title="汇聚激波冲击多模界面研究">
+                  <strong> 汇聚激波冲击多模界面研究 </strong>
+                </figcaption>
+              </figure>
+              <figure
+                class="result-ribbon-item result-size-269x142"
+                tabindex="-1"
+              >
+                <div class="result-ribbon-media">
+                  <img
+                    alt=""
+                    decoding="async"
+                    height="142"
+                    loading="lazy"
+                    src="assets/results/激波冲击颗粒幕研究.webp"
+                    width="269"
+                  />
+                </div>
+                <figcaption title="激波冲击颗粒幕研究">
+                  <strong> 激波冲击颗粒幕研究 </strong>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="hero">
+        <div aria-hidden="true" class="hero-bg"></div>
+        <div class="container hero-grid">
+          <div class="hero-copy reveal">
+            <p class="kicker">Experimental Fluid Mechanics · Shock Dynamics</p>
+            <h1>
               实验流体力学
-              <br/>
+              <br />
               界面与激波动力学
             </h1>
-<p class="hero-lead">
+            <p class="hero-lead">
               课题组主要研究实验流体力学、流动稳定性和激波动力学，重点关注激波作用下的界面演化、流动结构及实验诊断。
             </p>
-<div aria-label="课题组关键词" class="hero-meta">
-<span> 实验研究 </span>
-<span> 理论分析 </span>
-<span> 定量测量 </span>
-</div>
-</div>
-<aside aria-label="课题组负责人信息" class="pi-feature-card reveal" data-pi-feature=""></aside>
-</div>
-</section>
-<section class="section career" id="career">
-<div class="container career-grid">
-<article class="career-panel reveal">
-<p class="kicker">Education</p>
-<h2>教育经历</h2>
-<ol class="career-list">
-<li>
-<time> 2004.09 – 2008.07 </time>
-<span> 河南科技大学，生物医学工程专业，学士 </span>
-</li>
-<li>
-<time> 2008.09 – 2012.11 </time>
-<span> 中国科学技术大学近代力学系，流体力学专业，博士 </span>
-</li>
-</ol>
-</article>
-<article class="career-panel reveal">
-<p class="kicker">Appointments</p>
-<h2>工作经历</h2>
-<ol class="career-list">
-<li>
-<time> 2012.11 – 2014.09 </time>
-<span> 中国科学技术大学近代力学系，博士后研究员 </span>
-</li>
-<li>
-<time> 2014.09 – 2019.03 </time>
-<span> 中国科学技术大学近代力学系，特任副研究员 </span>
-</li>
-<li>
-<time> 2019.04 – 2020.11 </time>
-<span> 中国科学技术大学近代力学系，副教授 </span>
-</li>
-<li>
-<time> 2020.11 – 2025.01 </time>
-<span> 中国科学技术大学近代力学系，特任教授 </span>
-</li>
-<li>
-<time> 2025.01 – 至今 </time>
-<span> 中国科学技术大学近代力学系，教授 </span>
-</li>
-</ol>
-</article>
-</div>
-</section>
-<section class="section" id="research">
-<div class="container">
-<div class="section-heading center reveal">
-<p class="kicker">Research</p>
-<h2>研究方向</h2>
-</div>
-<div class="research-grid">
-<article class="research-card accent-blue reveal">
-<span class="icon-mark"> △ </span>
-<h3>实验流体力学</h3>
-<p>
+            <div aria-label="课题组关键词" class="hero-meta">
+              <span> 实验研究 </span>
+              <span> 理论分析 </span>
+              <span> 定量测量 </span>
+            </div>
+          </div>
+          <aside
+            aria-label="课题组负责人信息"
+            class="pi-feature-card reveal"
+            data-pi-feature=""
+          ></aside>
+        </div>
+      </section>
+      <section class="section career" id="career">
+        <div class="container career-grid">
+          <article class="career-panel reveal">
+            <p class="kicker">Education</p>
+            <h2>教育经历</h2>
+            <ol class="career-list">
+              <li>
+                <time> 2004.09 – 2008.07 </time>
+                <span> 河南科技大学，生物医学工程专业，学士 </span>
+              </li>
+              <li>
+                <time> 2008.09 – 2012.11 </time>
+                <span> 中国科学技术大学近代力学系，流体力学专业，博士 </span>
+              </li>
+            </ol>
+          </article>
+          <article class="career-panel reveal">
+            <p class="kicker">Appointments</p>
+            <h2>工作经历</h2>
+            <ol class="career-list">
+              <li>
+                <time> 2012.11 – 2014.09 </time>
+                <span> 中国科学技术大学近代力学系，博士后研究员 </span>
+              </li>
+              <li>
+                <time> 2014.09 – 2019.03 </time>
+                <span> 中国科学技术大学近代力学系，特任副研究员 </span>
+              </li>
+              <li>
+                <time> 2019.04 – 2020.11 </time>
+                <span> 中国科学技术大学近代力学系，副教授 </span>
+              </li>
+              <li>
+                <time> 2020.11 – 2025.01 </time>
+                <span> 中国科学技术大学近代力学系，特任教授 </span>
+              </li>
+              <li>
+                <time> 2025.01 – 至今 </time>
+                <span> 中国科学技术大学近代力学系，教授 </span>
+              </li>
+            </ol>
+          </article>
+        </div>
+      </section>
+      <section class="section" id="research">
+        <div class="container">
+          <div class="section-heading center reveal">
+            <p class="kicker">Research</p>
+            <h2>研究方向</h2>
+          </div>
+          <div class="research-grid">
+            <article class="research-card accent-blue reveal">
+              <span class="icon-mark"> △ </span>
+              <h3>实验流体力学</h3>
+              <p>
                 开展高速瞬态流动实验，利用纹影、高速摄影等方法获取并分析流场信息。
               </p>
-</article>
-<article class="research-card accent-red reveal">
-<span class="icon-mark"> ≈ </span>
-<h3>界面不稳定性</h3>
-<p>
+            </article>
+            <article class="research-card accent-red reveal">
+              <span class="icon-mark"> ≈ </span>
+              <h3>界面不稳定性</h3>
+              <p>
                 研究激波、稀疏波等作用下的界面演化，关注扰动增长、涡量沉积和混合层发展。
               </p>
-</article>
-<article class="research-card accent-gold reveal">
-<span class="icon-mark"> ↯ </span>
-<h3>激波动力学</h3>
-<p>
+            </article>
+            <article class="research-card accent-gold reveal">
+              <span class="icon-mark"> ↯ </span>
+              <h3>激波动力学</h3>
+              <p>
                 关注激波生成、反射、折射、干扰及激波与涡/界面的相互作用机理。
               </p>
-</article>
-<article class="research-card accent-teal reveal">
-<span class="icon-mark"> ▥ </span>
-<h3>激波与颗粒幕相互作用</h3>
-<p>研究激波穿过颗粒幕后的波系演化、颗粒运动及气固耦合效应。</p>
-</article>
-</div>
-</div>
-</section>
-<div aria-labelledby="teaching-title" class="section teaching-section" id="teaching" role="region">
-<div class="container teaching-layout">
-<div class="teaching-heading reveal">
-<p class="kicker">Teaching</p>
-<h2 id="teaching-title">教学内容</h2>
-<p>承担本科生与研究生课程教学。</p>
-</div>
-<div aria-label="教学课程" class="course-grid">
-<article class="course-card reveal">
-<span aria-hidden="true" class="course-mark"> ∑ </span>
-<div>
-<span class="course-level"> 本科生课程 </span>
-<h3>工程计算方法</h3>
-<p>Engineering Computational Methods</p>
-</div>
-</article>
-<article class="course-card reveal">
-<span aria-hidden="true" class="course-mark"> ↯ </span>
-<div>
-<span class="course-level"> 研究生课程 </span>
-<h3>激波动力学</h3>
-<p>Shock Wave Dynamics</p>
-</div>
-</article>
-</div>
-</div>
-</div>
-<section class="section split-showcase" id="platform">
-<div class="container showcase-grid">
-<div class="showcase-text reveal">
-<p class="kicker">Facilities</p>
-<h2>实验平台与测量方法</h2>
-<p>
+            </article>
+            <article class="research-card accent-teal reveal">
+              <span class="icon-mark"> ▥ </span>
+              <h3>激波与颗粒幕相互作用</h3>
+              <p>研究激波穿过颗粒幕后的波系演化、颗粒运动及气固耦合效应。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <div
+        aria-labelledby="teaching-title"
+        class="section teaching-section"
+        id="teaching"
+        role="region"
+      >
+        <div class="container teaching-layout">
+          <div class="teaching-heading reveal">
+            <p class="kicker">Teaching</p>
+            <h2 id="teaching-title">教学内容</h2>
+            <p>承担本科生与研究生课程教学。</p>
+          </div>
+          <div aria-label="教学课程" class="course-grid">
+            <article class="course-card reveal">
+              <span aria-hidden="true" class="course-mark"> ∑ </span>
+              <div>
+                <span class="course-level"> 本科生课程 </span>
+                <h3>工程计算方法</h3>
+                <p>Engineering Computational Methods</p>
+              </div>
+            </article>
+            <article class="course-card reveal">
+              <span aria-hidden="true" class="course-mark"> ↯ </span>
+              <div>
+                <span class="course-level"> 研究生课程 </span>
+                <h3>激波动力学</h3>
+                <p>Shock Wave Dynamics</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+      <section class="section split-showcase" id="platform">
+        <div class="container showcase-grid">
+          <div class="showcase-text reveal">
+            <p class="kicker">Facilities</p>
+            <h2>实验平台与测量方法</h2>
+            <p>
               实验装置包括激波管、稀疏波管、纹影系统和高速摄影设备，用于瞬态高速流动的观测与定量分析。点击图片可放大。
             </p>
-<ul class="method-list">
-<li>激波管、稀疏波管</li>
-<li>纹影法高速摄影成像</li>
-<li>实验测量与理论建模</li>
-</ul>
-</div>
-<figure class="showcase-figure reveal">
-<img alt="课题组实验平台与光学诊断装置" data-lightbox="" decoding="async" fetchpriority="low" loading="lazy" src="assets/portraits/jbg.webp"/>
-<figcaption>
+            <ul class="method-list">
+              <li>激波管、稀疏波管</li>
+              <li>纹影法高速摄影成像</li>
+              <li>实验测量与理论建模</li>
+            </ul>
+          </div>
+          <figure class="showcase-figure reveal">
+            <img
+              alt="课题组实验平台与光学诊断装置"
+              data-lightbox=""
+              decoding="async"
+              fetchpriority="low"
+              loading="lazy"
+              src="assets/portraits/jbg.webp"
+            />
+            <figcaption>
               Experimental facilities · optical diagnostics
             </figcaption>
-</figure>
-</div>
-</section>
-<section class="section gallery-section" id="gallery">
-<div class="container">
-<div class="section-title-row reveal">
-<div>
-<p class="kicker">Group Gallery</p>
-<h2>课题组图集</h2>
-</div>
-<p class="section-hint">
+          </figure>
+        </div>
+      </section>
+      <section class="section gallery-section" id="gallery">
+        <div class="container">
+          <div class="section-title-row reveal">
+            <div>
+              <p class="kicker">Group Gallery</p>
+              <h2>课题组图集</h2>
+            </div>
+            <p class="section-hint">
               实验平台、学术会议、组会活动与代表性流动图像。
             </p>
-</div>
-<div class="gallery-grid" data-gallery-grid=""></div>
-</div>
-</section>
-<section class="section" id="publications">
-<div class="container">
-<div class="section-title-row reveal">
-<div>
-<p class="kicker">Selected Publications</p>
-<h2>代表性成果</h2>
-</div>
-<a class="text-link" href="publications.html"> 查看全部成果 → </a>
-</div>
-<div aria-label="代表性论文列表" class="publication-list" data-featured-publications=""></div>
-</div>
-</section>
-<section class="section people-section" id="people">
-<div class="container">
-<div class="section-title-row reveal">
-<div>
-<p class="kicker">People</p>
-<h2>研究团队</h2>
-</div>
-<a class="text-link" href="people.html#all-members">
+          </div>
+          <div class="gallery-grid" data-gallery-grid=""></div>
+        </div>
+      </section>
+      <section class="section" id="publications">
+        <div class="container">
+          <div class="section-title-row reveal">
+            <div>
+              <p class="kicker">Selected Publications</p>
+              <h2>代表性成果</h2>
+            </div>
+            <a class="text-link" href="publications.html"> 查看全部成果 → </a>
+          </div>
+          <div
+            aria-label="代表性论文列表"
+            class="publication-list"
+            data-featured-publications=""
+          ></div>
+        </div>
+      </section>
+      <section class="section people-section" id="people">
+        <div class="container">
+          <div class="section-title-row reveal">
+            <div>
+              <p class="kicker">People</p>
+              <h2>研究团队</h2>
+            </div>
+            <a class="text-link" href="people.html#all-members">
               查看全部成员 →
             </a>
-</div>
-<div class="people-grid" data-people-home-grid=""></div>
-</div>
-</section>
-<section class="section alumni-section" id="alumni">
-<div class="container">
-<div class="section-title-row reveal">
-<div>
-<p class="kicker">Alumni</p>
-<h2>毕业生</h2>
-</div>
-<a class="text-link" href="people.html#alumni">
+          </div>
+          <div class="people-grid" data-people-home-grid=""></div>
+        </div>
+      </section>
+      <section class="section alumni-section" id="alumni">
+        <div class="container">
+          <div class="section-title-row reveal">
+            <div>
+              <p class="kicker">Alumni</p>
+              <h2>毕业生</h2>
+            </div>
+            <a class="text-link" href="people.html#alumni">
               查看全部毕业生 →
             </a>
-</div>
-<div class="alumni-grid" data-alumni-home-grid=""></div>
-</div>
-</section>
-<section class="section timeline-section" id="timeline">
-<div class="container">
-<div class="section-title-row reveal">
-<div>
-<p class="kicker">Timeline</p>
-<h2>新闻与课题组动态</h2>
-</div>
-<a class="text-link" href="news.html"> 完整时间轴 → </a>
-</div>
-<div class="timeline" data-news-home-timeline=""></div>
-</div>
-</section>
-<section class="section bottom-panels" id="join">
-<div class="container panel-grid">
-<article class="info-panel reveal">
-<div class="panel-head">
-<h2>招生招聘</h2>
-<a href="people.html"> 团队详情 → </a>
-</div>
-<ul class="opening-list">
-<li>
-<strong> 博士后 </strong>
-<span> 流体力学 / 激波动力学方向，长期有效 </span>
-</li>
-<li>
-<strong> 博士研究生 </strong>
-<span> 欢迎工程力学、流体力学、实验测量方向同学申请 </span>
-</li>
-<li>
-<strong> 硕士研究生 </strong>
-<span> 推免与统考名额以学院通知为准 </span>
-</li>
-</ul>
-</article>
-<article class="info-panel contact-panel reveal">
-<div class="panel-head">
-<h2>联系我们</h2>
-</div>
-<address>
-<span>
+          </div>
+          <div class="alumni-grid" data-alumni-home-grid=""></div>
+        </div>
+      </section>
+      <section class="section timeline-section" id="timeline">
+        <div class="container">
+          <div class="section-title-row reveal">
+            <div>
+              <p class="kicker">Timeline</p>
+              <h2>新闻与课题组动态</h2>
+            </div>
+            <a class="text-link" href="news.html"> 完整时间轴 → </a>
+          </div>
+          <div class="timeline" data-news-home-timeline=""></div>
+        </div>
+      </section>
+      <section class="section bottom-panels" id="join">
+        <div class="container panel-grid">
+          <article class="info-panel reveal">
+            <div class="panel-head">
+              <h2>招生招聘</h2>
+              <a href="people.html"> 团队详情 → </a>
+            </div>
+            <ul class="opening-list">
+              <li>
+                <strong> 博士后 </strong>
+                <span> 流体力学 / 激波动力学方向，长期有效 </span>
+              </li>
+              <li>
+                <strong> 博士研究生 </strong>
+                <span> 欢迎工程力学、流体力学、实验测量方向同学申请 </span>
+              </li>
+              <li>
+                <strong> 硕士研究生 </strong>
+                <span> 推免与统考名额以学院通知为准 </span>
+              </li>
+            </ul>
+          </article>
+          <article class="info-panel contact-panel reveal">
+            <div class="panel-head">
+              <h2>联系我们</h2>
+            </div>
+            <address>
+              <span>
                 安徽省合肥市蜀山区黄山路443号
-                <br/>
+                <br />
                 中国科学技术大学力学五楼6楼
               </span>
-<a href="mailto:sanjing@ustc.edu.cn"> sanjing@ustc.edu.cn </a>
-<a href="https://zhai-net.github.io">
+              <a href="mailto:sanjing@ustc.edu.cn"> sanjing@ustc.edu.cn </a>
+              <a href="https://zhai-net.github.io">
                 https://zhai-net.github.io
               </a>
-</address>
-</article>
-</div>
-</section>
-<section class="section visit-section" data-busuanzi-src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" id="site-statistics">
-<div class="container">
-<div aria-label="网站访问统计与全球访问地图" class="visit-panel reveal final-visit-panel visit-panel-minimal">
-<div aria-label="不蒜子访问统计" class="visit-counts">
-<div class="visit-stat">
-<span class="visit-label">访问量</span>
-<strong id="busuanzi_value_site_pv">—</strong>
-<small>PV</small>
-</div>
-<div class="visit-stat">
-<span class="visit-label">独立访客</span>
-<strong id="busuanzi_value_site_uv">—</strong>
-<small>UV</small>
-</div>
-</div>
-<div class="mapmyvisitors-card" data-mapmyvisitors-card="">
-<div class="visit-map-head">
-<span class="visit-label">全球访问分布</span>
-<strong>Visitor Map</strong>
-</div>
-<div aria-label="全球访问来源地图" class="mapmyvisitors-frame" data-mapmyvisitors-frame="" data-mapmyvisitors-frame-src="assets/mapmyvisitors.html">
-<p class="mapmyvisitors-hint" data-map-loading="">
+            </address>
+          </article>
+        </div>
+      </section>
+      <section
+        class="section visit-section"
+        data-busuanzi-src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
+        id="site-statistics"
+      >
+        <div class="container">
+          <div
+            aria-label="网站访问统计与全球访问地图"
+            class="visit-panel reveal final-visit-panel visit-panel-minimal"
+          >
+            <div aria-label="不蒜子访问统计" class="visit-counts">
+              <div class="visit-stat">
+                <span class="visit-label"> 访问量 </span>
+                <strong id="busuanzi_value_site_pv"> — </strong>
+                <small> PV </small>
+              </div>
+              <div class="visit-stat">
+                <span class="visit-label"> 独立访客 </span>
+                <strong id="busuanzi_value_site_uv"> — </strong>
+                <small> UV </small>
+              </div>
+            </div>
+            <div class="mapmyvisitors-card" data-mapmyvisitors-card="">
+              <div class="visit-map-head">
+                <span class="visit-label"> 全球访问分布 </span>
+                <strong> Visitor Map </strong>
+              </div>
+              <div
+                aria-label="全球访问来源地图"
+                class="mapmyvisitors-frame"
+                data-mapmyvisitors-frame=""
+                data-mapmyvisitors-frame-src="assets/mapmyvisitors.html"
+              >
+                <p class="mapmyvisitors-hint" data-map-loading="">
                   滚动到本区域附近后加载访问地图。
                 </p>
-<noscript>
-<p class="mapmyvisitors-hint">
+                <noscript>
+                  <p class="mapmyvisitors-hint">
                     启用 JavaScript 后可查看全球访问来源地图。
                   </p>
-</noscript>
-</div>
-</div>
-</div>
-</div>
-</section>
-</main>
-<button aria-label="返回顶部" class="back-to-top" type="button">↑</button>
-<div aria-hidden="true" aria-label="图片放大预览" aria-modal="true" class="lightbox" role="dialog" tabindex="-1">
-<button aria-label="关闭图片预览" class="lightbox-close" type="button">
+                </noscript>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <button aria-label="返回顶部" class="back-to-top" type="button">↑</button>
+    <div
+      aria-hidden="true"
+      aria-label="图片放大预览"
+      aria-modal="true"
+      class="lightbox"
+      role="dialog"
+      tabindex="-1"
+    >
+      <button aria-label="关闭图片预览" class="lightbox-close" type="button">
         ×
       </button>
-<img alt="预览图片"/>
-</div>
-<footer class="site-footer">
-<div class="container footer-grid">
-<div class="footer-column footer-identity">
-<div class="footer-brand compact">
-<img alt="中国科学技术大学校徽" decoding="async" height="46" loading="lazy" src="assets/logos/ustcblue.png" width="46"/>
-<span>
-<strong> 翟志刚课题组 </strong>
-<small> Experimental Fluid Mechanics · USTC </small>
-</span>
-</div>
-<p>研究方向：实验流体力学、流动稳定性与激波动力学。</p>
-</div>
-<div class="footer-column">
-<h3>网站导航</h3>
-<a href="index.html#about"> 简介 </a>
-<a href="index.html#research"> 研究方向 </a>
-<a href="publications.html"> 论文 </a>
-<a href="people.html"> 成员 </a>
-<a href="news.html"> 时间轴 </a>
-</div>
-<div class="footer-column">
-<h3>联系与链接</h3>
-<a href="mailto:sanjing@ustc.edu.cn"> sanjing@ustc.edu.cn </a>
-<a href="https://faculty.ustc.edu.cn/zhaizhigang/zh_CN/index.htm" rel="noopener" target="_blank">
+      <img alt="预览图片" />
+    </div>
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-column footer-identity">
+          <div class="footer-brand compact">
+            <a
+              aria-label="访问中国科学技术大学主页"
+              class="footer-ustc-link"
+              data-site-link="ustc"
+              href="https://www.ustc.edu.cn/"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="访问中国科学技术大学主页"
+            >
+              <img
+                alt="中国科学技术大学校徽"
+                decoding="async"
+                height="46"
+                loading="lazy"
+                src="assets/logos/ustcblue.png"
+                width="46"
+              />
+            </a>
+            <span>
+              <strong> 翟志刚课题组 </strong>
+              <small> Experimental Fluid Mechanics · USTC </small>
+            </span>
+          </div>
+          <p>研究方向：实验流体力学、流动稳定性与激波动力学。</p>
+        </div>
+        <div class="footer-column">
+          <h3>网站导航</h3>
+          <a href="index.html#about"> 简介 </a>
+          <a href="index.html#research"> 研究方向 </a>
+          <a href="publications.html"> 论文 </a>
+          <a href="people.html"> 成员 </a>
+          <a href="news.html"> 时间轴 </a>
+        </div>
+        <div class="footer-column">
+          <h3>联系与链接</h3>
+          <a href="mailto:sanjing@ustc.edu.cn"> sanjing@ustc.edu.cn </a>
+          <a
+            data-site-link="ustcProfile"
+            href="https://faculty.ustc.edu.cn/zhaizhigang/zh_CN/index.htm"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             USTC 个人主页
           </a>
-<a href="https://scholar.google.com/citations?hl=zh-CN&amp;user=wJDRPKAAAAAJ" rel="noopener" target="_blank">
+          <a
+            data-site-link="googleScholar"
+            href="https://scholar.google.com/citations?hl=zh-CN&amp;user=wJDRPKAAAAAJ"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             Google Scholar
           </a>
-<a href="https://www.researchgate.net/profile/Zhigang-Zhai" rel="noopener" target="_blank">
+          <a
+            data-site-link="researchGate"
+            href="https://www.researchgate.net/profile/Zhigang-Zhai"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             ResearchGate
           </a>
-</div>
-<div class="footer-column footer-friends">
-<h3>友情链接</h3>
-<a href="https://www.ustc.edu.cn/" rel="noopener" target="_blank">
+        </div>
+        <div class="footer-column footer-friends">
+          <h3>友情链接</h3>
+          <a
+            data-site-link="ustc"
+            href="https://www.ustc.edu.cn/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             中国科学技术大学主页
           </a>
-<a href="https://ses.ustc.edu.cn/main.htm" rel="noopener" target="_blank">
+          <a
+            data-site-link="schoolOfEngineeringScience"
+            href="https://ses.ustc.edu.cn/main.htm"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             工程科学学院主页
           </a>
-<a href="https://mech.ustc.edu.cn/main.htm" rel="noopener" target="_blank">
+          <a
+            data-site-link="departmentOfModernMechanics"
+            href="https://mech.ustc.edu.cn/main.htm"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             近代力学系主页
           </a>
-<a href="https://staff.ustc.edu.cn/~xluo/" rel="noopener" target="_blank">
+          <a
+            data-site-link="luoXisheng"
+            href="https://staff.ustc.edu.cn/~xluo/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             罗喜胜教授主页
           </a>
-<a href="https://faculty.ustc.edu.cn/tsi/zh_CN/index.htm" rel="noopener" target="_blank">
+          <a
+            data-site-link="siTing"
+            href="https://faculty.ustc.edu.cn/tsi/zh_CN/index.htm"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             司廷教授主页
           </a>
-</div>
-<div class="footer-bottom">
-<span> © 2026 翟志刚课题组 版权所有 </span>
-<span>
+          <a
+            data-site-link="highTemperatureAerodynamicsLab"
+            href="http://lhd.imech.cas.cn/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            空天飞行高温气动实验室
+          </a>
+        </div>
+        <div class="footer-bottom">
+          <span> © 2026 翟志刚课题组 版权所有 </span>
+          <span>
             Last updated:
             <span data-last-updated=""> 2026-06-23 </span>
-</span>
-</div>
-</div>
-</footer>
-<script defer="" src="assets/js/core.js"></script>
-<script defer="" src="assets/data/site.js"></script><script defer="" src="assets/data/i18n.js"></script>
-<script defer="" src="assets/data/publications.js"></script>
-<script defer="" src="assets/data/people.js"></script>
-<script defer="" src="assets/data/gallery.js"></script>
-<script defer="" src="assets/data/news.js"></script>
-<script defer="" src="assets/js/render.js"></script>
-<script defer="" src="assets/js/statistics.js"></script>
-<script defer="" src="assets/js/common.js"></script>
-<script defer="" src="assets/js/polish.js"></script>
-</body>
+          </span>
+        </div>
+      </div>
+    </footer>
+    <script defer="" src="assets/js/core.js"></script>
+    <script defer="" src="assets/data/site.js"></script>
+    <script defer="" src="assets/data/i18n.js"></script>
+    <script defer="" src="assets/data/publications.js"></script>
+    <script defer="" src="assets/data/people.js"></script>
+    <script defer="" src="assets/data/gallery.js"></script>
+    <script defer="" src="assets/data/news.js"></script>
+    <script defer="" src="assets/js/render.js"></script>
+    <script defer="" src="assets/js/statistics.js"></script>
+    <script defer="" src="assets/js/common.js"></script>
+    <script defer="" src="assets/js/polish.js"></script>
+  </body>
 </html>

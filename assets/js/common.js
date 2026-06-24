@@ -27,7 +27,12 @@
     const setOpen = (open) => {
       menu.classList.toggle("open", open);
       toggle.setAttribute("aria-expanded", String(open));
-      toggle.setAttribute("aria-label", open ? (ui.navClose || text("关闭导航菜单", "Close navigation menu")) : (ui.navOpen || text("打开导航菜单", "Open navigation menu")));
+      toggle.setAttribute(
+        "aria-label",
+        open
+          ? ui.navClose || text("关闭导航菜单", "Close navigation menu")
+          : ui.navOpen || text("打开导航菜单", "Open navigation menu"),
+      );
       document.body.classList.toggle("menu-open", open);
     };
 
@@ -109,8 +114,18 @@
       toggle.setAttribute("aria-pressed", String(theme === "dark"));
       const icon = query(".theme-icon", toggle);
       const label = query(".theme-label", toggle);
-      if (icon) icon.textContent = theme === "dark" ? "☼" : "◐";
-      if (label) label.textContent = theme === "dark" ? (ui.lightMode || text("浅色", "Light")) : (ui.darkMode || text("深色", "Dark"));
+      const switchToLight = theme === "dark";
+      const buttonLabel = switchToLight
+        ? ui.lightMode || text("浅色模式", "Light mode")
+        : ui.darkMode || text("深色模式", "Dark mode");
+      const actionLabel = switchToLight
+        ? ui.switchToLightMode || text("切换至浅色模式", "Switch to light mode")
+        : ui.switchToDarkMode || text("切换至深色模式", "Switch to dark mode");
+
+      if (icon) icon.textContent = switchToLight ? "☼" : "◐";
+      if (label) label.textContent = buttonLabel;
+      toggle.setAttribute("aria-label", actionLabel);
+      toggle.title = actionLabel;
     };
 
     applyTheme(savedTheme || systemTheme);
@@ -127,10 +142,21 @@
     });
   }
 
+  function initSiteLinks() {
+    const links = window.ZHAI_SITE?.links || {};
+
+    queryAll("[data-site-link]").forEach((anchor) => {
+      const key = anchor.dataset.siteLink;
+      const href = key ? links[key] : "";
+      if (href) anchor.href = href;
+    });
+  }
+
   function initLanguageSwitch() {
     queryAll("[data-language-switch]").forEach((link) => {
       const syncHash = () => {
-        const base = link.dataset.languageTarget || link.getAttribute("href") || "";
+        const base =
+          link.dataset.languageTarget || link.getAttribute("href") || "";
         if (!base) return;
         const cleanBase = base.split("#")[0];
         link.href = `${cleanBase}${window.location.hash || ""}`;
@@ -713,7 +739,10 @@
       button.className = "copy-email";
       button.type = "button";
       button.textContent = ui.copyEmail || text("复制邮箱", "Copy email");
-      button.setAttribute("aria-label", `${ui.copyEmail || text("复制邮箱", "Copy email")} ${email}`);
+      button.setAttribute(
+        "aria-label",
+        `${ui.copyEmail || text("复制邮箱", "Copy email")} ${email}`,
+      );
       button.addEventListener("click", async () => {
         try {
           await copyText(email);
@@ -737,6 +766,7 @@
   [
     initMobileNavigation,
     initHashNavigation,
+    initSiteLinks,
     initTheme,
     initLanguageSwitch,
     initScrollUI,

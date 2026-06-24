@@ -6,13 +6,13 @@
 
 ## 页面
 
-| 文件                  | 内容                                                                                       |
-| --------------------- | ------------------------------------------------------------------------------------------ |
-| `index.html` / `index-en.html` | 中英文首页：课题组简介、研究方向、教学、平台、成果、成员、新闻、招生与访问统计 |
-| `people.html` / `people-en.html` | 中英文成员与毕业生名录 |
-| `publications.html` / `publications-en.html` | 中英文论文列表、年份索引与检索 |
-| `news.html` / `news-en.html` | 中英文课题组新闻与时间轴 |
-| `preview_render.html` | 首页结构预览文件，保留用于检查基础布局                                                     |
+| 文件                                         | 内容                                                                           |
+| -------------------------------------------- | ------------------------------------------------------------------------------ |
+| `index.html` / `index-en.html`               | 中英文首页：课题组简介、研究方向、教学、平台、成果、成员、新闻、招生与访问统计 |
+| `people.html` / `people-en.html`             | 中英文成员与毕业生名录                                                         |
+| `publications.html` / `publications-en.html` | 中英文论文列表、年份索引与检索                                                 |
+| `news.html` / `news-en.html`                 | 中英文课题组新闻与时间轴                                                       |
+| `preview_render.html`                        | 首页结构预览文件，保留用于检查基础布局                                         |
 
 ## 目录结构
 
@@ -67,7 +67,6 @@ http://localhost:8000/
 ```
 
 不要直接双击 HTML 文件预览。使用本地 HTTP 服务可以避免浏览器对本地资源、剪贴板和第三方脚本的限制。
-
 
 ## 中英文页面维护
 
@@ -193,7 +192,7 @@ ffmpeg -i input.gif -an -c:v libwebp_anim -lossless 0 -quality 82 -compression_l
 - `lastUpdated`：页脚更新时间，格式建议为 `YYYY-MM-DD`；
 - `labName`、`labNameEn`：课题组中英文名称；
 - `contactEmail`：统一联系邮箱；
-- `links`：教师主页、Google Scholar、学校及院系链接。
+- `links`：教师主页、Google Scholar、学校、院系及友情链接。带有 `data-site-link` 的页面链接会自动从这里读取 URL，避免在多个页面重复修改。
 
 ## 样式维护
 
@@ -205,6 +204,8 @@ ffmpeg -i input.gif -an -c:v libwebp_anim -lossless 0 -quality 82 -compression_l
 4. 不随意修改数据渲染所依赖的类名和 `data-*` 属性。
 5. 新增响应式规则时，先检查现有的 `1050px`、`860px`、`720px`、`640px` 和 `540px` 断点。
 6. 修改后同时检查浅色模式、深色模式、桌面端和移动端。
+7. 英文版按钮使用 `white-space: nowrap` 保持完整标签；新增较长英文按钮时优先调整内边距或容器断点，不要单独缩小字号。
+8. 英文排版与主题检查集中在 `refinement.css` 的 “Bilingual typography” 区域，论文检索深色模式也在该区域统一维护。
 
 ## JavaScript 维护
 

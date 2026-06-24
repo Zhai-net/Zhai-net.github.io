@@ -23,15 +23,18 @@ window.ZHAI_I18N = {
       imagePreview: "Image preview",
       navOpen: "Open navigation menu",
       navClose: "Close navigation menu",
-      lightMode: "Light",
-      darkMode: "Dark",
+      lightMode: "Light mode",
+      darkMode: "Dark mode",
+      switchToLightMode: "Switch to light mode",
+      switchToDarkMode: "Switch to dark mode",
       mapLoading: "Loading the global visitor map…",
-      mapFailure: "The visitor map is temporarily unavailable. Please refresh later.",
+      mapFailure:
+        "The visitor map is temporarily unavailable. Please refresh later.",
       mapTitle: "Global visitor map",
       freezeTitle: "RM Instability Frozen",
       copyEmail: "Copy email",
       copied: "Copied",
-      copyFailed: "Copy failed"
+      copyFailed: "Copy failed",
     },
     people: {
       "zhigang-zhai": {
@@ -40,12 +43,15 @@ window.ZHAI_I18N = {
         title: "Professor / Ph.D. Supervisor",
         role: "Professor",
         bio: "Professor in the Department of Modern Mechanics at the University of Science and Technology of China. He received his Ph.D. in Fluid Mechanics from USTC in November 2012. His research focuses on experimental fluid mechanics, flow stability, and shock dynamics.",
-        shortBio: "Experimental fluid mechanics, flow stability, and shock dynamics.",
-        profile: "Ph.D. Supervisor / Party Branch Secretary, Mechanics Building 5, Floor 6",
+        shortBio:
+          "Experimental fluid mechanics, flow stability, and shock dynamics.",
+        profile:
+          "Ph.D. Supervisor / Party Branch Secretary, Mechanics Building 5, Floor 6",
         unit: "University of Science and Technology of China\nDepartment of Modern Mechanics, School of Engineering Science",
         office: "Mechanics Building 5, USTC West Campus",
-        research: "Experimental fluid mechanics, flow stability, and shock dynamics",
-        imageAlt: "Photo of Professor Zhigang Zhai (placeholder)"
+        research:
+          "Experimental fluid mechanics, flow stability, and shock dynamics",
+        imageAlt: "Photo of Professor Zhigang Zhai (placeholder)",
       },
       "xu-guo": {
         name: "Xu Guo",
@@ -53,8 +59,9 @@ window.ZHAI_I18N = {
         title: "Specially Appointed Associate Researcher",
         role: "Associate Researcher",
         bio: "Research on shock-induced interface evolution and coupled rarefaction/shock processes.",
-        shortBio: "Shock-induced interface evolution and rarefaction/shock coupling.",
-        imageAlt: "Photo of Xu Guo"
+        shortBio:
+          "Shock-induced interface evolution and rarefaction/shock coupling.",
+        imageAlt: "Photo of Xu Guo",
       },
       "chen-chenren": {
         name: "Chenren Chen",
@@ -63,7 +70,7 @@ window.ZHAI_I18N = {
         role: "Postdoc",
         bio: "Research on interface-coupling mechanisms and control strategies in Richtmyer–Meshkov instability.",
         shortBio: "Heavy-fluid-layer evolution and shock–interface coupling.",
-        imageAlt: "Photo of Chenren Chen"
+        imageAlt: "Photo of Chenren Chen",
       },
       "chaofan-yang": {
         name: "Chaofan Yang",
@@ -71,7 +78,7 @@ window.ZHAI_I18N = {
         title: "Ph.D. Student, 2024 Cohort",
         role: "Ph.D. Student",
         bio: "Experimental research on shock–particle-curtain interaction.",
-        imageAlt: "Photo of Chaofan Yang (placeholder)"
+        imageAlt: "Photo of Chaofan Yang (placeholder)",
       },
       "ning-zhou": {
         name: "Ning Zhou",
@@ -79,7 +86,7 @@ window.ZHAI_I18N = {
         title: "Ph.D. Student, 2024 Cohort",
         role: "Ph.D. Student",
         bio: "Experimental research on the evolution of gas-layer interfaces impacted by planar shocks.",
-        imageAlt: "Photo of Ning Zhou (placeholder)"
+        imageAlt: "Photo of Ning Zhou (placeholder)",
       },
       "yinuo-xing": {
         name: "Yinuo Xing",
@@ -87,7 +94,7 @@ window.ZHAI_I18N = {
         title: "Ph.D. Student, 2025 Cohort",
         role: "Ph.D. Student",
         bio: "Research on shock-induced interfacial instability.",
-        imageAlt: "Photo of Yinuo Xing (placeholder)"
+        imageAlt: "Photo of Yinuo Xing (placeholder)",
       },
       "jingqian-pu": {
         name: "Jingqian Pu",
@@ -95,7 +102,7 @@ window.ZHAI_I18N = {
         title: "Ph.D. Student, 2025 Cohort",
         role: "Ph.D. Student",
         bio: "Research on shock dynamics and multi-body separation.",
-        imageAlt: "Photo of Jingqian Pu (placeholder)"
+        imageAlt: "Photo of Jingqian Pu (placeholder)",
       },
       "yifan-ma": {
         name: "Yifan Ma",
@@ -103,7 +110,7 @@ window.ZHAI_I18N = {
         title: "Ph.D. Student, 2026 Cohort",
         role: "Ph.D. Student",
         bio: "Research on Richtmyer–Meshkov instability in multilayer interfaces.",
-        imageAlt: "Photo of Yifan Ma (placeholder)"
+        imageAlt: "Photo of Yifan Ma (placeholder)",
       },
       "he-huang": {
         name: "He Huang",
@@ -111,7 +118,7 @@ window.ZHAI_I18N = {
         title: "Master's Student, 2024 Cohort",
         role: "Master's Student",
         bio: "Research topic to be added.",
-        imageAlt: "Photo of He Huang (placeholder)"
+        imageAlt: "Photo of He Huang (placeholder)",
       },
       "bo-chen": {
         name: "Bo Chen",
@@ -119,7 +126,7 @@ window.ZHAI_I18N = {
         title: "Master's Student, 2025 Cohort",
         role: "Master's Student",
         bio: "Research topic to be added.",
-        imageAlt: "Photo of Bo Chen (placeholder)"
+        imageAlt: "Photo of Bo Chen (placeholder)",
       },
       "zhiming-dong": {
         name: "Zhiming Dong",
@@ -127,7 +134,7 @@ window.ZHAI_I18N = {
         title: "Master's Student, 2025 Cohort",
         role: "Master's Student",
         bio: "Research topic to be added.",
-        imageAlt: "Photo of Zhiming Dong (placeholder)"
+        imageAlt: "Photo of Zhiming Dong (placeholder)",
       },
       "xusheng-liao": {
         name: "Xusheng Liao",
@@ -135,7 +142,7 @@ window.ZHAI_I18N = {
         title: "Master's Student, 2025 Cohort",
         role: "Master's Student",
         bio: "Research topic to be added.",
-        imageAlt: "Photo of Xusheng Liao (placeholder)"
+        imageAlt: "Photo of Xusheng Liao (placeholder)",
       },
       "guo-xu": {
         name: "Xu Guo",
@@ -145,7 +152,7 @@ window.ZHAI_I18N = {
         graduation: "Ph.D. Alumnus, 2018 Cohort",
         destination: "University of Science and Technology of China",
         bio: "Alumni information will be added after verification.",
-        imageAlt: "Photo of Xu Guo (placeholder)"
+        imageAlt: "Photo of Xu Guo (placeholder)",
       },
       "jinggang-tang": {
         name: "Jinggang Tang",
@@ -155,7 +162,7 @@ window.ZHAI_I18N = {
         graduation: "Master's Alumnus, 2018 Cohort",
         destination: "Information pending",
         bio: "Alumni information will be added after verification.",
-        imageAlt: "Photo of Jinggang Tang (placeholder)"
+        imageAlt: "Photo of Jinggang Tang (placeholder)",
       },
       "dugang-zheng": {
         name: "Dugang Zheng",
@@ -165,7 +172,7 @@ window.ZHAI_I18N = {
         graduation: "Ph.D. Alumnus, 2019 Cohort",
         destination: "Information pending",
         bio: "Alumni information will be added after verification.",
-        imageAlt: "Photo of Dugang Zheng (placeholder)"
+        imageAlt: "Photo of Dugang Zheng (placeholder)",
       },
       "lili-feng": {
         name: "Lili Feng",
@@ -175,7 +182,7 @@ window.ZHAI_I18N = {
         graduation: "Master's Alumna, 2019 Cohort",
         destination: "Information pending",
         bio: "Alumni information will be added after verification.",
-        imageAlt: "Photo of Lili Feng (placeholder)"
+        imageAlt: "Photo of Lili Feng (placeholder)",
       },
       "hui-wang": {
         name: "Hui Wang",
@@ -185,7 +192,7 @@ window.ZHAI_I18N = {
         graduation: "Ph.D. Alumnus, 2020 Cohort",
         destination: "Information pending",
         bio: "Alumni information will be added after verification.",
-        imageAlt: "Photo of Hui Wang (placeholder)"
+        imageAlt: "Photo of Hui Wang (placeholder)",
       },
       "jinru-xu": {
         name: "Jinru Xu",
@@ -195,7 +202,7 @@ window.ZHAI_I18N = {
         graduation: "Ph.D. Alumnus, 2021 Cohort",
         destination: "Information pending",
         bio: "Alumni information will be added after verification.",
-        imageAlt: "Photo of Jinru Xu (placeholder)"
+        imageAlt: "Photo of Jinru Xu (placeholder)",
       },
       "qing-cao": {
         name: "Qing Cao",
@@ -205,7 +212,7 @@ window.ZHAI_I18N = {
         graduation: "Ph.D. Alumnus, 2022 Cohort",
         destination: "Institute of Mechanics, Chinese Academy of Sciences",
         bio: "Research on interface instability driven by successive co-directional shocks and coupled RM–KH instability.",
-        imageAlt: "Photo of Qing Cao (placeholder)"
+        imageAlt: "Photo of Qing Cao (placeholder)",
       },
       "xing-gao": {
         name: "Xing Gao",
@@ -215,7 +222,7 @@ window.ZHAI_I18N = {
         graduation: "Ph.D. Alumnus, 2022 Cohort",
         destination: "China Aerodynamics Research and Development Center",
         bio: "Research on interface evolution induced by rarefaction and shock waves.",
-        imageAlt: "Photo of Xing Gao"
+        imageAlt: "Photo of Xing Gao",
       },
       "zhu-xu": {
         name: "Zhu Xu",
@@ -225,7 +232,7 @@ window.ZHAI_I18N = {
         graduation: "Master's Alumnus, 2022 Cohort",
         destination: "Information pending",
         bio: "Research on rarefaction-induced interfacial instability.",
-        imageAlt: "Photo of Zhu Xu (placeholder)"
+        imageAlt: "Photo of Zhu Xu (placeholder)",
       },
       "chenren-chen": {
         name: "Chenren Chen",
@@ -235,7 +242,7 @@ window.ZHAI_I18N = {
         graduation: "Ph.D. Alumnus, 2023 Cohort",
         destination: "University of Science and Technology of China",
         bio: "Research on instability control.",
-        imageAlt: "Photo of Chenren Chen"
+        imageAlt: "Photo of Chenren Chen",
       },
       "jiaxuan-li": {
         name: "Jiaxuan Li",
@@ -245,7 +252,7 @@ window.ZHAI_I18N = {
         graduation: "Ph.D. Alumnus, 2023 Cohort",
         destination: "Institute of Mechanics, Chinese Academy of Sciences",
         bio: "Research on heavy-to-light interfacial instability.",
-        imageAlt: "Photo of Jiaxuan Li (placeholder)"
+        imageAlt: "Photo of Jiaxuan Li (placeholder)",
       },
       "yue-li": {
         name: "Yue Li",
@@ -255,7 +262,7 @@ window.ZHAI_I18N = {
         graduation: "Ph.D. Alumna, 2023 Cohort",
         destination: "Information pending",
         bio: "Research on rarefaction-induced Rayleigh–Taylor instability.",
-        imageAlt: "Photo of Yue Li (placeholder)"
+        imageAlt: "Photo of Yue Li (placeholder)",
       },
       "siqi-wang": {
         name: "Siqi Wang",
@@ -265,44 +272,47 @@ window.ZHAI_I18N = {
         graduation: "Master's Alumna, 2023 Cohort",
         destination: "Information pending",
         bio: "Research on shock–particle-curtain interaction.",
-        imageAlt: "Photo of Siqi Wang (placeholder)"
-      }
+        imageAlt: "Photo of Siqi Wang (placeholder)",
+      },
     },
     gallery: {
       Diagnostics: {
         title: "Diagnostics",
         description: "Optical diagnostics and high-speed imaging",
-        alt: "Illustration of optical diagnostics and high-speed imaging"
+        alt: "Illustration of optical diagnostics and high-speed imaging",
       },
       "Shock Tube": {
         title: "Shock Tube",
         description: "Shock-tube and interface-experiment facilities",
-        alt: "Illustration of the shock-tube experimental facility"
+        alt: "Illustration of the shock-tube experimental facility",
       },
       Interface: {
         title: "Interface",
         description: "Shock-induced interface evolution",
-        alt: "Illustration of interface evolution and instability"
+        alt: "Illustration of interface evolution and instability",
       },
       "Group Life": {
         title: "Group Life",
         description: "Conferences, group meetings, and daily activities",
-        alt: "Illustration of group activities and conferences"
-      }
+        alt: "Illustration of group activities and conferences",
+      },
     },
     news: [
       {
-        title: "Study on controlling gas-layer instability across different Atwood numbers published in Journal of Fluid Mechanics",
-        description: ""
+        title:
+          "Study on controlling gas-layer instability across different Atwood numbers published in Journal of Fluid Mechanics",
+        description: "",
       },
       {
-        title: "Ph.D. candidates Chenren Chen and Jiaxuan Li successfully defended their dissertations",
-        description: ""
+        title:
+          "Ph.D. candidates Chenren Chen and Jiaxuan Li successfully defended their dissertations",
+        description: "",
       },
       {
-        title: "Group members attended the 22nd National Conference on Shock Waves and Shock Tubes and received an Outstanding Oral Presentation Award",
-        description: ""
-      }
-    ]
-  }
+        title:
+          "Group members attended the 22nd National Conference on Shock Waves and Shock Tubes and received an Outstanding Oral Presentation Award",
+        description: "",
+      },
+    ],
+  },
 };

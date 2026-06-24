@@ -82,11 +82,13 @@
     const placeholder = query("[data-map-loading]", frame);
     if (placeholder)
       placeholder.textContent =
-        ui.mapLoading || text("正在加载全球访问分布…", "Loading the global visitor map…");
+        ui.mapLoading ||
+        text("正在加载全球访问分布…", "Loading the global visitor map…");
 
     const iframe = document.createElement("iframe");
     iframe.className = "mapmyvisitors-embed";
-    iframe.title = ui.mapTitle || text("全球访问来源地图", "Global visitor map");
+    iframe.title =
+      ui.mapTitle || text("全球访问来源地图", "Global visitor map");
     iframe.loading = "eager";
     iframe.src = source;
 

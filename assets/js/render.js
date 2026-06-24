@@ -73,11 +73,21 @@
     if (!pi) return;
 
     const image = pi.image || "assets/portraits/portrait-placeholder.jpg";
-    const title = String(personValue(pi, "title")).split("/")[0].trim() || text("教授", "Professor");
-    const unit = personValue(pi, "unit") || text("中国科学技术大学\n工程科学学院近代力学系", "University of Science and Technology of China\nDepartment of Modern Mechanics, School of Engineering Science");
+    const title =
+      String(personValue(pi, "title")).split("/")[0].trim() ||
+      text("教授", "Professor");
+    const unit =
+      personValue(pi, "unit") ||
+      text(
+        "中国科学技术大学\n工程科学学院近代力学系",
+        "University of Science and Technology of China\nDepartment of Modern Mechanics, School of Engineering Science",
+      );
     const contact = pi.email
       ? `<a href="mailto:${escapeHTML(pi.email)}">${escapeHTML(pi.email)}</a>`
-      : escapeHTML(ui.contactPending || text("联系方式待补充", "Contact information pending"));
+      : escapeHTML(
+          ui.contactPending ||
+            text("联系方式待补充", "Contact information pending"),
+        );
     const primaryName = personValue(pi, "name");
     const secondaryName = isEnglish
       ? personValue(pi, "secondaryName") || pi.name
@@ -172,8 +182,8 @@
         <div class="alumni-info">
           <h3>${renderPersonName(person)}</h3>
           ${secondaryMarkup}
-          <p>${escapeHTML(personValue(person, "graduation") || personValue(person, "title") || (ui.alumni || text("毕业生", "Alumni")))}</p>
-          <span>${escapeHTML(personValue(person, "destination") || personValue(person, "bio") || (ui.informationPending || text("信息待补充", "Information pending")))}</span>
+          <p>${escapeHTML(personValue(person, "graduation") || personValue(person, "title") || ui.alumni || text("毕业生", "Alumni"))}</p>
+          <span>${escapeHTML(personValue(person, "destination") || personValue(person, "bio") || ui.informationPending || text("信息待补充", "Information pending"))}</span>
         </div>
       </article>
     `;
@@ -203,7 +213,13 @@
     const alumni = getPeople("alumni").slice(0, 14);
     target.innerHTML = alumni.length
       ? alumni.map(renderAlumniCard).join("")
-      : renderEmptyCard(ui.alumniPending || text("毕业生信息待课题组后续补充。", "Alumni information will be added after verification."));
+      : renderEmptyCard(
+          ui.alumniPending ||
+            text(
+              "毕业生信息待课题组后续补充。",
+              "Alumni information will be added after verification.",
+            ),
+        );
   }
 
   function renderPeopleDirectory() {
@@ -216,7 +232,12 @@
         id: "all-members",
         items: getPeople("pi"),
         grid: "people-directory-grid",
-        empty: ui.leaderPending || text("负责人信息待补充。", "Principal investigator information pending."),
+        empty:
+          ui.leaderPending ||
+          text(
+            "负责人信息待补充。",
+            "Principal investigator information pending.",
+          ),
         always: true,
       },
       {
@@ -230,7 +251,12 @@
         id: "students",
         items: getPeople("student"),
         grid: "people-directory-grid",
-        empty: ui.studentPending || text("学生信息待课题组后续补充。", "Student information will be added soon."),
+        empty:
+          ui.studentPending ||
+          text(
+            "学生信息待课题组后续补充。",
+            "Student information will be added soon.",
+          ),
         always: true,
       },
       {
@@ -239,7 +265,12 @@
         items: getPeople("alumni"),
         grid: "alumni-grid",
         alumni: true,
-        empty: ui.alumniPending || text("毕业生信息待课题组后续补充。", "Alumni information will be added after verification."),
+        empty:
+          ui.alumniPending ||
+          text(
+            "毕业生信息待课题组后续补充。",
+            "Alumni information will be added after verification.",
+          ),
         always: true,
       },
     ];
@@ -253,7 +284,11 @@
                 alumni ? renderAlumniCard(person) : renderPersonCard(person),
               )
               .join("")
-          : renderEmptyCard(empty || ui.informationPending || text("信息待补充。", "Information pending."));
+          : renderEmptyCard(
+              empty ||
+                ui.informationPending ||
+                text("信息待补充。", "Information pending."),
+            );
         return `
           <h2 class="directory-heading reveal" id="${escapeHTML(id)}">${escapeHTML(title)}</h2>
           <div class="${escapeHTML(grid)}">${cards}</div>
@@ -382,11 +417,9 @@
         .join(""),
     );
 
-    queryAll("[data-publication-total]").forEach(
-      (node) => {
-        node.textContent = String(publications.length);
-      },
-    );
+    queryAll("[data-publication-total]").forEach((node) => {
+      node.textContent = String(publications.length);
+    });
 
     target.innerHTML = years
       .map((year) => {

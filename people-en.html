@@ -1,15 +1,19 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="People of the Zhigang Zhai Research Group." name="description"/>
-<title>People | Zhigang Zhai Research Group</title>
-<meta content="light dark" name="color-scheme"/>
-<meta content="#f7f5f1" name="theme-color"/>
-<link href="assets/logos/ustcblue.png" rel="icon" type="image/png"/><link href="people.html" hreflang="zh-CN" rel="alternate"/><link href="people-en.html" hreflang="en" rel="alternate"/>
-<script>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta
+      content="People of the Zhigang Zhai Research Group."
+      name="description"
+    />
+    <title>People | Zhigang Zhai Research Group</title>
+    <meta content="light dark" name="color-scheme" />
+    <meta content="#f7f5f1" name="theme-color" />
+    <link href="assets/logos/ustcblue.png" rel="icon" type="image/png" />
+    <link href="people.html" hreflang="zh-CN" rel="alternate" />
+    <link href="people-en.html" hreflang="en" rel="alternate" />
+    <script>
       try {
         const savedTheme = localStorage.getItem("zhai-lab-theme");
         const theme =
@@ -25,144 +29,284 @@
         document.documentElement.dataset.theme = "light";
       }
     </script>
-<link href="assets/css/global.css" rel="stylesheet"/>
-<link href="assets/css/refinement.css" rel="stylesheet"/>
-</head>
-<body class="page-people" data-lang="en" data-page="people">
-<div aria-hidden="true" class="scroll-progress"></div>
-<canvas aria-hidden="true" class="cursor-particles"> </canvas>
-<canvas aria-hidden="true" id="flow-bg"> </canvas>
-<a class="skip-link" href="#main"> Skip to main content </a>
-<header class="site-header" id="top">
-<nav aria-label="Primary navigation" class="nav-wrap">
-<a aria-label="Zhigang Zhai Research Group homepage" class="brand" href="index-en.html">
-<img alt="University of Science and Technology of China emblem" class="ustc-seal" decoding="async" fetchpriority="high" height="54" loading="eager" src="assets/logos/ustcblue.png" width="54"/>
-<span class="brand-school">
-<img alt="University of Science and Technology of China" decoding="async" height="41" loading="eager" src="assets/logos/ustcnameblue.png" width="270"/>
-<small> University of Science and Technology of China </small>
-</span>
-<span aria-hidden="true" class="brand-divider"> </span>
-<span class="brand-lab">
-<strong>Zhigang Zhai Research Group</strong>
-<small>翟志刚课题组</small>
-</span>
-</a>
-<button aria-controls="siteMenu" aria-expanded="false" aria-label="Open navigation menu" class="nav-toggle">
-<span> </span>
-<span> </span>
-<span> </span>
-</button>
-<div class="nav-menu" id="siteMenu">
-<a class="" href="index-en.html#about"> About </a>
-<a class="" href="index-en.html#research"> Research </a>
-<a class="" href="publications-en.html"> Publications </a>
-<a aria-current="page" class="active" href="people-en.html"> People </a>
-<a class="" href="news-en.html"> Timeline </a>
-<a class="nav-contact" href="index-en.html#join"> Join Us </a>
-<a aria-label="切换到中文" class="language-toggle" data-language-switch="" data-language-target="people.html" href="people.html">中文</a><button aria-label="Toggle light or dark theme" class="theme-toggle" data-theme-toggle="" type="button">
-<span aria-hidden="true" class="theme-icon"> ◐ </span>
-<span class="theme-label"> Dark </span>
-</button>
-</div>
-</nav>
-</header>
-<main id="main">
-<section class="page-hero">
-<div class="container reveal">
-<p class="kicker">People</p>
-<h1>People</h1>
-<p class="lead">
-            Profiles of the principal investigator, postdoctoral researchers, students, and alumni. Use the button in the upper-right corner of a card to view the profile; click a photo to enlarge it.
+    <link href="assets/css/global.css" rel="stylesheet" />
+    <link href="assets/css/refinement.css" rel="stylesheet" />
+  </head>
+  <body class="page-people" data-lang="en" data-page="people">
+    <div aria-hidden="true" class="scroll-progress"></div>
+    <canvas aria-hidden="true" class="cursor-particles"> </canvas>
+    <canvas aria-hidden="true" id="flow-bg"> </canvas>
+    <a class="skip-link" href="#main"> Skip to main content </a>
+    <header class="site-header" id="top">
+      <nav aria-label="Primary navigation" class="nav-wrap">
+        <div class="brand">
+          <a
+            aria-label="Visit the University of Science and Technology of China homepage"
+            class="brand-ustc-link"
+            data-site-link="ustc"
+            href="https://www.ustc.edu.cn/"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="Visit the University of Science and Technology of China homepage"
+          >
+            <img
+              alt="University of Science and Technology of China emblem"
+              class="ustc-seal"
+              decoding="async"
+              fetchpriority="high"
+              height="54"
+              loading="eager"
+              src="assets/logos/ustcblue.png"
+              width="54"
+            />
+            <span class="brand-school">
+              <img
+                alt="University of Science and Technology of China"
+                decoding="async"
+                height="41"
+                loading="eager"
+                src="assets/logos/ustcnameblue.png"
+                width="270"
+              />
+              <small> University of Science and Technology of China </small>
+            </span>
+          </a>
+          <span aria-hidden="true" class="brand-divider"> </span>
+          <a
+            aria-label="Zhigang Zhai Research Group homepage"
+            class="brand-lab brand-lab-link"
+            href="index-en.html"
+          >
+            <strong>
+              <span class="brand-lab-full"> Zhigang Zhai Research Group </span>
+              <span class="brand-lab-short"> Zhai Group </span>
+            </strong>
+            <small> 翟志刚课题组 </small>
+          </a>
+        </div>
+        <button
+          aria-controls="siteMenu"
+          aria-expanded="false"
+          aria-label="Open navigation menu"
+          class="nav-toggle"
+        >
+          <span> </span>
+          <span> </span>
+          <span> </span>
+        </button>
+        <div class="nav-menu" id="siteMenu">
+          <a class="" href="index-en.html#about"> About </a>
+          <a class="" href="index-en.html#research"> Research </a>
+          <a class="" href="publications-en.html"> Publications </a>
+          <a aria-current="page" class="active" href="people-en.html">
+            People
+          </a>
+          <a class="" href="news-en.html"> Timeline </a>
+          <a class="nav-contact" href="index-en.html#join"> Join Us </a>
+          <a
+            aria-label="Switch to Chinese"
+            class="language-toggle"
+            data-language-switch=""
+            data-language-target="people.html"
+            href="people.html"
+            title="Switch to Chinese"
+          >
+            中文
+          </a>
+          <button
+            aria-label="Switch to dark mode"
+            class="theme-toggle"
+            data-theme-toggle=""
+            title="Switch to dark mode"
+            type="button"
+          >
+            <span aria-hidden="true" class="theme-icon"> ◐ </span>
+            <span class="theme-label"> Dark mode </span>
+          </button>
+        </div>
+      </nav>
+    </header>
+    <main id="main">
+      <section class="page-hero">
+        <div class="container reveal">
+          <p class="kicker">People</p>
+          <h1>People</h1>
+          <p class="lead">
+            Profiles of the principal investigator, postdoctoral researchers,
+            students, and alumni. Use the button in the upper-right corner of a
+            card to view the profile; click a photo to enlarge it.
           </p>
-<div class="page-tabs">
-<a class="tab-link active" href="people-en.html#all-members">
+          <div class="page-tabs">
+            <a class="tab-link active" href="people-en.html#all-members">
               All Members
             </a>
-<a class="tab-link" href="people-en.html#students"> All Students </a>
-<a class="tab-link" href="people-en.html#alumni"> Alumni </a>
-</div>
-</div>
-</section>
-<section class="directory-section">
-<div class="container">
-<div data-people-directory=""></div>
-</div>
-</section>
-</main>
-<button aria-label="Back to top" class="back-to-top" type="button">
+            <a class="tab-link" href="people-en.html#students">
+              All Students
+            </a>
+            <a class="tab-link" href="people-en.html#alumni"> Alumni </a>
+          </div>
+        </div>
+      </section>
+      <section class="directory-section">
+        <div class="container">
+          <div data-people-directory=""></div>
+        </div>
+      </section>
+    </main>
+    <button aria-label="Back to top" class="back-to-top" type="button">
       ↑
     </button>
-<div aria-hidden="true" aria-label="Image preview" aria-modal="true" class="lightbox" role="dialog" tabindex="-1">
-<button aria-label="Close image preview" class="lightbox-close" type="button">
+    <div
+      aria-hidden="true"
+      aria-label="Image preview"
+      aria-modal="true"
+      class="lightbox"
+      role="dialog"
+      tabindex="-1"
+    >
+      <button
+        aria-label="Close image preview"
+        class="lightbox-close"
+        type="button"
+      >
         ×
       </button>
-<img alt="Preview image"/>
-</div>
-<footer class="site-footer">
-<div class="container footer-grid">
-<div class="footer-column footer-identity">
-<div class="footer-brand compact">
-<img alt="University of Science and Technology of China emblem" decoding="async" height="46" loading="lazy" src="assets/logos/ustcblue.png" width="46"/>
-<span>
-<strong>Zhigang Zhai Research Group</strong>
-<small> Experimental Fluid Mechanics · USTC </small>
-</span>
-</div>
-<p>Research areas: experimental fluid mechanics, flow stability, and shock dynamics.</p>
-</div>
-<div class="footer-column">
-<h3>Navigation</h3>
-<a href="index-en.html#about"> About </a>
-<a href="index-en.html#research"> Research Areas </a>
-<a href="publications-en.html"> Publications </a>
-<a href="people-en.html"> People </a>
-<a href="news-en.html"> Timeline </a>
-</div>
-<div class="footer-column">
-<h3>Contact and Links</h3>
-<a href="mailto:sanjing@ustc.edu.cn"> sanjing@ustc.edu.cn </a>
-<a href="https://faculty.ustc.edu.cn/zhaizhigang/zh_CN/index.htm" rel="noopener" target="_blank">
+      <img alt="Preview image" />
+    </div>
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-column footer-identity">
+          <div class="footer-brand compact">
+            <a
+              aria-label="Visit the University of Science and Technology of China homepage"
+              class="footer-ustc-link"
+              data-site-link="ustc"
+              href="https://www.ustc.edu.cn/"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="Visit the University of Science and Technology of China homepage"
+            >
+              <img
+                alt="University of Science and Technology of China emblem"
+                decoding="async"
+                height="46"
+                loading="lazy"
+                src="assets/logos/ustcblue.png"
+                width="46"
+              />
+            </a>
+            <span>
+              <strong> Zhigang Zhai Research Group </strong>
+              <small> Experimental Fluid Mechanics · USTC </small>
+            </span>
+          </div>
+          <p>
+            Research areas: experimental fluid mechanics, flow stability, and
+            shock dynamics.
+          </p>
+        </div>
+        <div class="footer-column">
+          <h3>Navigation</h3>
+          <a href="index-en.html#about"> About </a>
+          <a href="index-en.html#research"> Research Areas </a>
+          <a href="publications-en.html"> Publications </a>
+          <a href="people-en.html"> People </a>
+          <a href="news-en.html"> Timeline </a>
+        </div>
+        <div class="footer-column">
+          <h3>Contact and Links</h3>
+          <a href="mailto:sanjing@ustc.edu.cn"> sanjing@ustc.edu.cn </a>
+          <a
+            data-site-link="ustcProfile"
+            href="https://faculty.ustc.edu.cn/zhaizhigang/zh_CN/index.htm"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             USTC Faculty Profile
           </a>
-<a href="https://scholar.google.com/citations?hl=zh-CN&amp;user=wJDRPKAAAAAJ" rel="noopener" target="_blank">
+          <a
+            data-site-link="googleScholar"
+            href="https://scholar.google.com/citations?hl=zh-CN&amp;user=wJDRPKAAAAAJ"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             Google Scholar
           </a>
-<a href="https://www.researchgate.net/profile/Zhigang-Zhai" rel="noopener" target="_blank">
+          <a
+            data-site-link="researchGate"
+            href="https://www.researchgate.net/profile/Zhigang-Zhai"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             ResearchGate
           </a>
-</div>
-<div class="footer-column footer-friends">
-<h3>Related Links</h3>
-<a href="https://www.ustc.edu.cn/" rel="noopener" target="_blank">
+        </div>
+        <div class="footer-column footer-friends">
+          <h3>Related Links</h3>
+          <a
+            data-site-link="ustc"
+            href="https://www.ustc.edu.cn/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             University of Science and Technology of China
           </a>
-<a href="https://ses.ustc.edu.cn/main.htm" rel="noopener" target="_blank">
+          <a
+            data-site-link="schoolOfEngineeringScience"
+            href="https://ses.ustc.edu.cn/main.htm"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             School of Engineering Science
           </a>
-<a href="https://mech.ustc.edu.cn/main.htm" rel="noopener" target="_blank">
+          <a
+            data-site-link="departmentOfModernMechanics"
+            href="https://mech.ustc.edu.cn/main.htm"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             Department of Modern Mechanics
           </a>
-<a href="https://staff.ustc.edu.cn/~xluo/" rel="noopener" target="_blank">
+          <a
+            data-site-link="luoXisheng"
+            href="https://staff.ustc.edu.cn/~xluo/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             Professor Xisheng Luo
           </a>
-<a href="https://faculty.ustc.edu.cn/tsi/zh_CN/index.htm" rel="noopener" target="_blank">
+          <a
+            data-site-link="siTing"
+            href="https://faculty.ustc.edu.cn/tsi/zh_CN/index.htm"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             Professor Ting Si
           </a>
-</div>
-<div class="footer-bottom">
-<span> © 2026 Zhigang Zhai Research Group </span>
-<span>
+          <a
+            data-site-link="highTemperatureAerodynamicsLab"
+            href="http://lhd.imech.cas.cn/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            High-Temperature Aerodynamics Laboratory
+          </a>
+        </div>
+        <div class="footer-bottom">
+          <span> © 2026 Zhigang Zhai Research Group </span>
+          <span>
             Last updated:
             <span data-last-updated=""> 2026-06-23 </span>
-</span>
-</div>
-</div>
-</footer>
-<script defer="" src="assets/js/core.js"></script>
-<script defer="" src="assets/data/site.js"></script><script defer="" src="assets/data/i18n.js"></script>
-<script defer="" src="assets/data/people.js"></script>
-<script defer="" src="assets/js/render.js"></script>
-<script defer="" src="assets/js/common.js"></script>
-<script defer="" src="assets/js/polish.js"></script>
-</body>
+          </span>
+        </div>
+      </div>
+    </footer>
+    <script defer="" src="assets/js/core.js"></script>
+    <script defer="" src="assets/data/site.js"></script>
+    <script defer="" src="assets/data/i18n.js"></script>
+    <script defer="" src="assets/data/people.js"></script>
+    <script defer="" src="assets/js/render.js"></script>
+    <script defer="" src="assets/js/common.js"></script>
+    <script defer="" src="assets/js/polish.js"></script>
+  </body>
 </html>

@@ -163,7 +163,7 @@ window.ZHAI_PEOPLE = [
     bio: "研究方向待课题组补充。",
     email: "",
   },
-{
+  {
     id: "guo-xu",
     name: "郭旭",
     nameEn: "Xu Guo",
@@ -177,7 +177,7 @@ window.ZHAI_PEOPLE = [
     destination: "中国科学技术大学",
     bio: "毕业信息待课题组核对后补充。",
   },
-    {
+  {
     id: "jinggang-tang",
     name: "唐景刚",
     nameEn: "Jinggang Tang",

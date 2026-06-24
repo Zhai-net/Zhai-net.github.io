@@ -1,5 +1,5 @@
 window.ZHAI_SITE = {
-  lastUpdated: "2026-06-23",
+  lastUpdated: "2026-06-24",
   labName: "翟志刚课题组",
   labNameEn: "Zhigang Zhai Research Group",
   footerDescription: "研究方向：实验流体力学、流动稳定性与激波动力学。",
@@ -14,5 +14,6 @@ window.ZHAI_SITE = {
     departmentOfModernMechanics: "https://mech.ustc.edu.cn/main.htm",
     luoXisheng: "https://staff.ustc.edu.cn/~xluo/",
     siTing: "https://faculty.ustc.edu.cn/tsi/zh_CN/index.htm",
+    highTemperatureAerodynamicsLab: "http://lhd.imech.cas.cn/",
   },
 };

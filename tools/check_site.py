@@ -15,10 +15,17 @@ HTML_FILES = sorted(ROOT.glob("*.html"))
 JS_FILES = sorted((ROOT / "assets").rglob("*.js"))
 LOCAL_REFERENCE = re.compile(r"(?:href|src)=[\"']([^\"'#?]+)")
 ID_ATTRIBUTE = re.compile(r"\bid=[\"']([^\"']+)[\"']")
+SITE_LINK_ATTRIBUTE = re.compile(r"data-site-link=[\"']([^\"']+)[\"']")
+SITE_LINK_KEY = re.compile(r"^\s{4}([A-Za-z][A-Za-z0-9]*):", re.MULTILINE)
+EXTERNAL_BLANK_LINK = re.compile(
+    r"<a\b(?=[^>]*\btarget=[\"']_blank[\"'])([^>]*)>", re.IGNORECASE
+)
 
 
 def check_html() -> list[str]:
     errors: list[str] = []
+    site_file = ROOT / "assets" / "data" / "site.js"
+    site_keys = set(SITE_LINK_KEY.findall(site_file.read_text(encoding="utf-8")))
 
     for html_file in HTML_FILES:
         text = html_file.read_text(encoding="utf-8")
@@ -26,6 +33,25 @@ def check_html() -> list[str]:
         duplicates = sorted({item for item in ids if ids.count(item) > 1})
         if duplicates:
             errors.append(f"{html_file.name}: duplicate id(s): {', '.join(duplicates)}")
+
+        if not re.search(r"<html\b[^>]*\blang=[\"'][^\"']+[\"']", text, re.IGNORECASE):
+            errors.append(f"{html_file.name}: missing html lang attribute")
+
+        for key in SITE_LINK_ATTRIBUTE.findall(text):
+            if key not in site_keys:
+                errors.append(f"{html_file.name}: unknown data-site-link key: {key}")
+
+        for attributes in EXTERNAL_BLANK_LINK.findall(text):
+            rel_match = re.search(r"\brel=[\"']([^\"']*)[\"']", attributes, re.IGNORECASE)
+            rel_tokens = set(rel_match.group(1).lower().split()) if rel_match else set()
+            if not {"noopener", "noreferrer"}.issubset(rel_tokens):
+                errors.append(f"{html_file.name}: target=_blank link must use rel=\"noopener noreferrer\"")
+
+        if html_file.name != "preview_render.html":
+            if not re.search(r"<a\b[^>]*data-site-link=[\"']ustc[\"'][^>]*>[\s\S]*?class=[\"'][^\"']*ustc-seal", text, re.IGNORECASE):
+                errors.append(f"{html_file.name}: header USTC emblem must link to the USTC homepage")
+            if html_file.name.endswith("-en.html") and "Dark mode" not in text:
+                errors.append(f"{html_file.name}: English theme control must use English mode labels")
 
         for raw_reference in LOCAL_REFERENCE.findall(text):
             parsed = urlparse(raw_reference)
