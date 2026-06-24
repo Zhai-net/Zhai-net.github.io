@@ -1,7 +1,7 @@
 window.ZHAI_NEWS = [
   {
     date: "2026.06",
-    title: "不同 Atwood 数气层不稳定性调控研究发表于 J. Fluid Mech.",
+    title: "RM不稳定性界面耦合效应研究发表于 Phys. Rev. Fluids",
     description: "",
     home: true,
   },
