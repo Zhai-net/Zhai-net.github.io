@@ -72,7 +72,7 @@
     const pi = getPeople("pi")[0] || people[0];
     if (!pi) return;
 
-    const image = pi.image || "assets/portraits/portrait-placeholder.jpg";
+    const image = pi.image || "assets/portraits/portrait-placeholder.webp";
     const title =
       String(personValue(pi, "title")).split("/")[0].trim() ||
       text("教授", "Professor");
@@ -119,7 +119,7 @@
     ]
       .filter(Boolean)
       .join(" ");
-    const image = person.image || "assets/portraits/portrait-placeholder.jpg";
+    const image = person.image || "assets/portraits/portrait-placeholder.webp";
     const personId = person.id
       ? ` data-person-id="${escapeHTML(person.id)}"`
       : "";
@@ -162,7 +162,7 @@
   }
 
   function renderAlumniCard(person) {
-    const image = person.image || "assets/portraits/portrait-placeholder.jpg";
+    const image = person.image || "assets/portraits/portrait-placeholder.webp";
     const personId = person.id
       ? ` data-person-id="${escapeHTML(person.id)}"`
       : "";

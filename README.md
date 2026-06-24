@@ -112,7 +112,7 @@ http://localhost:8000/
 - `id` 必须唯一，建议使用小写英文和连字符。
 - `category` 使用 `pi`、`postdoc`、`student` 或 `alumni`。
 - `homepage: false` 可将非毕业生成员从首页隐藏，但仍保留在成员页。
-- 照片建议使用 WebP，文件名与 `id` 一致；没有照片时使用 `portrait-placeholder.jpg`。
+- 照片建议使用 WebP，文件名与 `id` 一致；没有照片时使用无面部信息的默认占位图 `portrait-placeholder.webp`。
 - 毕业生可补充 `graduation` 和 `destination` 字段。
 - 个人主页使用可选的 `website` 字段；不要把 HTML 链接直接写入 `name`。
 
