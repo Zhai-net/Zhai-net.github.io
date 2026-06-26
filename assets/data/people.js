@@ -83,7 +83,7 @@ window.ZHAI_PEOPLE = [
     image: "assets/portraits/portrait-placeholder.webp",
     imageAlt: "邢一诺照片（占位）",
     bio: "激波诱导界面不稳定性相关研究。",
-    email: "",
+    email: "ustcxyn@mail.ustc.edu.cn",
   },
   {
     id: "jingqian-pu",
