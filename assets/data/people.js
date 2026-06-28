@@ -15,7 +15,7 @@ window.ZHAI_PEOPLE = [
     profile: "博士生导师 / 实验流体力学党支部书记",
     unit: "中国科学技术大学\n工程科学学院近代力学系",
     office: "中国科大西区力学五楼",
-    research: "实验流体力学、界面不稳定性、激波动力学",
+    research: "实验流体力学，界面不稳定性，激波动力学",
     source: "https://faculty.ustc.edu.cn/zhaizhigang/zh_CN/index.htm",
   },
   {
@@ -26,10 +26,10 @@ window.ZHAI_PEOPLE = [
     role: "Associate Researcher",
     category: "postdoc",
     homepage: true,
-    image: "assets/portraits/guoxu.webp",
+    image: "assets/portraits/gx.jpg",
     imageAlt: "郭旭照片",
-    bio: "研究激波诱导界面演化及稀疏波/激波耦合过程。",
-    shortBio: "激波诱导界面演化、稀疏波/激波耦合。",
+    bio: "界面不稳定性，颗粒多相流，激波和激波管实验及理论方法",
+    shortBio: "界面不稳定性，颗粒多相流，激波和激波管实验及理论方法",
     email: "clguoxu@ustc.edu.cn",
   },
   {
