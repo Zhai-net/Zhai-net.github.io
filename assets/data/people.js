@@ -26,7 +26,7 @@ window.ZHAI_PEOPLE = [
     role: "Associate Professor",
     category: "postdoc",
     homepage: true,
-    image: "assets/portraits/wh.JPG",
+    image: "assets/portraits/wh.webp",
     imageAlt: "王何照片",
     bio: "强激波与同向激波诱导界面不稳定性",
     shortBio: "强激波与同向激波诱导界面不稳定性",
