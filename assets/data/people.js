@@ -27,7 +27,7 @@ window.ZHAI_PEOPLE = [
     category: "postdoc",
     homepage: true,
     image: "assets/portraits/wh.jpg",
-    imageAlt: "wan照片",
+    imageAlt: "王何照片",
     bio: "强激波与同向激波诱导界面不稳定性",
     shortBio: "界面不稳定性，强激波，同向激波",
     email: "ustchewang@ustc.edu.cn",
