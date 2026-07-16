@@ -26,10 +26,10 @@ window.ZHAI_PEOPLE = [
     role: "Associate Professor",
     category: "postdoc",
     homepage: true,
-    image: "assets/portraits/wh.jpg",
+    image: "assets/portraits/wh.JPG",
     imageAlt: "王何照片",
     bio: "强激波与同向激波诱导界面不稳定性",
-    shortBio: "界面不稳定性，强激波，同向激波",
+    shortBio: "强激波与同向激波诱导界面不稳定性",
     email: "ustchewang@ustc.edu.cn",
   },
   {
