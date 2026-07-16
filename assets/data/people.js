@@ -40,7 +40,7 @@ window.ZHAI_PEOPLE = [
     role: "Postdoc",
     category: "postdoc",
     homepage: true,
-    image: "assets/portraits/ccr.webp",
+    image: "assets/portraits/ccr.jpg",
     imageAlt: "陈辰稔照片",
     bio: "研究RM不稳定性界面耦合机理，RM不稳定性的调控。",
     shortBio: "重气层演化、扰动激波与界面耦合。",
